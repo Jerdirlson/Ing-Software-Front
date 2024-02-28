@@ -81,7 +81,7 @@ const NavBar = () => {
                                             <span className="absolute -inset-1.5" />
                                             <span className="sr-only bg-white">Open user menu</span>
                                             <img
-                                                className="h-8 w-8 rounded-full"
+                                                className="h-8 w-8 "
                                                 src={LOGIN_IMAGE}
                                                 alt=""
                                             />
