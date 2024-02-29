@@ -1,7 +1,7 @@
 import LoginCard from '../components/LoginCard.jsx'
 const Login = () => {
     return (
-        <main className="flex items-center justify-center flex-col h-screen  bg-imagen-fondo-main bg-cover" >
+        <main className="flex items-center justify-center flex-col h-screen  bg-imagen-fondo-login bg-cover" >
             <div id="test" className='flex items-center justify-center flex-col h-screen '>
                 <LoginCard />
             </div>

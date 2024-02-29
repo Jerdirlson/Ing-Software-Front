@@ -8,7 +8,9 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'imagen-fondo-main': "url('./src/assets/img/Background.png')",
+        'imagen-fondo-login': "url('./src/assets/img/Background_Login.png')",
+        'imagen-fondo-dashboard': "url('./src/assets/img/HomeBackground.png')",
+
       }
     },
   },
