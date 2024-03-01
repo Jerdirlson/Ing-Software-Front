@@ -8,9 +8,12 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'imagen-fondo-login': "url('./src/assets/img/Background_Login.png')",
-        'imagen-fondo-dashboard': "url('./src/assets/img/HomeBackground.png')",
+        'imagen-fondo-login': "url('./src/assets/img/backgrounds/Background_Login.png')",
+        'imagen-fondo-dashboard': "url('./src/assets/img/backgrounds/HomeBackground.png')",
 
+      },
+      boxShadow: {
+        'custom': '0 6px 12px 0 rgba(0, 0, 0, 0.25)'
       }
     },
   },

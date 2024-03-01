@@ -1,7 +1,8 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import LOGIN_IMAGE from '../assets/svg/User.svg'
+import USER_IMAGE from '../assets/svg/UserBlack.svg'
+import LOGO_BLUE_IPS from '../assets/img/logos/LogoIpsBlue_Mesa de trabajo 1.png'
 
 const navigation = [
     { name: 'Nosotros', href: '#', current: false },
@@ -16,7 +17,7 @@ function classNames(...classes) {
 
 const NavBar = () => {
     return (
-        <Disclosure as="nav" className="bg-white shadow-lg shadow-slate-700">
+        <Disclosure as="nav" className="bg-white shadow-custom fixed top-0 left-0 right-0">
             {({ open }) => (
                 <>
                     <div className="w-full px-2 sm:px-6 lg:px-8">
@@ -39,14 +40,14 @@ const NavBar = () => {
                                 <div className="flex flex-shrink-0 items-center">
                                     <img
                                         className="h-8 w-auto"
-                                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"  //Aqui LOGO IPS
+                                        src={LOGO_BLUE_IPS}  //Aqui LOGO IPS
                                         alt="Salud PRO - IPS"
                                     />
                                 </div>
                             </div>
 
 
-                            <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                            <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 ">
                                 {/* <button
                                     type="button"
                                     className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -55,8 +56,8 @@ const NavBar = () => {
                                     <span className="sr-only">View notifications</span>
                                     <BellIcon className="h-6 w-6" aria-hidden="true" />
                                 </button> */}
-                                <div className="hidden sm:ml-6 sm:block">
-                                    <div className="flex space-x-6">
+                                <div className="hidden sm:ml-36 sm:block">
+                                    <div className="flex space-x-6 items-center">
                                         {navigation.map((item) => (
                                             <a
                                                 key={item.name}
@@ -75,12 +76,12 @@ const NavBar = () => {
                                 {/* Profile dropdown */}
                                 <Menu as="div" className="relative ml-8">
                                     <div>
-                                        <Menu.Button className="relative flex rounded-full bg-black text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                                        <Menu.Button className="relative flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                             <span className="absolute -inset-1.5" />
                                             <span className="sr-only bg-white">Open user menu</span>
                                             <img
                                                 className="h-8 w-8 rounded-full"
-                                                src={LOGIN_IMAGE}
+                                                src={USER_IMAGE}
                                                 alt=""
                                             />
                                         </Menu.Button>

@@ -10,7 +10,6 @@ const Dashboard = () => {
                     <p className='text-purple-800 text-lg underline underline-offset-1'>CLICK HERE TO LOG IN !</p>
                 </Link>
             </div>
-
         </>
 
     )
