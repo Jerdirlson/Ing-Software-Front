@@ -14,11 +14,11 @@ const Dashboard = () => {
                         Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
                         Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
                     </p>
-                </div>
-
-                <div className='bg-blue-500 w-full h-20 flex items-start justify-center'>
-                    <article className='bg-white flex justify-between items-center text-black text-wrap p-2 mx-16 rounded-3xl'>
-                        <ul className='flex px-10 text-wrap items-center text-sm'>
+                </div>  
+                
+                <div className='bg-blue-500 w-full h-15 flex items-start justify-center'>
+                    <article className='bg-white flex justify-between items-center text-black text-wrap px-2 py-4 mx-20 rounded-3xl -translate-y-4'>
+                        <ul className='flex px-10 text-pretty items-center text-sm'>
                             <li className='mx-2 mr-8'>
                                 <h1 className='text-xl font-bold'>Servicios
                                 </h1></li>
@@ -30,8 +30,8 @@ const Dashboard = () => {
                                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p></li>
                             <li className='mx-2 '>                            <img src="" alt="" />
                                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p></li>
-                            <li className='mx-2 '>                            <img src="" alt="" />
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p></li>
+                            <li className='mx-2'>                            <img src="" alt="" />
+                                <p className='italic'>Conocer más</p></li>
                         </ul>
                     </article>
                 </div>
