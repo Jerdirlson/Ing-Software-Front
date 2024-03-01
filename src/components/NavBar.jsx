@@ -1,4 +1,5 @@
 import { Fragment } from 'react'
+import { Link } from 'react-router-dom'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import USER_IMAGE from '../assets/svg/UserBlack.svg'
@@ -38,11 +39,14 @@ const NavBar = () => {
 
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex flex-shrink-0 items-center">
-                                    <img
-                                        className="h-8 w-auto"
-                                        src={LOGO_BLUE_IPS}  //Aqui LOGO IPS
-                                        alt="Salud PRO - IPS"
-                                    />
+                                    <a href="/">
+                                        <img
+                                            className="h-8 w-auto"
+                                            src={LOGO_BLUE_IPS}  //Aqui LOGO IPS
+                                            alt="Salud PRO - IPS"
+                                        />
+                                    </a>
+
                                 </div>
                             </div>
 
