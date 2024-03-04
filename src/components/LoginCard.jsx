@@ -2,6 +2,8 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { userSchema } from "../validations/userSchema"
+import LOGO_BLUE_IPS from '../assets/img/logos/LogoIpsBlue_Mesa de trabajo 1.png'
+
 
 const LoginCard = () => {
 
@@ -12,7 +14,7 @@ const LoginCard = () => {
     const host = import.meta.env.VITE_HOST
     const onSubmit = handleSubmit((data) => {
         console.log(data)
-        
+
         // fetch(`${host}api/auth`, {
         //     method: 'POST',
         //     headers: {
@@ -37,9 +39,10 @@ const LoginCard = () => {
         <article className="bg-white rounded-2xl text-black flex flex-col items-center justify-evenly box-border p-4 " style={{ width: '370px', height: '420px' }}>
             <section>
                 <header>
-                    {/* <img src="" alt="" /> */}
-                    <h1 className="text-1xl font-bold flex justify-center">LOGO</h1>
-                    <h1 className="text-2xl font-bold">IPS - Salud Pro</h1>
+                    <div className="flex items-center justify-center w-64 p-2 mt-2">
+                        <img src={LOGO_BLUE_IPS} alt="logo_ips" />
+                    </div>
+                    <h1 className="text-xl flex justify-center">Iniciar Sesión</h1>
                 </header>
             </section>
             <section className="w-full">
