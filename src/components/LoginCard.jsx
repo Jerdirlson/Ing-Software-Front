@@ -1,27 +1,17 @@
 import { useState } from "react"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { userSchema } from "../validations/userSchema"
 
 const LoginCard = () => {
 
-    const [focusUsername, setFocusUsername] = useState(false)
-    const [focusPassword, setFocusPassword] = useState(false)
 
-    // const isDoctor = () => {
-    //     return user === "ips@gmail.com"
-    // }
-    const isFocusUsername = () => {
-        return setFocusUsername(true)
-    }
-    const isBlurUsername = () => {
-        return setFocusUsername(false)
-    }
-    const isFocusPassword = () => {
-        return setFocusPassword(true)
-    }
-    const isBlurPassword = () => {
-        return setFocusPassword(false)
-    }
+    const { register, handleSubmit, formState: { errors }, watch } = useForm({
+        resolver: zodResolver(userSchema),
+    })
+    console.log(errors)
     return (
-        <article className="bg-white rounded-2xl text-black flex flex-col items-center justify-evenly box-border p-4" style={{ width: '370px', height: '420px' }}>
+        <article className="bg-white rounded-2xl text-black flex flex-col items-center justify-evenly box-border p-4 " style={{ width: '370px', height: '420px' }}>
             <section>
                 <header>
                     {/* <img src="" alt="" /> */}
@@ -30,31 +20,38 @@ const LoginCard = () => {
                 </header>
             </section>
             <section className="w-full">
-                <form action="">
-                    <div className="username m-4 p-4">
-                        <span className="">
-                            {focusUsername === true ? <h3 className="text-sm animate-slide-in-bottom p-0 m-0 animate-duration-slow" >Username</h3> : <h3></h3>}
-                            <input className="text-black border-b p-1 border-black focus:outline-none w-full" type="email" onFocus={isFocusUsername} onBlur={isBlurUsername} autoComplete="off" name="username" placeholder="Username" onChange={e => setUsername(e.target.value)} />
+                <form onSubmit={handleSubmit(data => { console.log(data) })}>
+                    <div className="m-4 p-4">
+                        <span className="relative">
+                            <input className="block bg-transparent appearance-none text-black border-b p-1 border-gray-400 focus:outline-none focus:border-black w-full peer" type="email" autoComplete="off" placeholder=""
+                                {...register('email')}
+                            />
+
+                            <label className="absolute text-sm text-black duration-300 transform -translate-y-6 scale-90 top-1 z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-6">Email</label>
                         </span>
+                        {
+                            errors.email?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.email.message}</p>
+                        }
                     </div>
-                    <div className="password m-4 p-4">
-                        <span>
-                            {focusPassword === true ? <h3 className="text-sm animate-slide-in-bottom p-0 m-0 animate-duration-slow">Password</h3> : <h3></h3>}
-                            <input className="text-black border-b p-1 border-black focus:outline-none w-full" type="password" onFocus={isFocusPassword} onBlur={isBlurPassword} name="" placeholder="Password" />
+                    <div className="m-4 p-4">
+                        <span className="relative">
+                            <input className="block bg-transparent appearance-none text-black border-b p-1 border-gray-400 focus:outline-none focus:border-black w-full peer" type="password" autoComplete="off" placeholder=""
+                                {...register('password')}
+                            />
+
+                            <label className="absolute text-sm text-black duration-300 transform -translate-y-6 scale-90 top-1 z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-6">Password</label>
                         </span>
+                        {
+                            errors.password?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.password.message}</p>
+                        }
                     </div>
                     <div className="flex justify-center py-4 m-0">
-                        <button className="bg-sky-500 rounded-lg px-8 py-1 text-white">
+                        <button type="submit" className="bg-sky-500 rounded-lg px-8 py-1 text-white">
                             Entrar
                         </button>
                     </div>
                 </form>
             </section>
-
-
-            {/* <aside>
-                {isDoctor() ? <div className="text-black">Hola DOC</div> : <div className="text-black"> --------</div>}
-            </aside> */}
         </article>
     )
 }

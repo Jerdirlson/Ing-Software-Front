@@ -17,7 +17,7 @@ const Dashboard = () => {
                 </div>  
                 
                 <div className='bg-blue-500 w-full h-15 flex items-start justify-center'>
-                    <article className='bg-white flex justify-between items-center text-black text-wrap px-2 py-4 mx-20 rounded-3xl -translate-y-4'>
+                    <article className='bg-white flex justify-between items-center text-black text-wrap px-2 py-4 mx-20 rounded-3xl -translate-y-4 xl:-translate-y-8'>
                         <ul className='flex px-10 text-pretty items-center text-sm'>
                             <li className='mx-2 mr-8'>
                                 <h1 className='text-xl font-bold'>Servicios
