@@ -9,7 +9,30 @@ const LoginCard = () => {
     const { register, handleSubmit, formState: { errors }, watch } = useForm({
         resolver: zodResolver(userSchema),
     })
-    console.log(errors)
+    const host = import.meta.env.VITE_HOST
+    const onSubmit = handleSubmit((data) => {
+        console.log(data)
+        
+        // fetch(`${host}api/auth`, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(data)
+        // }).then(response => response.json())
+        //     .then(result => {
+        //         console.log(result.token)
+        //         if (result.token) {
+        //             localStorage.setItem('token', result.token)
+        //             setLoginSuccessful(true);
+        //         } else {
+        //             setLoginSuccessful(false);
+        //         }
+        //     })
+        //     .catch(error => {
+        //         console.log(error)
+        //     })
+    })
     return (
         <article className="bg-white rounded-2xl text-black flex flex-col items-center justify-evenly box-border p-4 " style={{ width: '370px', height: '420px' }}>
             <section>
@@ -20,7 +43,7 @@ const LoginCard = () => {
                 </header>
             </section>
             <section className="w-full">
-                <form onSubmit={handleSubmit(data => { console.log(data) })}>
+                <form onSubmit={onSubmit}>
                     <div className="m-4 p-4">
                         <span className="relative">
                             <input className="block bg-transparent appearance-none text-black border-b p-1 border-gray-400 focus:outline-none focus:border-black w-full peer" type="email" autoComplete="off" placeholder=""
