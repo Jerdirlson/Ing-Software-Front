@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { userSchema } from "../validations/userSchema"
 import LOGO_BLUE_IPS from '../assets/img/logos/LogoIpsBlue_Mesa de trabajo 1.png'
+import { Link } from 'react-router-dom'
 
 
 const LoginCard = () => {
@@ -12,28 +13,23 @@ const LoginCard = () => {
         resolver: zodResolver(userSchema),
     })
     const host = import.meta.env.VITE_HOST
-    const onSubmit = handleSubmit((data) => {
+    const onSubmit = handleSubmit(async (data) => {
         console.log(data)
-
-        // fetch(`${host}api/auth`, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(data)
-        // }).then(response => response.json())
-        //     .then(result => {
-        //         console.log(result.token)
-        //         if (result.token) {
-        //             localStorage.setItem('token', result.token)
-        //             setLoginSuccessful(true);
-        //         } else {
-        //             setLoginSuccessful(false);
-        //         }
-        //     })
-        //     .catch(error => {
-        //         console.log(error)
-        //     })
+        try {
+            const response = await fetch(`${host}api/auth/singin`, { // Ajuste en la URL para llamar al endpoint 'signin'
+                method: "POST", // or 'PUT'
+                body: JSON.stringify(data), // data can be `string` or {object}!
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+                .then((res) => res.json())
+                .catch((error) => console.error("Error:", error))
+                .then((response) => console.log("Success:", response));
+        } catch (error) {
+            // Manejar errores de red o de análisis JSON
+            console.error('Error al procesar la solicitud:', error);
+        }
     })
     return (
         <article className="bg-white rounded-2xl text-black flex flex-col items-center justify-evenly box-border p-4 " style={{ width: '370px', height: '420px' }}>

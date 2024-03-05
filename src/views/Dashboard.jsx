@@ -141,7 +141,7 @@ const Dashboard = () => {
             </section>
 
             {/* FOOTER */}
-            <footer className='bg-blue-500 w-screen flex justify-evenly text-sm px-48 py-4 text-nowrap'>
+            <footer className='bg-blue-500 flex justify-evenly text-sm px-48 py-4'>
                 <div className='flex flex-col justify-center mx-2 text-justify'>
                     <h2>Contacto</h2>
                     <ul>
