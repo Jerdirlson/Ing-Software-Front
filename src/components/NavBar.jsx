@@ -67,7 +67,7 @@ const NavBar = () => {
                                                 key={item.name}
                                                 href={item.href}
                                                 className={classNames(
-                                                    item.current ? ' text-black' : 'text-black hover:bg-gray-700 hover:text-white',
+                                                    item.current ? ' text-black' : 'text-black hover:underline hover:decoration-black hover:decoration-1 hover:underline-offset-4',
                                                     'rounded-md px-3 py-2 text-sm font-medium'
                                                 )}
                                                 aria-current={item.current ? 'page' : undefined}
@@ -80,7 +80,7 @@ const NavBar = () => {
                                 {/* Profile dropdown */}
                                 <Menu as="div" className="relative ml-8">
                                     <div>
-                                        <Menu.Button className="relative flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                                        <Menu.Button className="relative flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2">
                                             <span className="absolute -inset-1.5" />
                                             <span className="sr-only bg-white">Open user menu</span>
                                             <img

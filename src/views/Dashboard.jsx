@@ -3,6 +3,11 @@ import NavBar from '../components/NavBar.jsx'
 import ABOUT_US_NURSE from '../assets/img/people/nurse.png'
 import OUR_PLACES_1 from '../assets/img/others/lugar1.jpeg'
 import OUR_PLACES_2 from '../assets/img/others/lugar2.jpg'
+import BLOOD_ICON from '../assets/img/icons/blood_icon.png'
+import HOSPITAL_ICON from '../assets/img/icons/hospital_bed.png'
+import STETHOSCOPE_ICON from '../assets/img/icons/stethoscope.png'
+import SYRINGE_ICON from '../assets/img/icons/syringe.png'
+
 const Dashboard = () => {
     return (
         <>
@@ -25,16 +30,19 @@ const Dashboard = () => {
                             <li className='mx-2 mr-8'>
                                 <h1 className='text-xl font-bold'>Servicios
                                 </h1></li>
-                            <li className='mx-2 '>                            <img src="" alt="" />
+                            <li className='flex items-center mx-2 '>                            <img src={BLOOD_ICON} alt="tipo_de_sangre_icon" className='w-10 h-10 mr-4' />
                                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p></li>
-                            <li className='mx-2 '>                            <img src="" alt="" />
+                            <li className='flex items-center mx-2 '>                            <img src={HOSPITAL_ICON} alt="hospital_icon" className='w-10 h-10 mr-4' />
                                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p></li>
-                            <li className='mx-2 '>                            <img src="" alt="" />
+                            <li className='flex items-center mx-2 '>                            <img src={STETHOSCOPE_ICON} alt="stethoscope_icon" className='w-10 h-10 mr-4' />
                                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p></li>
-                            <li className='mx-2 '>                            <img src="" alt="" />
+                            <li className='flex items-center mx-2 '>                            <img src={SYRINGE_ICON} alt="syringe_icon" className='w-10 h-10 mr-4' />
                                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p></li>
-                            <li className='mx-2'>                            <img src="" alt="" />
-                                <p className='italic'>Conocer más</p></li>
+                            <li className='mx-2'>
+                                <a href="#" className='hover:underline hover:decoration-black' >
+                                    <p className='italic'>Conocer más...</p>
+                                </a>
+                            </li>
                         </ul>
                     </article>
                 </div>
@@ -60,18 +68,18 @@ const Dashboard = () => {
             {/* 3 SECCIÓN = OUR PLACES */}
 
             <section className='bg-blue-700'>
-                <div className='flex justify-evenly px-48 py-24'>
+                <div className='flex justify-evenly px-48 py-10'>
 
                     <aside className='flex justify-center items-center p-8 mr-4'>
-                        <figure className='rounded-full  w-96 h-96 translate-x-12 -translate-y-14 overflow-hidden'>
+                        <figure className='rounded-full  w-96 h-96 translate-x-12 -translate-y-14 overflow-hidden md:w-64 md:h-64'>
                             <img src={OUR_PLACES_1} alt="" className='w-full h-full object-cover' />
                         </figure>
 
-                        <figure className='rounded-full bg-red-950 w-96 h-96 translate-x-0 translate-y-14 overflow-hidden'>
+                        <figure className='rounded-full bg-red-950 w-96 h-96 translate-x-0 translate-y-14 overflow-hidden md:w-64 md:h-64'>
                             <img src={OUR_PLACES_2} alt="" className='w-full h-full object-cover' />
                         </figure>
                     </aside>
-                    <div className='p-8 max-w-3xl'>
+                    <div className=' flex flex-col text-pretty px-8 max-w-3xl md:max-w-2xl md:px-2'>
                         <h1 className='font-bold text-3xl mb-3'>Ubica nuestras sedes</h1>
                         <p className='mb-6'> Lorem ipsum dolor sit amet,
                             consectetuer adipiscing elit. Aenean commodo
@@ -92,7 +100,7 @@ const Dashboard = () => {
                 </div>
             </section>
             {/* 4 SECCIÓN = ABOUT US*/}
-            <section className='flex items-center justify-evenly px-48 pt-24'>
+            <section className='flex items-center justify-evenly px-48 pt-12'>
                 <figure className='flex items-center justify-center max-w-60'>
                     <img src={ABOUT_US_NURSE} alt="" className='w-full h-full object-cover' />
                 </figure>
