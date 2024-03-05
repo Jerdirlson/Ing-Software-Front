@@ -107,21 +107,22 @@ const NavBar = () => {
                                                         href="#"
                                                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-black')}
                                                     >
-                                                        EJEMPLO 1
+                                                        {/* Aqui ira el nombre del usuario  */}
+                                                        Nombre del usuario
                                                     </a>
                                                 )}
                                             </Menu.Item>
                                             <Menu.Item>
                                                 {({ active }) => (
                                                     <a
-                                                        href="#"
+                                                        href="/login"
                                                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-black')}
                                                     >
-                                                        EJEMPLO 2
+                                                        Log in
                                                     </a>
                                                 )}
                                             </Menu.Item>
-                                            <Menu.Item>
+                                            {/* <Menu.Item>
                                                 {({ active }) => (
                                                     <a
                                                         href="#"
@@ -130,7 +131,7 @@ const NavBar = () => {
                                                         EJEMPLO 3
                                                     </a>
                                                 )}
-                                            </Menu.Item>
+                                            </Menu.Item> */}
                                         </Menu.Items>
                                     </Transition>
                                 </Menu>

@@ -63,22 +63,29 @@ const Dashboard = () => {
                 <div className='flex justify-evenly px-48 py-24'>
 
                     <aside className='flex justify-center items-center p-8 mr-4'>
-                        <figure className='rounded-full  w-56 h-56 translate-x-6 -translate-y-6 overflow-hidden'>
-                            <img src={OUR_PLACES_1} alt="" className='w-full h-full object-cover'/>
+                        <figure className='rounded-full  w-96 h-96 translate-x-12 -translate-y-14 overflow-hidden'>
+                            <img src={OUR_PLACES_1} alt="" className='w-full h-full object-cover' />
                         </figure>
 
-                        <figure className='rounded-full bg-red-950 w-56 h-56 translate-x-0 translate-y-6 overflow-hidden'>
+                        <figure className='rounded-full bg-red-950 w-96 h-96 translate-x-0 translate-y-14 overflow-hidden'>
                             <img src={OUR_PLACES_2} alt="" className='w-full h-full object-cover' />
                         </figure>
                     </aside>
                     <div className='p-8 max-w-3xl'>
                         <h1 className='font-bold text-3xl mb-3'>Ubica nuestras sedes</h1>
-                        <p className='mb-2'> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor.
-                            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-                        <p className=''>
+                        <p className='mb-6'> Lorem ipsum dolor sit amet,
+                            consectetuer adipiscing elit. Aenean commodo
+                            ligula eget dolor. Aenean massa. Cum sociis natoque
+                            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+                            Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
+                            aliquet nec, vulputate eget, arcu. </p>
+                        <p className='mb-6'>
                             parturient montes, nascetur ridiculus mus.
                             Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim
+                        </p>
+                        <p>
+                            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo.
                         </p>
 
                     </div>

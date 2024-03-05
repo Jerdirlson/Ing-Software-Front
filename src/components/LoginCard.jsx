@@ -16,7 +16,7 @@ const LoginCard = () => {
     const onSubmit = handleSubmit(async (data) => {
         console.log(data)
         try {
-            const response = await fetch(`${host}api/auth/singin`, { // Ajuste en la URL para llamar al endpoint 'signin'
+            const response = await fetch(`${host}api/auth/signin`, { // Ajuste en la URL para llamar al endpoint 'signin'
                 method: "POST", // or 'PUT'
                 body: JSON.stringify(data), // data can be `string` or {object}!
                 headers: {
