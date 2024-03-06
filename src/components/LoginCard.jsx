@@ -4,33 +4,15 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { userSchema } from "../validations/userSchema"
 import LOGO_BLUE_IPS from '../assets/img/logos/LogoIpsBlue_Mesa de trabajo 1.png'
 import { Link } from 'react-router-dom'
+import signin from "../services/auth.service"
 
 
 const LoginCard = () => {
 
-
-    const { register, handleSubmit, formState: { errors }, watch } = useForm({
+    const { register,handleSubmit, formState: { errors }, watch } = useForm({
         resolver: zodResolver(userSchema),
     })
-    const host = import.meta.env.VITE_HOST
-    const onSubmit = handleSubmit(async (data) => {
-        console.log(data)
-        try {
-            const response = await fetch(`${host}api/auth/signin`, { // Ajuste en la URL para llamar al endpoint 'signin'
-                method: "POST", // or 'PUT'
-                body: JSON.stringify(data), // data can be `string` or {object}!
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            })
-                .then((res) => res.json())
-                .catch((error) => console.error("Error:", error))
-                .then((response) => console.log("Success:", response));
-        } catch (error) {
-            // Manejar errores de red o de análisis JSON
-            console.error('Error al procesar la solicitud:', error);
-        }
-    })
+    const onSubmit = handleSubmit(data =>signin(data))
     return (
         <article className="bg-white rounded-2xl text-black flex flex-col items-center justify-evenly box-border p-4 " style={{ width: '370px', height: '420px' }}>
             <section>
