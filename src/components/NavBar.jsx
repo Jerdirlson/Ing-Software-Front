@@ -67,8 +67,8 @@ const NavBar = () => {
                                                 key={item.name}
                                                 href={item.href}
                                                 className={classNames(
-                                                    item.current ? ' text-black' : 'text-black hover:underline hover:decoration-black hover:decoration-1 hover:underline-offset-4',
-                                                    'rounded-md px-3 py-2 text-sm font-medium'
+                                                    item.current ? ' text-black relative' : ' text-black relative hover:after:content-[""] hover:after:bg-black hover:after:h-[1px] hover:after:w-[46%] hover:after:block hover:after:absolute hover:after:pointer-events-none hover:after:animate-slide-in-left hover:after:left-1/2 hover:after:bottom-2 hover:after:animate-duration-250 ',
+                                                    ' relative rounded-md px-3 py-2 text-sm font-medium', ' relative hover:before:content-[""] hover:before:bg-black hover:before:h-[1px] hover:before:w-[46%] hover:before:block hover:before:absolute hover:before:pointer-events-none hover:before:animate-slide-in-right hover:before:right-1/2 hover:before:bottom-2 hover:before:animate-duration-250 ',
                                                 )}
                                                 aria-current={item.current ? 'page' : undefined}
                                             >
