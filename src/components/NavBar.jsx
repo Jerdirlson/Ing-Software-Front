@@ -4,13 +4,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import USER_IMAGE from '../assets/svg/UserBlack.svg'
 import LOGO_BLUE_IPS from '../assets/img/logos/LogoIpsBlue_Mesa de trabajo 1.png'
-
-const navigation = [
-    { name: 'Nosotros', href: '#', current: false },
-    { name: 'Citas', href: '#', current: false },
-    { name: 'Servicios', href: '#', current: false },
-    { name: 'Resultados Clinicos', href: '#', current: false },
-]
+import { navigation } from '../utils/navBarRoutes.routes'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
