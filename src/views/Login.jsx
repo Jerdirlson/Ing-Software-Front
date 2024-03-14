@@ -1,5 +1,9 @@
 import LoginCard from '../components/LoginCard.jsx'
 import ARROW_TO_BACK from '../assets/svg/ArrowBack.svg'
+/**
+ * This section contains the Login 
+ * @returns {Component} Login
+ */
 const Login = () => {
     return (
         <main className="flex items-center justify-center flex-col h-screen  bg-imagen-fondo-login bg-cover" >

@@ -7,7 +7,10 @@ import BLOOD_ICON from '../assets/img/icons/blood_icon.png'
 import HOSPITAL_ICON from '../assets/img/icons/hospital_bed.png'
 import STETHOSCOPE_ICON from '../assets/img/icons/stethoscope.png'
 import SYRINGE_ICON from '../assets/img/icons/syringe.png'
-
+/**
+ * This section contains tha main page
+ * @returns {Component} Dashboard
+ */
 const Dashboard = () => {
     return (
         <>

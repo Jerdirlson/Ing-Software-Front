@@ -1,3 +1,6 @@
+/**
+ * Object that contains the routes on the navBar
+ */
 export const navigation = [
     { name: 'Nosotros', href: '/nosotros', current: false },
     { name: 'Citas', href: '#', current: false },

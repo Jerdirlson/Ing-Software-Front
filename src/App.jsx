@@ -6,13 +6,12 @@ import Services from './views/Services.jsx';
 import AboutUs from './views/AboutUs.jsx';
 import MedicalHistory from './views/MedicalHistory.jsx';
 import Appointments from './views/Appointments.jsx';
+/**
+ * App structure 'routes'
+ * Defines routes and its related components
+ * @returns {Component} App
+ */
 function App() {
-
-  // const host = import.meta.env.VITE_HOST
-
-  /**
-   * Estructura de la pagina. Rutes '/'
-   */
   return (
 
     <BrowserRouter>

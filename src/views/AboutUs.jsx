@@ -1,3 +1,7 @@
+/**
+ * This section contains the information about the IPS 
+ * @returns {Component} AboutUs
+ */
 const AboutUs = () => {
     return (
         <>

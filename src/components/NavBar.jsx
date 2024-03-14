@@ -5,14 +5,23 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import USER_IMAGE from '../assets/svg/UserBlack.svg'
 import LOGO_BLUE_IPS from '../assets/img/logos/LogoIpsBlue_Mesa de trabajo 1.png'
 import { navigation } from '../utils/navBarRoutes.routes'
-
+/**
+ * This function takes a list of classes and joins them together in one
+ * @param  {...any} classes 
+ * @returns a single class
+ */
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
-
+/**
+ * This component represents the Navegation Bar that is displayed on top of the screen and its fixed.
+ * @returns {Component} Navbar
+ */
 const NavBar = () => {
     return (
+
         <Disclosure as="nav" className="bg-white shadow-custom fixed top-0 left-0 right-0 z-10">
+
             {({ open }) => (
                 <>
                     <div className="w-full px-2 sm:px-6 lg:px-8">
@@ -29,14 +38,13 @@ const NavBar = () => {
                                     )}
                                 </Disclosure.Button>
                             </div>
-
-
+                            {/* Logo section */}
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex flex-shrink-0 items-center">
                                     <a href="/">
                                         <img
                                             className="h-8 w-auto"
-                                            src={LOGO_BLUE_IPS}  //Aqui LOGO IPS
+                                            src={LOGO_BLUE_IPS}
                                             alt="Salud PRO - IPS"
                                         />
                                     </a>
@@ -44,16 +52,8 @@ const NavBar = () => {
                                 </div>
                             </div>
 
-
+                            {/* Items section */}
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 ">
-                                {/* <button
-                                    type="button"
-                                    className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                >
-                                    <span className="absolute -inset-1.5" />
-                                    <span className="sr-only">View notifications</span>
-                                    <BellIcon className="h-6 w-6" aria-hidden="true" />
-                                </button> */}
                                 <div className="hidden sm:ml-36 sm:block">
                                     <div className="flex space-x-6 items-center">
                                         {navigation.map((item) => (
@@ -94,7 +94,6 @@ const NavBar = () => {
                                         leaveTo="transform opacity-0 scale-95"
                                     >
                                         <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                            {/* PARA ESTO TAMBIEN PODEMOS HACER UN CONST */}
                                             <Menu.Item>
                                                 {({ active }) => (
                                                     <a
@@ -116,23 +115,13 @@ const NavBar = () => {
                                                     </a>
                                                 )}
                                             </Menu.Item>
-                                            {/* <Menu.Item>
-                                                {({ active }) => (
-                                                    <a
-                                                        href="#"
-                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-black')}
-                                                    >
-                                                        EJEMPLO 3
-                                                    </a>
-                                                )}
-                                            </Menu.Item> */}
                                         </Menu.Items>
                                     </Transition>
                                 </Menu>
                             </div>
                         </div>
                     </div>
-
+                    {/* Items on responsive mode */}
                     <Disclosure.Panel className="sm:hidden">
                         <div className="space-y-1 px-2 pb-3 pt-2">
                             {navigation.map((item) => (
