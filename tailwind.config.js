@@ -14,6 +14,12 @@ export default {
       },
       boxShadow: {
         'custom': '0 6px 12px 0 rgba(0, 0, 0, 0.25)'
+      },
+      colors: {
+        'primary-blue': '#2176FF',
+        'secondary-blue': '#33A1FD',
+        'aux-1-blue': '#2C91FE',
+        'aux-2-blue': '#2176FF'
       }
     },
   },

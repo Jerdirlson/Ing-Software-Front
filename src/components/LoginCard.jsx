@@ -19,14 +19,12 @@ const LoginCard = () => {
     const onSubmit = handleSubmit(data => signin(data))
     return (
         <article className="bg-white rounded-2xl text-black flex flex-col items-center justify-evenly box-border p-4 " style={{ width: '370px', height: '420px' }}>
-            <section>
-                <header>
-                    <div className="flex items-center justify-center w-64 p-2 mt-2">
-                        <img src={LOGO_BLUE_IPS} alt="logo_ips" />
-                    </div>
-                    <h1 className="text-xl flex justify-center">Iniciar Sesión</h1>
-                </header>
-            </section>
+            <header>
+                <div className="flex items-center justify-center w-64 p-2 mt-2">
+                    <img src={LOGO_BLUE_IPS} alt="logo_ips" />
+                </div>
+                <h1 className="text-xl flex justify-center">Iniciar Sesión</h1>
+            </header>
             <section className="w-full">
                 <form onSubmit={onSubmit}>
                     <div className="m-4 p-4">

@@ -7,6 +7,7 @@ import BLOOD_ICON from '../assets/img/icons/blood_icon.png'
 import HOSPITAL_ICON from '../assets/img/icons/hospital_bed.png'
 import STETHOSCOPE_ICON from '../assets/img/icons/stethoscope.png'
 import SYRINGE_ICON from '../assets/img/icons/syringe.png'
+import Footer from '../components/Footer.jsx'
 /**
  * This section contains tha main page
  * @returns {Component} Dashboard
@@ -18,7 +19,7 @@ const Dashboard = () => {
             {/* 1 SECCIÓN  = LANDING*/}
             <main className='flex items-end justify-center h-screen bg-imagen-fondo-dashboard bg-cover'>
                 {/* Elemento en position absolute */}
-                <div className="flex flex-col text-wrap absolute top-1/4 left-36 w-80">
+                <div className="flex flex-col text-wrap absolute top-1/4 left-36 w-80 text-white">
                     <h1 className="text-2xl font-bold mb-4">Lorem ipsum</h1>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor.
@@ -27,8 +28,8 @@ const Dashboard = () => {
                     </p>
                 </div>
 
-                <div className='bg-blue-500 w-full h-15 flex items-start justify-center'>
-                    <article className='bg-white flex justify-between items-center text-black text-wrap px-2 py-4 mx-20 rounded-3xl -translate-y-4 xl:-translate-y-8'>
+                <div className='bg-gradient-to-b from-secondary-blue to-primary-blue w-full h-15 flex items-start justify-center'>
+                    <article className='bg-white flex justify-between items-center text-wrap px-2 py-4 mx-20 rounded-3xl -translate-y-4 xl:-translate-y-8'>
                         <ul className='flex px-10 text-pretty items-center text-sm'>
                             <li className='mx-2 mr-8'>
                                 <h1 className='text-xl font-bold'>Servicios
@@ -54,7 +55,7 @@ const Dashboard = () => {
 
             <section className='bg-white px-48 py-24'>
                 <div className='flex justify-center'>
-                    <h1 className='font-bold text-black text-4xl'>Especialidaes</h1>
+                    <h1 className='font-bold text-4xl'>Especialidaes</h1>
                 </div>
                 <div className='flex justify-between items-center'>
                     {/* COMPONENTES DE ESPECIALIDADES */}
@@ -70,7 +71,7 @@ const Dashboard = () => {
             </section>
             {/* 3 SECCIÓN = OUR PLACES */}
 
-            <section className='bg-blue-700'>
+            <section className='bg-secondary-blue text-white'>
                 <div className='flex justify-evenly px-48 py-10'>
 
                     <aside className='flex justify-center items-center p-8 mr-4'>
@@ -127,7 +128,7 @@ const Dashboard = () => {
 
                 </div>
             </section>
-            <div className='bg-blue-500 h-12 w-full'></div>
+            <div className='bg-primary-blue h-12 w-full'></div>
             {/* 5 SECCIÓN = ATENTION HOURS*/}
             <section className='text-black flex items-center justify-center flex-col px-48 py-24'>
                 <div className='mb-6'>
@@ -159,67 +160,7 @@ const Dashboard = () => {
             </section>
 
             {/* FOOTER */}
-            <footer className='bg-blue-500 flex justify-evenly text-sm px-48 py-4'>
-                <div className='flex flex-col justify-center mx-2 text-justify'>
-                    <h2>Contacto</h2>
-                    <ul>
-                        <li><p>+57 607 578 4980</p>
-                        </li>
-                        <li><p>+57 607 578 4980</p>
-                        </li>
-                    </ul>
-
-                </div>
-                <div className='flex items-center justify-center mx-2 p-2'>servicioalcliente@saludpro.ips.com</div>
-                <div className='flex flex-col justify-center mx-2'>
-                    <h1 >Sedes</h1>
-                    <p>Calle 45 No. 55 - 65</p>
-                    <p>Bucaramanga, Colombia.</p>
-                </div>
-                <div className='flex flex-col justify-center mx-2 p-2 text-justify'>
-                    <p>Edificio Business Plaza, piso 13</p>
-                    <p>Medellín Distrito Especial de Ciencia, Tecnología</p>
-
-                </div>
-                <div className='flex flex-col justify-center mx-2'><h1>Sedes</h1>
-                    <p> Calle 45 No. 55 - 65</p>
-                    <p>Bucaramanga, Colombia.</p>
-                </div>
-                <div className='flex flex-col justify-center mx-2 p-2 text-justify'>
-                    <p>Edificio Business Plaza, piso 13</p>
-                    <p>Medellín Distrito Especial de Ciencia, Tecnología</p>
-
-                </div>
-                <div className='flex items-center justify-center mx-2'><ul>
-                    <li>
-                        <p>Horarios de atención.</p>
-                    </li>
-                    <li>
-                        <p>Buzón de reclamos.</p>
-                    </li>
-                    <li>
-                        <p>Políticas de privacidad.</p>
-                    </li>
-                    <li>
-                        <p>Términos y condiciones.</p>
-                    </li>
-
-                </ul></div>
-                <div className='flex items-center justify-center mx-2'>
-                    <div>
-                        <h2 className='font-bold'>Siguenos en nuestras redes sociales</h2>
-                    </div>
-                    <div className='flex justify-between'>
-                        <i className='mr-3 p-1'></i>
-                        <i className='mr-3 p-1'></i>
-                        <i className='mr-3 p-1'></i>
-                        <i className='mr-3 p-1'></i>
-                    </div>
-
-
-                </div>
-
-            </footer>
+            <Footer />
         </>
 
     )
