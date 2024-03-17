@@ -5,7 +5,7 @@
  */
 const AppoinmenntCard = ({ title, info, showMore }) => {
     return (
-        <article className="flex flex-col flex-wrap w-[352px] h-[415px] rounded-[20px] px-5 pt-8 mx-4 shadow-xl relative">
+        <article className="flex flex-col flex-wrap w-[302px] h-[365px] rounded-[20px] px-5 pt-8 mr-16 shadow-customCard relative 2xl:w-[352px] 2xl:h-[415px]">
             <h2 className="text-3xl mb-8">{title}</h2>
             <p className="mb-10 text-2xl font-light">{info}</p>
             <div>

@@ -1,14 +1,14 @@
 import AppoinmenntCard from "../components/AppointmentCard"
 import Footer from "../components/Footer"
 import NavBar from "../components/NavBar"
-
+import DOCTOR_EJEMPLO from "../assets/img/people/doctorCita.png"
 /**
  * This section contains the 'appointments' 
  * Add - Delete - Edit  an appointment 
  * @returns {Comment} Appointments
  */
 const Appointments = () => {
-    
+
     const Presenciales = {
         title: 'Citas Presenciales',
         info: 'Agenda tus citas para ser atendido de forma presencial en nuestras instalaciones, elige la fecha y hora que mejor se adapte a ti',
@@ -34,7 +34,7 @@ const Appointments = () => {
                         </p>
                     </div>
                 </section>
-                <div className="bg-blue-500 w-[570px] h-14 my-8 flex self-start rounded-r-3xl items-center justify-center">
+                <div className="bg-blue-500 w-[570px] h-14 my-12 flex self-start rounded-r-3xl items-center justify-center">
                     <h1 className="text-white text-3xl font-bold">Agenda tu cita</h1>
                 </div>
                 <section className="flex w-full relative">
@@ -42,8 +42,8 @@ const Appointments = () => {
                         <AppoinmenntCard title={Presenciales.title} info={Presenciales.info} showMore={Presenciales.link} />
                         <AppoinmenntCard title={Domicilio.title} info={Domicilio.info} showMore={Domicilio.link} />
                     </div>
-                    <div className="absolute right-0">
-                        <img src="https://i.pinimg.com/564x/e2/51/58/e25158840ecb962f4619f7c979ee5c96.jpg" alt="" />
+                    <div className="absolute right-0 w-96 h-14">
+                        <img src={DOCTOR_EJEMPLO} alt="" className="w-full h-full object-cover"/>
                     </div>
                 </section>
             </main>

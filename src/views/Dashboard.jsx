@@ -7,7 +7,9 @@ import BLOOD_ICON from '../assets/img/icons/blood_icon.png'
 import HOSPITAL_ICON from '../assets/img/icons/hospital_bed.png'
 import STETHOSCOPE_ICON from '../assets/img/icons/stethoscope.png'
 import SYRINGE_ICON from '../assets/img/icons/syringe.png'
+import SYRINGE_IMAGE from '../assets/img/others/inyeccion.png'
 import Footer from '../components/Footer.jsx'
+import BLUE_DIVISION from '../assets/svg/others/BlueDivision.svg'
 /**
  * This section contains tha main page
  * @returns {Component} Dashboard
@@ -128,7 +130,9 @@ const Dashboard = () => {
 
                 </div>
             </section>
-            <div className='bg-primary-blue h-12 w-full'></div>
+
+            <div className='-translate-y-20'><img src={BLUE_DIVISION} alt=""/></div>
+
             {/* 5 SECCIÓN = ATENTION HOURS*/}
             <section className='text-black flex items-center justify-center flex-col px-48 py-24'>
                 <div className='mb-6'>
@@ -136,7 +140,7 @@ const Dashboard = () => {
                 </div>
                 <div className='flex justify-between'>
                     <aside className='p-4 flex items-center justify-center drop-shadow-2xl'>
-                        <img src="https://i.pinimg.com/736x/5a/bb/96/5abb962bae8cc442727530197459a76d.jpg" alt="" />
+                        <img src={SYRINGE_IMAGE} alt="" />
                     </aside>
                     <div className='p-4 flex justify-center flex-col max-w-5xl text-pretty'>
                         <h1 className='font-bold text-black text-2xl'>

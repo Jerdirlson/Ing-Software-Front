@@ -2,7 +2,7 @@ import { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import USER_IMAGE from '../assets/svg/UserBlack.svg'
+import USER_IMAGE from '../assets/svg/icons/UserBlack.svg'
 import LOGO_BLUE_IPS from '../assets/img/logos/LogoIpsBlue_Mesa de trabajo 1.png'
 import { navigation } from '../utils/navBarRoutes.routes'
 /**
@@ -20,7 +20,7 @@ function classNames(...classes) {
 const NavBar = () => {
     return (
 
-        <Disclosure as="nav" className="bg-white shadow-custom fixed top-0 left-0 right-0 z-10">
+        <Disclosure as="nav" className="bg-white shadow-customNav fixed top-0 left-0 right-0 z-10">
 
             {({ open }) => (
                 <>

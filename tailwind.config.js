@@ -13,7 +13,8 @@ export default {
 
       },
       boxShadow: {
-        'custom': '0 6px 12px 0 rgba(0, 0, 0, 0.25)'
+        'customNav': '0 6px 12px 0 rgba(0, 0, 0, 0.25)',
+        'customCard': '0 12px 12px 0 rgba(0, 0, 0, 0.25) , 0 0 10px 0 rgba(0, 0, 0, 0.2)',
       },
       colors: {
         'primary-blue': '#2176FF',
