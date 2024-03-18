@@ -1,3 +1,4 @@
+import { User } from '../constants/User.js';
 const host = import.meta.env.VITE_HOST
 /**
  * @async 
@@ -16,6 +17,7 @@ export default async function signin(data) {
             },
         })
             .then((res) => res.json())
+            .then((user) => new User(user))
             .catch((error) => console.error("Error:", error))
             .then((response) => console.log("Success:", response));
     } catch (error) {

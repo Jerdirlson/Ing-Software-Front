@@ -5,6 +5,8 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import USER_IMAGE from '../assets/svg/icons/UserBlack.svg'
 import LOGO_BLUE_IPS from '../assets/img/logos/LogoIpsBlue_Mesa de trabajo 1.png'
 import { navigation } from '../utils/navBarRoutes.routes'
+import { User } from '../constants/User.js';
+
 /**
  * This function takes a list of classes and joins them together in one
  * @param  {...any} classes 
@@ -17,6 +19,7 @@ function classNames(...classes) {
  * This component represents the Navegation Bar that is displayed on top of the screen and its fixed.
  * @returns {Component} Navbar
  */
+console.log(new User())
 const NavBar = () => {
     return (
 
@@ -100,8 +103,7 @@ const NavBar = () => {
                                                         href="#"
                                                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-black')}
                                                     >
-                                                        {/* Aqui ira el nombre del usuario  */}
-                                                        Nombre del usuario
+                                                        {}
                                                     </a>
                                                 )}
                                             </Menu.Item>

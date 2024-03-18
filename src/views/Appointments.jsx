@@ -42,9 +42,11 @@ const Appointments = () => {
                         <AppoinmenntCard title={Presenciales.title} info={Presenciales.info} showMore={Presenciales.link} />
                         <AppoinmenntCard title={Domicilio.title} info={Domicilio.info} showMore={Domicilio.link} />
                     </div>
-                    <div className="absolute right-0 w-96 h-14">
-                        <img src={DOCTOR_EJEMPLO} alt="" className="w-full h-full object-cover"/>
+                    <div className="absolute right-0 bottom-0 w-[800px] h-[550px] translate-y-6 bg-gradient-to-l from-transparent from-35% to-white to-95% "></div>
+                    <div className="absolute right-0 bottom-0 w-[800px] h-[550px] translate-y-6 -z-10">
+                        <img src={DOCTOR_EJEMPLO} alt="" className="w-full h-full object-cover" />
                     </div>
+
                 </section>
             </main>
             <Footer />
