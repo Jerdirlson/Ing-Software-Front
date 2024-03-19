@@ -3,8 +3,9 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { userSchema } from "../validations/userSchema"
 import LOGO_BLUE_IPS from '../assets/img/logos/LogoIpsBlue_Mesa de trabajo 1.png'
-import { Link } from 'react-router-dom'
-import signin from "../services/auth.service"
+import { useAuth } from '../context/AuthContext'
+
+
 
 /**
  * This component represents the Card that is displayed on the LOGIN section
@@ -12,11 +13,11 @@ import signin from "../services/auth.service"
  * @returns {Component} LoginCard
  */
 const LoginCard = () => {
-
     const { register, handleSubmit, formState: { errors }, watch } = useForm({
         resolver: zodResolver(userSchema),
     })
-    const onSubmit = handleSubmit(data => signin(data))
+    const {signinContext} = useAuth()
+    const onSubmit = handleSubmit(data => signinContext(data))
     return (
         <article className="bg-white rounded-2xl text-black flex flex-col items-center justify-evenly box-border p-4 " style={{ width: '370px', height: '420px' }}>
             <header>

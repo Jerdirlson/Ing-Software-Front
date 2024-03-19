@@ -7,22 +7,14 @@ import AboutUs from './views/UserView/AboutUs.jsx';
 import MedicalHistory from './views/UserView/MedicalHistory.jsx';
 import Appointments from './views/UserView/Appointments.jsx';
 import ManagementPanel from './views/OperatorView/ManagementPanel.jsx';
-
-import { useState } from 'react';
 import ProtectedRoute from './utils/ProtectedRoute.jsx';
-import {User} from './constants/User.js';
 /**
  * App structure 'routes'
  * Defines routes and its related components
  * @returns {Component} App
  */
 function App() {
-  const user = User.getUser()
-  if (!!user) {
-    console.log(user)
-  }
   return (
-
     <BrowserRouter>
       <Routes>
         {/* MAIN ROUTE '/' */}
@@ -36,7 +28,7 @@ function App() {
         <Route path='historiaclinica' element={<MedicalHistory />} />
         {/* OPERADOR */}
         {/* <Route element={<ProtectedRoute isAllowed={user.rol === 2} redirectTo={"/management"} />} > */}
-          <Route path='management' element={<ManagementPanel/>} />
+        <Route path='management' element={<ManagementPanel />} />
         {/* </Route> */}
 
         {/* MEDICO */}
