@@ -1,13 +1,12 @@
 import { createContext, useState, useContext, useEffect, Component } from "react";
-import signin from "../services/auth.service";
 import Cookies from "js-cookie";
 import verifyTokenRequest from "../services/verify_auth.service";
-
+import signin from '../services/auth.service'
 
 /**
  * Creates the context of the current user
  */
-export const AuthContext = createContext()
+const AuthContext = createContext()
 /**
  * Export the function to use the context body
  * @returns {Context} Context
@@ -28,13 +27,14 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [isAuthenticated, setIsAuthenticated] = useState(false)
+    
     const signinContext = async (user) => {
         try {
             const res = await signin(user)
+            console.log(res)    
             setIsAuthenticated(true)
             setUser(res)
             console.log('asasd')
-            console.log(res)    
         } catch (err) {
             console.error(err)
         }
@@ -55,7 +55,7 @@ export const AuthProvider = ({ children }) => {
 
             try {
                 const res = await verifyTokenRequest(cookies.token);
-                console.log(res);
+                console.log('-',res);
                 if (!res) return setIsAuthenticated(false);
                 setIsAuthenticated(true);
                 setUser(res);
@@ -71,7 +71,8 @@ export const AuthProvider = ({ children }) => {
             signinContext,
             logoutContext,
             user,
-            isAuthenticated
+            isAuthenticated,
+            setUser
         }}>
             {children}
         </AuthContext.Provider>

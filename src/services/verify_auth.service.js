@@ -11,9 +11,13 @@ export default async function verifyTokenRequest(token) {
             },
             credentials: "include"
         })
-            .then((res) => res.json())
-            .then((response) => console.log("Success:", response))
-            .catch((error) => console.error("Error:", error))
+        if (!response.ok) {
+            throw new Error('Error al iniciar sesión');
+        }
+
+        const jsonResponse = await response.json();
+        console.log("Success:", jsonResponse);
+        return jsonResponse; // Devolver el resultado de la solicitud 
     } catch (error) {
         // Manejar errores de red o de análisis JSON
         console.error('Error al procesar la solicitud:', error);
