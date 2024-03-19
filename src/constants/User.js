@@ -1,32 +1,16 @@
 export class User {
+    static user = null
+    constructor(user = {}) {
+        console.log(user)
 
-    static instance
-    constructor(user) {
-        if (!User.instance) {
-            User.instance = user;
+        if (!!User.user) {
+            return User.user
         }
-        return User.instance;
-    }
+        this.user = user
 
-    static iniciarSesion = (user) => {
-        if (!this.user) {
-            this.user = user;
-            console.log(`Inicio de sesión exitoso para ${user.nameUser}`);
-        } else {
-            console.log('Ya hay un usuario iniciado sesión.');
-        }
+        return this
     }
-    static cerrarSesion() {
-        if (this.user) {
-            console.log(`Sesión cerrada para ${this.user.name}`);
-            this.user = null;
-        } else {
-            console.log('No hay ningún usuario iniciado sesión.');
-        }
+    static getUser() {
+        return this.user
     }
-
-    static obtenerUsuario() {
-        return this.user;
-    }
-
 }

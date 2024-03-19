@@ -1,5 +1,5 @@
-import LoginCard from '../components/LoginCard.jsx'
-import ARROW_TO_BACK from '../assets/svg/icons/ArrowBack.svg'
+import LoginCard from '../../components/LoginCard.jsx'
+import ARROW_TO_BACK from '../../assets/svg/icons/ArrowBack.svg'
 /**
  * This section contains the Login 
  * @returns {Component} Login

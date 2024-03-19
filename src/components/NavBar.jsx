@@ -15,12 +15,15 @@ import { User } from '../constants/User.js';
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
+
 /**
  * This component represents the Navegation Bar that is displayed on top of the screen and its fixed.
  * @returns {Component} Navbar
  */
-console.log(new User())
+const user = User.getUser()
 const NavBar = () => {
+    console.log(User.user)
+
     return (
 
         <Disclosure as="nav" className="bg-white shadow-customNav fixed top-0 left-0 right-0 z-10">
@@ -103,7 +106,7 @@ const NavBar = () => {
                                                         href="#"
                                                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-black')}
                                                     >
-                                                        {}
+                                                        { }
                                                     </a>
                                                 )}
                                             </Menu.Item>

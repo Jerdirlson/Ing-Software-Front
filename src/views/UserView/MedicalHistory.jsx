@@ -2,7 +2,7 @@
  * This section contains the medical records
  * @returns {Component} MedicalHistory
  */
-const MedicalHistory = () =>{
+const MedicalHistory = () => {
     return (
         <>
         </>

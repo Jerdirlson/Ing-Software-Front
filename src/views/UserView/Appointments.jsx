@@ -1,7 +1,7 @@
-import AppoinmenntCard from "../components/AppointmentCard"
-import Footer from "../components/Footer"
-import NavBar from "../components/NavBar"
-import DOCTOR_EJEMPLO from "../assets/img/people/doctorCita.png"
+import AppoinmenntCard from "../../components/AppointmentCard"
+import Footer from "../../components/Footer"
+import NavBar from "../../components/NavBar"
+import DOCTOR_EJEMPLO from "../../assets/img/people/doctorCita.png"
 /**
  * This section contains the 'appointments' 
  * Add - Delete - Edit  an appointment 
