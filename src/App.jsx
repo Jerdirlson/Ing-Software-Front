@@ -8,6 +8,7 @@ import MedicalHistory from './views/UserView/MedicalHistory.jsx';
 import Appointments from './views/UserView/Appointments.jsx';
 import ManagementPanel from './views/OperatorView/ManagementPanel.jsx';
 import ProtectedRoute from './utils/ProtectedRoute.jsx';
+import DoctorDashboard from './views/DoctorView/DoctorDashboard.jsx';
 /**
  * App structure 'routes'
  * Defines routes and its related components
@@ -32,9 +33,9 @@ function App() {
         {/* </Route> */}
 
         {/* MEDICO */}
-        {/* <Route element={<ProtectedRoute isAllowed={user.rol === 3} />} >
-          <Route path='medico' element={<DoctorPanel />} />
-        </Route> */}
+        {/* <Route element={<ProtectedRoute isAllowed={user.rol === 3} />} > */}
+          <Route path='medico' element={<DoctorDashboard />} />
+        {/* </Route> */}
       </Routes>
     </BrowserRouter>
 

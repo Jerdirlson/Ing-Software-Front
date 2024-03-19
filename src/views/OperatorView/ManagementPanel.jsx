@@ -1,11 +1,17 @@
 import SideBar from "../../components/SideBar"
-const MedicalHistoryService = () => {
+/**
+ * Contains the main page of the operator user
+ * @returns {Component} ManagementPanel
+ */
+const ManagementPanel = () => {
     return (
-        <div className="h-screen">
+        <>
+            <div className="flex h-screen w-full bg-gray-50">
+                <SideBar />
+                <div className="flex w-full items-center justify-center">OPERADOR IN PROGRESS...</div>
+            </div>
+        </>
 
-            <SideBar />
-
-        </div>
     )
 }
-export default MedicalHistoryService
+export default ManagementPanel
