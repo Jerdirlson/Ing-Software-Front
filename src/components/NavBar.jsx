@@ -5,6 +5,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import USER_IMAGE from '../assets/svg/icons/UserBlack.svg'
 import LOGO_BLUE_IPS from '../assets/img/logos/LogoIpsBlue_Mesa de trabajo 1.png'
 import { navigation } from '../utils/navBarRoutes.routes'
+import { useAuth } from '../context/AuthContext'
 /**
  * This function takes a list of classes and joins them together in one
  * @param  {...any} classes 
@@ -13,11 +14,16 @@ import { navigation } from '../utils/navBarRoutes.routes'
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
+
+
 /**
  * This component represents the Navegation Bar that is displayed on top of the screen and its fixed.
  * @returns {Component} Navbar
  */
 const NavBar = () => {
+    const { user, isAuthenticated } = useAuth()
+    // const name = user.nameUser
+    // console.log(typeof (user.nameUser))
     return (
 
         <Disclosure as="nav" className="bg-white shadow-customNav fixed top-0 left-0 right-0 z-10">
@@ -100,8 +106,7 @@ const NavBar = () => {
                                                         href="#"
                                                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-black')}
                                                     >
-                                                        {/* Aqui ira el nombre del usuario  */}
-                                                        Nombre del usuario
+                                                        {isAuthenticated ? user.nameUser : ''}
                                                     </a>
                                                 )}
                                             </Menu.Item>

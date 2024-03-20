@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom'
-import NavBar from '../components/NavBar.jsx'
-import ABOUT_US_NURSE from '../assets/img/people/nurse.png'
-import OUR_PLACES_1 from '../assets/img/others/lugar1.jpeg'
-import OUR_PLACES_2 from '../assets/img/others/lugar2.jpg'
-import BLOOD_ICON from '../assets/img/icons/blood_icon.png'
-import HOSPITAL_ICON from '../assets/img/icons/hospital_bed.png'
-import STETHOSCOPE_ICON from '../assets/img/icons/stethoscope.png'
-import SYRINGE_ICON from '../assets/img/icons/syringe.png'
-import SYRINGE_IMAGE from '../assets/img/others/inyeccion.png'
-import Footer from '../components/Footer.jsx'
-import BLUE_DIVISION from '../assets/svg/others/BlueDivision.svg'
+import NavBar from '../../components/NavBar.jsx'
+import ABOUT_US_NURSE from '../../assets/img/people/nurse.png'
+import OUR_PLACES_1 from '../../assets/img/others/lugar1.jpeg'
+import OUR_PLACES_2 from '../../assets/img/others/lugar2.jpg'
+import BLOOD_ICON from '../../assets/img/icons/blood_icon.png'
+import HOSPITAL_ICON from '../../assets/img/icons/hospital_bed.png'
+import STETHOSCOPE_ICON from '../../assets/img/icons/stethoscope.png'
+import SYRINGE_ICON from '../../assets/img/icons/syringe.png'
+import SYRINGE_IMAGE from '../../assets/img/others/inyeccion.png'
+import Footer from '../../components/Footer.jsx'
+import BLUE_DIVISION from '../../assets/svg/others/BlueDivision.svg'
+import ServiceCard from '../../components/ServiceCard.jsx'
 /**
  * This section contains tha main page
  * @returns {Component} Dashboard
@@ -60,7 +61,7 @@ const Dashboard = () => {
                     <h1 className='font-bold text-4xl'>Especialidaes</h1>
                 </div>
                 <div className='flex justify-between items-center'>
-                    {/* COMPONENTES DE ESPECIALIDADES */}
+                    {/* <ServiceCard/> */}
                 </div>
                 <div className='mt-24'>
                     <p className='text-lg text-black'>
