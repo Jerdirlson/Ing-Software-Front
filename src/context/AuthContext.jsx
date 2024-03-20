@@ -27,6 +27,7 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [isAuthenticated, setIsAuthenticated] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     const signinContext = async (user) => {
         try {
@@ -55,6 +56,7 @@ export const AuthProvider = ({ children }) => {
             const cookies = Cookies.get();
             if (!cookies.token) {
                 setIsAuthenticated(false);
+                setLoading(false)
                 return;
             }
 
@@ -63,9 +65,11 @@ export const AuthProvider = ({ children }) => {
                 console.log('-', res);
                 if (!res) return setIsAuthenticated(false);
                 setIsAuthenticated(true);
+                setLoading(false)
                 setUser(res);
             } catch (error) {
                 setIsAuthenticated(false);
+                setLoading(false)
 
             }
         };
@@ -77,7 +81,7 @@ export const AuthProvider = ({ children }) => {
             logoutContext,
             user,
             isAuthenticated,
-            setUser
+            loading,
         }}>
             {children}
         </AuthContext.Provider>
