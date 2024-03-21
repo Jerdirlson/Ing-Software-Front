@@ -27,11 +27,12 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [isAuthenticated, setIsAuthenticated] = useState(false)
-    
+    const [loading, setLoading] = useState(true)
+
     const signinContext = async (user) => {
         try {
             const res = await signin(user)
-            console.log(res)    
+            console.log(res)
             setIsAuthenticated(true)
             setUser(res)
             console.log('asasd')
@@ -39,7 +40,11 @@ export const AuthProvider = ({ children }) => {
             console.error(err)
         }
     }
-    const logoutContext = () => {
+    const logoutContext = async (event) => {
+        // Prevenir el redirect al login
+        event.preventDefault(); 
+        event.stopPropagation();
+        //Quitar la cookie del user
         Cookies.remove("token");
         setUser(null);
         setIsAuthenticated(false);
@@ -47,20 +52,24 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const checkLogin = async () => {
+
             const cookies = Cookies.get();
             if (!cookies.token) {
                 setIsAuthenticated(false);
+                setLoading(false)
                 return;
             }
 
             try {
                 const res = await verifyTokenRequest(cookies.token);
-                console.log('-',res);
+                console.log('-', res);
                 if (!res) return setIsAuthenticated(false);
                 setIsAuthenticated(true);
+                setLoading(false)
                 setUser(res);
             } catch (error) {
                 setIsAuthenticated(false);
+                setLoading(false)
 
             }
         };
@@ -72,7 +81,7 @@ export const AuthProvider = ({ children }) => {
             logoutContext,
             user,
             isAuthenticated,
-            setUser
+            loading,
         }}>
             {children}
         </AuthContext.Provider>

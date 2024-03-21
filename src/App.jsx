@@ -7,7 +7,7 @@ import AboutUs from './views/UserView/AboutUs.jsx';
 import MedicalHistory from './views/UserView/MedicalHistory.jsx';
 import Appointments from './views/UserView/Appointments.jsx';
 import ManagementPanel from './views/OperatorView/ManagementPanel.jsx';
-import ProtectedRoute from './utils/ProtectedRoute.jsx';
+import ProtectedRouteOperator from './routes/ProtectedRouteOperator.jsx';
 import DoctorDashboard from './views/DoctorView/DoctorDashboard.jsx';
 /**
  * App structure 'routes'
@@ -28,13 +28,15 @@ function App() {
         <Route path='servicios' element={<Services />} />
         <Route path='historiaclinica' element={<MedicalHistory />} />
         {/* OPERADOR */}
-        {/* <Route element={<ProtectedRoute isAllowed={user.rol === 2} redirectTo={"/management"} />} > */}
-        <Route path='management' element={<ManagementPanel />} />
-        {/* </Route> */}
+        <Route element={<ProtectedRouteOperator />}>
+          <Route path='management' element={<ManagementPanel />} />
+          <Route path='medico' element={<DoctorDashboard />} />
+
+        </Route>
 
         {/* MEDICO */}
         {/* <Route element={<ProtectedRoute isAllowed={user.rol === 3} />} > */}
-          <Route path='medico' element={<DoctorDashboard />} />
+        <Route path='medico' element={<DoctorDashboard />} />
         {/* </Route> */}
       </Routes>
     </BrowserRouter>
