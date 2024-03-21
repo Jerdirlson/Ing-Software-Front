@@ -107,35 +107,37 @@ const Dashboard = () => {
                 </div>
             </section>
             {/* 4 SECCIÓN = ABOUT US*/}
-            <section className='flex items-center justify-evenly px-48 pt-12'>
-                <figure className='flex items-center justify-center max-w-60'>
+            <section className='flex items-center justify-evenly px-48 pt-12 lg:px-36'>
+                <figure className='flex items-center justify-center max-w-60 '>
                     <img src={ABOUT_US_NURSE} alt="" className='w-full h-full object-cover' />
                 </figure>
+                <div className='flex items-center justify-evenly px-4'>
+                    <div className='text-black p-8 text-pretty max-w-md '>
+                        <h1 className='font-bold text-3xl mb-6 '>Sobre nosotros</h1>
+                        <p className='text-sm'>Brindamos servicios de atención médica domiciliaria,
+                            con un equipo interdisciplinario, calificado,
+                            capacitado para ofrecer una atención segura,
+                            oportuna, eficiente y de calidad humana, utilizando la tecnología adecuada,
+                            la mejora continua de los procesos y
+                            la promoción del autocuidado y la participación familiar.</p>
+                    </div>
 
-                <div className='text-black p-8 text-pretty max-w-md'>
-                    <h1 className='font-bold text-3xl mb-6'>Sobre nosotros</h1>
-                    <p className='text-sm'>Brindamos servicios de atención médica domiciliaria,
-                        con un equipo interdisciplinario, calificado,
-                        capacitado para ofrecer una atención segura,
-                        oportuna, eficiente y de calidad humana, utilizando la tecnología adecuada,
-                        la mejora continua de los procesos y
-                        la promoción del autocuidado y la participación familiar.</p>
+                    <div className='text-black p-2 text-pretty max-w-md'>
+                        <p className='text-sm mt-10'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                            Aenean commodo ligula eget dolor. Aenean massa.
+                            Cum sociis natoque penatibus et magnis dis parturient montes,
+                            nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
+                            pretium quis, sem. Nulla consequat massa quis enim.</p>
+
+                    </div>
                 </div>
 
-                <div className='text-black p-2 text-pretty max-w-md'>
-                    <p className='text-sm mt-10'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                        Aenean commodo ligula eget dolor. Aenean massa.
-                        Cum sociis natoque penatibus et magnis dis parturient montes,
-                        nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
-                        pretium quis, sem. Nulla consequat massa quis enim.</p>
-
-                </div>
             </section>
 
-            <div className='-translate-y-20'><img src={BLUE_DIVISION} alt=""/></div>
+            <div className='-translate-y-20 lg:-translate-y-10'><img src={BLUE_DIVISION} alt="" /></div>
 
             {/* 5 SECCIÓN = ATENTION HOURS*/}
-            <section className='text-black flex items-center justify-center flex-col px-48 py-24'>
+            <section className='text-black flex items-center justify-center flex-col px-48 py-24 lg:pt-8 lg:pb-20'>
                 <div className='mb-6'>
                     Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
                 </div>

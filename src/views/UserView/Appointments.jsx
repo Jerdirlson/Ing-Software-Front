@@ -22,7 +22,7 @@ const Appointments = () => {
     return (
         <>
             <NavBar />
-            <main className="h-screen flex flex-col items-center justify-center">
+            <main className="h-screen flex flex-col items-center justify-center lg:h-[940px]">
                 <section className="w-full">
                     <div className="px-48 text-black ">
                         <h2 className=" font-normal text-4xl mb-2">Atención</h2>
@@ -42,8 +42,8 @@ const Appointments = () => {
                         <AppoinmenntCard title={Presenciales.title} info={Presenciales.info} showMore={Presenciales.link} />
                         <AppoinmenntCard title={Domicilio.title} info={Domicilio.info} showMore={Domicilio.link} />
                     </div>
-                    <div className="absolute right-0 bottom-0 w-[800px] h-[550px] translate-y-6 bg-gradient-to-l from-transparent from-35% to-white to-95% "></div>
-                    <div className="absolute right-0 bottom-0 w-[800px] h-[550px] translate-y-6 -z-10">
+                    <div className="absolute right-0 bottom-0 w-[800px] h-[550px] translate-y-6 bg-gradient-to-l from-transparent from-35% to-white to-95% lg:w-96 lg:h-96"></div>
+                    <div className="absolute right-0 bottom-0 w-[800px] h-[550px] translate-y-6 -z-10 lg:w-96 lg:h-96">
                         <img src={DOCTOR_EJEMPLO} alt="" className="w-full h-full object-cover" />
                     </div>
 
