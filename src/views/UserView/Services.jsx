@@ -44,7 +44,8 @@ const Services = () => {
                         Consultas<br />
                         <strong className='text-4xl'>Especializadas</strong>
                     </h1>
-                    <hr className='bg-black w-1/2 h-1 self-center rounded-full' />
+                    {/* hr */}
+                    <div className='bg-black w-1/2 h-1 self-center rounded-full' />
 
                 </section>
 

@@ -10,6 +10,7 @@ import SYRINGE_ICON from '../../assets/img/icons/syringe.png'
 import SYRINGE_IMAGE from '../../assets/img/others/inyeccion.png'
 import Footer from '../../components/Footer.jsx'
 import BLUE_DIVISION from '../../assets/svg/others/BlueDivision.svg'
+import EspecialtyCard from '../../components/EspecialtyCard.jsx'
 import ServiceCard from '../../components/ServiceCard.jsx'
 /**
  * This section contains tha main page
@@ -56,14 +57,20 @@ const Dashboard = () => {
             </main >
             {/* 2 SECCIÓN = SPECIALTIES*/}
 
-            <section className='bg-white px-48 py-24'>
-                <div className='flex justify-center'>
+            <section className='bg-white px-28 py-12 lg:px-24 2xl:px-48'>
+                <div className='flex justify-center mb-24'>
                     <h1 className='font-bold text-4xl'>Especialidaes</h1>
                 </div>
-                <div className='flex justify-between items-center'>
-                    {/* <ServiceCard/> */}
+                <div className=' grid grid-flow-col grid-rows-2  2xl:flex 2xl:justify-between justify-evenly '>
+                    <ServiceCard />
+                    <ServiceCard />
+                    <ServiceCard />
+                    <ServiceCard />
+
+
+
                 </div>
-                <div className='mt-24'>
+                <div className='mt-12'>
                     <p className='text-lg text-black'>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor.
                         Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
