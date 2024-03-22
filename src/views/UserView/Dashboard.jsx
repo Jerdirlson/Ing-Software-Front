@@ -20,7 +20,7 @@ const Dashboard = () => {
         <>
             <NavBar />
             {/* 1 SECCIÓN  = LANDING*/}
-            <main className='flex items-end justify-center h-screen bg-imagen-fondo-dashboard bg-cover'>
+            <main className='flex items-end justify-center h-screen bg-imagen-fondo-dashboard xl:bg-cover'>
                 {/* Elemento en position absolute */}
                 <div className="flex flex-col text-wrap absolute top-1/4 left-36 w-80 text-white">
                     <h1 className="text-2xl font-bold mb-4">Lorem ipsum</h1>
@@ -38,13 +38,13 @@ const Dashboard = () => {
                                 <h1 className='text-xl font-bold'>Servicios</h1>
                             </li>
                             <li className='flex items-center mx-2 2xl:mx-1 2xl:p-1'>                            <img src={BLOOD_ICON} alt="tipo_de_sangre_icon" className='w-10 h-10 mr-4' />
-                                <p className='2xl:text-base xl:text-xs'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p></li>
+                                <p className='2xl:text-base xl:text-xs hidden lg:block '>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p></li>
                             <li className='flex items-center mx-2 2xl:mx-1 2xl:p-1'>                            <img src={HOSPITAL_ICON} alt="hospital_icon" className='w-10 h-10 mr-4' />
-                                <p className='2xl:text-base xl:text-xs '>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p></li>
+                                <p className='2xl:text-base xl:text-xs hidden lg:block '>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p></li>
                             <li className='flex items-center mx-2 2xl:mx-1 2xl:p-1'>                            <img src={STETHOSCOPE_ICON} alt="stethoscope_icon" className='w-10 h-10 mr-4' />
-                                <p className='2xl:text-base xl:text-xs '>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p></li>
+                                <p className='2xl:text-base xl:text-xs hidden lg:block '>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p></li>
                             <li className='flex items-center mx-2 2xl:mx-1 2xl:p-1'>                            <img src={SYRINGE_ICON} alt="syringe_icon" className='w-10 h-10 mr-4' />
-                                <p className='2xl:text-base xl:text-xs '>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p></li>
+                                <p className='2xl:text-base xl:text-xs hidden lg:block '>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p></li>
                             <li className='mx-2 2xl:mx-1 2xl:p-1'>
                                 <a href="#" className='hover:underline hover:decoration-black' >
                                     <p className='italic 2xl:text-base xl:text-xs'>Conocer más...</p>
