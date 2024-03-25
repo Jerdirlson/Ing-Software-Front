@@ -1,5 +1,6 @@
 import NavBar from '../../components/NavBar.jsx'
 import NURSE from '../../assets/img/people/nurseServices.png'
+import ServiceCard from '../../components/ServiceCard.jsx'
 /**
  * This section contains the services of the app
  * @returns {Component} Services
@@ -46,6 +47,22 @@ const Services = () => {
                     </h1>
                     {/* hr */}
                     <div className='bg-black w-1/2 h-1 self-center rounded-full' />
+
+                </section>
+                {/* SERVICIOS */}
+                <section className='w-full flex justify-center'>
+                    <div className='grid grid-cols-3 gap-28 px-48 mt-12'>
+                        <ServiceCard />
+                        <ServiceCard />
+                        <ServiceCard />
+                        <ServiceCard />
+                        <ServiceCard />
+                        <ServiceCard />
+                    </div>
+                    <div>
+
+                    </div>
+
 
                 </section>
 

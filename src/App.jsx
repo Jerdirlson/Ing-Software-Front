@@ -9,6 +9,11 @@ import Appointments from './views/UserView/Appointments.jsx';
 import ManagementPanel from './views/OperatorView/ManagementPanel.jsx';
 import ProtectedRouteOperator from './routes/ProtectedRouteOperator.jsx';
 import DoctorDashboard from './views/DoctorView/DoctorDashboard.jsx';
+import NotFound from './views/NotFound.jsx';
+import ConfirmAppointment from './views/OperatorView/ConfirmAppointment.jsx';
+import CancelAppointmnet from './views/OperatorView/CancelAppointment.jsx';
+import RescheduleAppointment from './views/OperatorView/RescheduleAppointment.jsx';
+
 /**
  * App structure 'routes'
  * Defines routes and its related components
@@ -18,28 +23,41 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+
         {/* MAIN ROUTE '/' */}
         <Route index element={<Dashboard />} />
         {/* USUARIO */}
         <Route path='/' element={<Dashboard />} />
-        <Route path='login' element={<Login />} />
-        <Route path='nosotros' element={<AboutUs />} />
-        <Route path='citas' element={<Appointments />} />
-        <Route path='servicios' element={<Services />} />
-        <Route path='historiaclinica' element={<MedicalHistory />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/nosotros' element={<AboutUs />} />
+        <Route path='/citas' element={<Appointments />} />
+        <Route path='/servicios' element={<Services />} />
+        <Route path='/historiaclinica' element={<MedicalHistory />} />
         {/* OPERADOR */}
-        <Route element={<ProtectedRouteOperator />}>
-          <Route path='management' element={<ManagementPanel />} />
-          <Route path='medico' element={<DoctorDashboard />} />
+
+
+        {/* <Route element={<ProtectedRouteOperator />}> */}
+        <Route path='/management/' element={<ManagementPanel />}>
+          <Route path='confirm' element={<ConfirmAppointment />} />
+          <Route path='cancel' element={<CancelAppointmnet />} />
+          <Route path='schedule' element={<h1>SCHEDULE</h1>} />
+          <Route path='reschedule' element={<RescheduleAppointment />} />
 
         </Route>
+
+        {/* </Route> */}
 
         {/* MEDICO */}
         {/* <Route element={<ProtectedRoute isAllowed={user.rol === 3} />} > */}
         <Route path='medico' element={<DoctorDashboard />} />
         {/* </Route> */}
+
+
+        {/* RUTAS NO EXISTENTES */}
+        <Route path="*" element={<NotFound />} />
+
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter >
 
 
   )

@@ -21,6 +21,8 @@ import {
 } from "@heroicons/react/24/solid";
 import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import LOGO_YELLOW_IPS from '../assets/img/logos/LogoIps_Mesa de trabajo 1.png'
+import { operatorNavigation } from "../utils/Routes.routes"
+
 /**
  * Contains the side menu of the operator options
  * @returns {Component} SideBar
@@ -33,16 +35,17 @@ const SideBar = () => {
     };
     return (
         <>
-            <div className="h-screen fixed w-full max-w-[20rem] p-4 shadow-xl bg-primary-blue text-white">
+            <div className="h-screen max-w-[20rem] p-4 shadow-xl bg-primary-blue text-white">
                 <div className="mb-2 p-4">
                     <img src={LOGO_YELLOW_IPS} alt="" />
                 </div>
+                <hr className="w-11/12 mx-auto" />
                 <List>
                     <ListItem>
                         <ListItemPrefix>
                             <InboxIcon className="h-5 w-5" />
                         </ListItemPrefix>
-                        Cancelaciones
+                        <a href={operatorNavigation[0].href}>Registro de Cita</a>
                         <ListItemSuffix>
                             <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
                         </ListItemSuffix>
@@ -51,7 +54,7 @@ const SideBar = () => {
                         <ListItemPrefix>
                             <UserCircleIcon className="h-5 w-5" />
                         </ListItemPrefix>
-                        Registro de Cita
+                        <a href={operatorNavigation[1].href}>Cancelaciones</a>
                     </ListItem>
                     <Accordion
                         open={open === 1}
@@ -99,7 +102,7 @@ const SideBar = () => {
                         <ListItemPrefix>
                             <Cog6ToothIcon className="h-5 w-5" />
                         </ListItemPrefix>
-                        Reasignación de citas
+                        <a href={operatorNavigation[3].href}>Reasignación de citas</a>
                     </ListItem>
                     {/* <ListItem>
                         <ListItemPrefix>

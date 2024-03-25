@@ -1,4 +1,4 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useEffect } from "react";
 
@@ -21,6 +21,7 @@ const ProtectedRouteOperator = () => {
     if (!user || user.idRol !== 2) {
         return <Navigate to={'/login'} replace />;
     }
+    useNavigate('/management')
 
     // Si el usuario está autenticado y tiene el rol adecuado, muestra el contenido protegido
     return <Outlet />;

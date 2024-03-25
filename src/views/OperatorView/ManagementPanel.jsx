@@ -1,4 +1,6 @@
 import SideBar from "../../components/SideBar"
+import { Outlet } from "react-router-dom";
+
 /**
  * Contains the main page of the operator user
  * @returns {Component} ManagementPanel
@@ -6,10 +8,12 @@ import SideBar from "../../components/SideBar"
 const ManagementPanel = () => {
     return (
         <>
-            <div className="flex h-screen w-full bg-gray-50">
+            <div className="flex h-screen w-full bg-gray-50 justify-normal">
                 <SideBar />
-                <div className="flex w-full items-center justify-center">OPERADOR IN PROGRESS...</div>
+                <Outlet />
             </div>
+            <a className="absolute top-0 right-0 mx-6 my-2" href="/">Salir</a>
+
         </>
 
     )

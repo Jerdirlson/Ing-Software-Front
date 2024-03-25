@@ -4,7 +4,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import USER_IMAGE from '../assets/svg/icons/UserBlack.svg'
 import LOGO_BLUE_IPS from '../assets/img/logos/LogoIpsBlue_Mesa de trabajo 1.png'
-import { navigation } from '../utils/navBarRoutes.routes'
+import { navigation } from '../utils/Routes.routes'
 import { useAuth } from '../context/AuthContext'
 /**
  * This function takes a list of classes and joins them together in one
