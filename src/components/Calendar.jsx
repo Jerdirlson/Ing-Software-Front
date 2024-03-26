@@ -4,7 +4,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import dayjs from 'dayjs';
 
-const CustomMonthLayout = ()=> {
+const Calendar = () => {
   const [selectedDate, setSelectedDate] = useState(dayjs());
   console.log("Sissi", selectedDate);
 
@@ -31,21 +31,20 @@ const CustomMonthLayout = ()=> {
   };
 
   return (
-    <div className='flex justify-center items-center w-96 h-96 bg-gradient-to-b from-secondary-blue to-primary-blue rounded-lg rounded-md opacity-95 shadow-2xl'>
-        <div className='flex bg-white z-10 opacity-90 rounded-xl'>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DateCalendar
-            showDaysOutsideCurrentMonth
-            fixedWeekNumber={6}
-            disablePast
-            shouldDisableDate={(date) => !isSelectableDate(date)}
-            date={selectedDate}
-            onChange={handleDateChange}
-          />
-            </LocalizationProvider>
-        </div>
+    <div className='flex bg-gray-50 rounded-xl border border-gray-400'>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DateCalendar
+          showDaysOutsideCurrentMonth
+          fixedWeekNumber={6}
+          disablePast
+          shouldDisableDate={(date) => !isSelectableDate(date)}
+          date={selectedDate}
+          onChange={handleDateChange}
+        />
+      </LocalizationProvider>
     </div>
+
   );
 }
 
-export default CustomMonthLayout;
+export default Calendar;

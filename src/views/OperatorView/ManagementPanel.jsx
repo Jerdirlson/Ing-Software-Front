@@ -8,11 +8,11 @@ import { Outlet } from "react-router-dom";
 const ManagementPanel = () => {
     return (
         <>
-            <div className="flex h-screen w-full bg-gray-50 justify-normal">
+            <div className="flex h-screen relative">
                 <SideBar />
                 <Outlet />
+                <a className=" absolute top-0 right-0 mx-6 my-2" href="/">Salir</a>
             </div>
-            <a className="absolute top-0 right-0 mx-6 my-2" href="/">Salir</a>
 
         </>
 

@@ -1,3 +1,6 @@
+import InfoAppointment from "../../components/Appointment/InfoAppointment"
+import InputField from "../../components/Appointment/InputField"
+
 /**
  * 
  * @returns 
@@ -5,28 +8,31 @@
 const ConfirmAppointment = () => {
     return (
         <>
-            <main className="w-full flex flex-col items-center justify-center">
+            <main className="w-full flex flex-col p-36">
                 <section >
-                    <header className="p-4 mt-4">
+                    <header className="flex flex-col items-center p-4 mt-4">
                         <h1 className="font-light text-2xl mb-2">Consultar información de una cita</h1>
                         <div className="w-full h-0.5 bg-slate-400" />
                     </header>
-                    <section className="flex flex-col justify-self-start">
+                    <section className="flex flex-col p-4">
                         <h2 className="font-bold">Numero de documento</h2>
-                        <input className="border-2  border-black" type="text" name="CC" id="" />
+                        <InputField type={"text"} name={"Cedula de Ciudadania"} size={"w-1/3"} />
+                        {/* <input className="w-1/3 border border-gray-400 rounded-lg " type="text" name="CC" id="" /> */}
                     </section>
                     {/* CALL API TO INFO */}
                     {
                         <section >
-                            <div className=""></div>
-                            <button>
-
-                            </button>
+                            <InfoAppointment />
+                            <section className="w-full flex justify-end px-32 mt-12">
+                                <button className="bg-secondary-blue rounded-lg px-32 py-2 text-white text-xl">
+                                    Confirmar Llegada
+                                </button>
+                            </section>
                         </section>}
                 </section>
 
 
-            </main>
+            </main >
         </>
     )
 }
