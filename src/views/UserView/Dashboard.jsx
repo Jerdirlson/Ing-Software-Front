@@ -121,7 +121,7 @@ const Dashboard = () => {
                 <div className='flex items-center justify-evenly px-4'>
                     <div className='text-black p-8 text-pretty max-w-md '>
                         <h1 className='font-bold text-3xl mb-6 '>Sobre nosotros</h1>
-                        <p className='text-sm'>Brindamos servicios de atención médica domiciliaria,
+                        <p className='text-sm 2xl:text-base'>Brindamos servicios de atención médica domiciliaria,
                             con un equipo interdisciplinario, calificado,
                             capacitado para ofrecer una atención segura,
                             oportuna, eficiente y de calidad humana, utilizando la tecnología adecuada,
@@ -130,7 +130,7 @@ const Dashboard = () => {
                     </div>
 
                     <div className='text-black p-2 text-pretty max-w-md'>
-                        <p className='text-sm mt-10'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                        <p className='text-sm mt-10 2xl:text-base'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
                             Aenean commodo ligula eget dolor. Aenean massa.
                             Cum sociis natoque penatibus et magnis dis parturient montes,
                             nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,

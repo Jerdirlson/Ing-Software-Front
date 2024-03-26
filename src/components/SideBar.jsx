@@ -22,6 +22,7 @@ import {
 import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import LOGO_YELLOW_IPS from '../assets/img/logos/LogoIps_Mesa de trabajo 1.png'
 import { operatorNavigation } from "../utils/Routes.routes"
+import { Link } from "react-router-dom";
 
 /**
  * Contains the side menu of the operator options
@@ -41,21 +42,26 @@ const SideBar = () => {
                 </div>
                 <hr className="w-11/12 mx-auto" />
                 <List>
-                    <ListItem>
-                        <ListItemPrefix>
-                            <InboxIcon className="h-5 w-5" />
-                        </ListItemPrefix>
-                        <a href={operatorNavigation[0].href}>Registro de Cita</a>
-                        <ListItemSuffix>
-                            <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
-                        </ListItemSuffix>
-                    </ListItem>
-                    <ListItem>
-                        <ListItemPrefix>
-                            <UserCircleIcon className="h-5 w-5" />
-                        </ListItemPrefix>
-                        <a href={operatorNavigation[1].href}>Cancelaciones</a>
-                    </ListItem>
+                    <Link to={operatorNavigation[0].href}>
+                        <ListItem>
+                            <ListItemPrefix>
+                                <InboxIcon className="h-5 w-5" />
+                            </ListItemPrefix>
+                            Registro de Cita
+                            <ListItemSuffix>
+                                <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
+                            </ListItemSuffix>
+                        </ListItem>
+                    </Link>
+                    <Link to={operatorNavigation[1].href}>
+                        <ListItem>
+                            <ListItemPrefix>
+                                <UserCircleIcon className="h-5 w-5" />
+                            </ListItemPrefix>
+                            Cancelaciones
+                        </ListItem>
+                    </Link>
+
                     <Accordion
                         open={open === 1}
                         icon={
@@ -81,35 +87,37 @@ const SideBar = () => {
                                     <ListItemPrefix>
                                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                                     </ListItemPrefix>
-                                    Cancelaciones
+                                    General
                                 </ListItem>
                                 <ListItem>
                                     <ListItemPrefix>
                                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                                     </ListItemPrefix>
-                                    Reporting
+                                    Fisioterapia
                                 </ListItem>
                                 <ListItem>
                                     <ListItemPrefix>
                                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                                     </ListItemPrefix>
-                                    Projects
+                                    Cardiologia
+                                </ListItem>
+                                <ListItem>
+                                    <ListItemPrefix>
+                                        <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                                    </ListItemPrefix>
+                                    Odontologia
                                 </ListItem>
                             </List>
                         </AccordionBody>
                     </Accordion>
-                    <ListItem>
-                        <ListItemPrefix>
-                            <Cog6ToothIcon className="h-5 w-5" />
-                        </ListItemPrefix>
-                        <a href={operatorNavigation[3].href}>Reasignación de citas</a>
-                    </ListItem>
-                    {/* <ListItem>
-                        <ListItemPrefix>
-                            <PowerIcon className="h-5 w-5" />
-                        </ListItemPrefix>
-                        Log Out
-                    </ListItem> */}
+                    <Link to={operatorNavigation[3].href}>
+                        <ListItem>
+                            <ListItemPrefix>
+                                <Cog6ToothIcon className="h-5 w-5" />
+                            </ListItemPrefix>
+                            Reasignación de citas
+                        </ListItem>
+                    </Link>
                 </List>
             </div>
         </>

@@ -13,6 +13,7 @@ import NotFound from './views/NotFound.jsx';
 import ConfirmAppointment from './views/OperatorView/ConfirmAppointment.jsx';
 import CancelAppointmnet from './views/OperatorView/CancelAppointment.jsx';
 import RescheduleAppointment from './views/OperatorView/RescheduleAppointment.jsx';
+import ScheduleAppointment from './views/OperatorView/ScheduleAppointment.jsx';
 
 /**
  * App structure 'routes'
@@ -40,7 +41,7 @@ function App() {
         <Route path='/management/' element={<ManagementPanel />}>
           <Route path='confirm' element={<ConfirmAppointment />} />
           <Route path='cancel' element={<CancelAppointmnet />} />
-          <Route path='schedule' element={<h1>SCHEDULE</h1>} />
+          <Route path='schedule' element={<ScheduleAppointment />} />
           <Route path='reschedule' element={<RescheduleAppointment />} />
 
         </Route>
