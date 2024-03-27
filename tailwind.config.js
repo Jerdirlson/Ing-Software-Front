@@ -17,7 +17,9 @@ export default {
     extend: {
       backgroundImage: {
         'imagen-fondo-login': "url('./src/assets/img/backgrounds/Background_Login.png')",
-        'imagen-fondo-dashboard': "url('./src/assets/img/backgrounds/HomeBackground.png')",
+        'imagen-fondo-dashboard-pc': "url('./src/assets/img/backgrounds/BackGround_PC.png')",
+        'imagen-fondo-dashboard-movil': "url('./src/assets/img/backgrounds/BackGround_PHONE.png')",
+
 
       },
       boxShadow: {

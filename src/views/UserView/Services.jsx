@@ -49,7 +49,7 @@ const Services = () => {
                         <strong className='text-4xl'>Especializadas</strong>
                     </h1>
                     {/* hr */}
-                    <div className='bg-black w-1/2 h-1 self-center rounded-full' />
+                    <div className='bg-black w-1/2 h-0.5 self-center rounded-full' />
 
                 </section>
                 {/* SERVICIOS */}

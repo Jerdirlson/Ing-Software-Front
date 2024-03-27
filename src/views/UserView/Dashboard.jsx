@@ -23,7 +23,7 @@ const Dashboard = () => {
         <>
             <NavBar />
             {/* 1 SECCIÓN  = LANDING*/}
-            <main className='flex items-end justify-center h-screen bg-imagen-fondo-dashboard xl:bg-cover'>
+            <main className='flex items-end justify-center h-screen bg-imagen-fondo-dashboard-movil xl:bg-imagen-fondo-dashboard-pc bg-cover'>
                 {/* Elemento en position absolute */}
                 <div className="flex flex-col text-wrap absolute top-1/4 left-36 w-80 text-white">
                     <h1 className="text-2xl font-bold mb-4">Lorem ipsum</h1>
