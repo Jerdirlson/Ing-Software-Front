@@ -13,23 +13,21 @@ const InfoAppointment = () => {
 
             <h3 className="text-2xl font-light">Informacion de la cita</h3>
 
-            <div className="border-l-2 border-gray-400 pl-8 mt-4 text-xl">
-                <div className="flex p-3">
-                    <h4 className="font-bold pr-44">Hora</h4>
-                    <p>4:15pm</p>
+            <div className="flex border-l-2 border-gray-400 pl-8 mt-4 text-xl">
+                <div className="mr-24">
+                    <h4 className="p-3">Hora</h4>
+                    <h4 className="p-3">Doctor</h4>
+                    <h4 className="p-3">Consultorio</h4>
+                    <h4 className="p-3">Valor</h4>
+
                 </div>
-                <div className="flex p-3">
-                    <h4 className="font-bold pr-40">Doctor</h4>
-                    <p>xxxxxxxxxxx</p>
+                <div className="px-6 ">
+                    <p className="p-3">4:15pm</p>
+                    <p className="p-3">xxxxxxxxxxx</p>
+                    <p className="p-3"> xx-x</p>
+                    <p className="p-3">35k</p>
                 </div>
-                <div className="flex p-3">
-                    <h4 className="font-bold pr-28">Consultorio</h4>
-                    <p> xx-x</p>
-                </div>
-                <div className="flex p-3">
-                    <h4 className="font-bold pr-44">Valor</h4>
-                    <p>35k</p>
-                </div>
+
             </div>
         </article>
     )

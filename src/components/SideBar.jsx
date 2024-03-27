@@ -35,8 +35,8 @@ const SideBar = () => {
         setOpen(open === value ? 0 : value);
     };
     return (
-        <div className="mr-80">
-            <div className="h-screen max-w-[20rem] fixed p-4 shadow-xl bg-primary-blue text-white ">
+        <div className="lg:mr-80">
+            <div className="h-screen max-w-[20rem] fixed hidden p-4 shadow-xl bg-primary-blue text-white lg:block">
                 <div className="mb-2 p-4">
                     <img src={LOGO_YELLOW_IPS} alt="" />
                 </div>

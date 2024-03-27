@@ -39,7 +39,7 @@ const ScheduleAppointment = () => {
                     </section>
                     <section className="flex justify-center">
                         <div className="flex flex-col">
-                            <h2 className="text-gray-700 p-1">Fecha y hora</h2>
+                            <h2 className="text-gray-700 pb-1">Fecha y hora</h2>
                             <Calendar />
                         </div>
                         {/* AQUI SE LLAMA API Y MIRA LAS HORAS DISPONIBLES */}
@@ -78,7 +78,7 @@ const ScheduleAppointment = () => {
                     <div className=" bg-gray-400 w-16 h-0.5" /><h1 className="italic font-light px-8 text-nowrap text-xl">Informacion del paciente</h1><div className="w-full h-0.5 bg-gray-400" />
                 </div>
                 <form action="">
-                    <section className="flex p-8">
+                    <section className="flex px-3 mx-16 mt-7" >
                         <div className="flex flex-col w-1/4 mr-48">
                             <div className="flex flex-col p-2">
                                 <label>Nombres</label>
@@ -95,7 +95,7 @@ const ScheduleAppointment = () => {
                         </div>
                         <div className="flex flex-col">
                             <div className="flex mb-1">
-                                <div className="flex flex-col p-2 ml-1">
+                                <div className="flex flex-col p-2 ">
                                     <label>Tipo de documento</label>
                                     <select className="border-gray-400 border rounded-lg h-8" type="" >
                                         <option disabled selected value="">Selecciona una opción</option>
@@ -116,8 +116,8 @@ const ScheduleAppointment = () => {
                             </div>
                         </div>
                     </section>
-                    <section className="w-full flex justify-end px-32">
-                        <button className="bg-secondary-blue rounded-lg px-14 py-2 text-white">
+                    <section className="w-full flex justify-end ">
+                        <button className="bg-secondary-blue rounded-lg px-14 py-2 text-white text-2xl">
                             Continuar
                         </button>
                     </section>
