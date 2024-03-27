@@ -12,6 +12,8 @@ import Footer from '../../components/Footer.jsx'
 import BLUE_DIVISION from '../../assets/svg/others/BlueDivision.svg'
 import EspecialtyCard from '../../components/EspecialtyCard.jsx'
 import ServiceCard from '../../components/ServiceCard.jsx'
+import { services } from '../../data/Services.data.js'
+
 /**
  * This section contains tha main page
  * @returns {Component} Dashboard
@@ -62,10 +64,14 @@ const Dashboard = () => {
                     <h1 className='font-bold text-4xl'>Especialidaes</h1>
                 </div>
                 <div className=' grid grid-flow-col grid-rows-2  2xl:flex 2xl:justify-between justify-evenly '>
-                    <ServiceCard />
-                    <ServiceCard />
-                    <ServiceCard />
-                    <ServiceCard />
+                    {Object.keys(services).slice(0,4).map(key => (
+                        <ServiceCard
+                            key={key}
+                            title={services[key].title}
+                            summary={services[key].description}
+                            img={services[key].imgRelated}
+                        />
+                    ))}
 
 
 

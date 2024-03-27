@@ -1,6 +1,9 @@
 import NavBar from '../../components/NavBar.jsx'
 import NURSE from '../../assets/img/people/nurseServices.png'
 import ServiceCard from '../../components/ServiceCard.jsx'
+import { services } from '../../data/Services.data.js'
+import Footer from '../../components/Footer.jsx'
+import SERVICES_BACKGROUND from '../../assets/img/backgrounds/ServicesBackground.png'
 /**
  * This section contains the services of the app
  * @returns {Component} Services
@@ -50,22 +53,30 @@ const Services = () => {
 
                 </section>
                 {/* SERVICIOS */}
-                <section className='w-full flex justify-center'>
-                    <div className='grid grid-cols-3 gap-28 px-48 mt-12'>
-                        <ServiceCard />
-                        <ServiceCard />
-                        <ServiceCard />
-                        <ServiceCard />
-                        <ServiceCard />
-                        <ServiceCard />
+                <section className='w-full flex flex-col justify-center mx-auto'>
+                    <div className='grid grid-cols-3 gap-x-44 mx-auto mt-12'>
+                        {Object.keys(services).map(key => (
+                            <ServiceCard
+                                key={key}
+                                title={services[key].title}
+                                summary={services[key].description}
+                                img={services[key].imgRelated}
+                            />
+                        ))}
                     </div>
-                    <div>
 
-                    </div>
-
-
+                    <section >
+                        <div className='w-full'>
+                            <img className="w-full h-full object-contain" src={SERVICES_BACKGROUND} alt="Doctor Smiling" />
+                        </div>
+                        <h1 className='px-40 py-14'>Donec vitae sapien ut libero venenatis faucibus.
+                            Nullam quis ante. Etiam sit amet orci eget eros
+                            faucibus tincidunt. Duis leo. Sed fringilla
+                            mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.</h1>
+                    </section>
                 </section>
 
+                <Footer />
 
             </main>
         </>
