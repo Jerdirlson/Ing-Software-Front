@@ -10,7 +10,7 @@ import TWITTER_ICON from '../assets/svg/icons/social/twitter.svg'
 
 const Footer = () => {
     return (
-        <footer className='w-full bg-gradient-to-b from-aux-1-blue to-aux-2-blue flex text-xs items-center justify-between px-12 lg:px-16 xl:px-24 2xl:px-28 py-4 text-white 2xl:text-sm'>
+        <footer className='w-full bg-gradient-to-b from-aux-1-blue to-aux-2-blue grid grid-cols-2 sm:grid-cols-3 text-xs p-4 lg:flex lg:items-center lg:justify-between md:px-12 lg:px-16 xl:px-24 2xl:px-28 text-white 2xl:text-sm'>
             <div className='flex flex-col justify-center mx-2 text-justify'>
                 <h2 className="mb-2 font-bold">Contacto</h2>
                 <ul className="flex flex-col text-nowrap">
@@ -21,8 +21,8 @@ const Footer = () => {
                 </ul>
 
             </div>
-            <div className='flex items-center justify-center mx-2 p-2'>servicioalcliente@saludpro.ips.com</div>
-            <div className='flex flex-col justify-center mx-2 text-nowrap'>
+            <div className='flex items-center justify-center mx-2 p-2'><a href="#" className='hover:underline hover:decoration-white'>servicioalcliente@saludpro.ips.com</a></div>
+            <div className='flex flex-col justify-center sm:items-center mx-2 text-nowrap lg:items-start'>
                 <h1 className="font-bold">Sedes</h1>
                 <p>Calle 45 No. 55 - 65</p>
                 <p>Bucaramanga, Colombia.</p>
@@ -52,13 +52,13 @@ const Footer = () => {
                     <h2 className='font-bold'>Siguenos en nuestras redes</h2>
                 </div>
                 <div className='mt-1 flex justify-evenly'>
-                    <a href="/">
+                    <a className="hover:scale-125 hover:rotate-12 duration-300" href="/">
                         <img className='w-5' src={INSTAGRAM_ICON} />
                     </a>
-                    <a href="/">
+                    <a className="hover:scale-125 hover:rotate-12 duration-300" href="/">
                         <img className='w-5' src={FACEBOOK_ICON} />
                     </a>
-                    <a href="/">
+                    <a className="hover:scale-125 hover:rotate-12 duration-300" href="/">
                         <img className='w-5' src={TWITTER_ICON} />
                     </a>
                 </div>
