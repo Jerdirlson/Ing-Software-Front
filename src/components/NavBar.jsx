@@ -104,7 +104,7 @@ const NavBar = () => {
                                                         href="#"
                                                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-black')}
                                                     >
-                                                        {user.nameUser}
+                                                        {user.user.nameUser}
                                                     </a>
                                                 )}
                                             </Menu.Item> : ''}

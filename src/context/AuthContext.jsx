@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
     const signinContext = async (user) => {
         try {
             const res = await signin(user)
-            console.log(res)
+            console.log(res.user)
             setIsAuthenticated(true)
             setUser(res)
             console.log('asasd')
