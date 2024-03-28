@@ -59,11 +59,11 @@ const Dashboard = () => {
             </main >
             {/* 2 SECCIÓN = SPECIALTIES*/}
 
-            <section className='bg-white px-28 mt-44 py-12 sm:m-0 lg:px-24 2xl:px-48'>
+            <section className='bg-white mt-44 px-28 py-12 pb-0 sm:pb-12 sm:m-0 lg:px-24 2xl:px-48'>
                 <div className='flex justify-center mb-12'>
-                    <h1 className='font-bold text-4xl'>Especialidaes</h1>
+                    <h1 className='font-bold text-4xl'>Especialidades</h1>
                 </div>
-                <div className=' grid grid-flow-col grid-rows-2 2xl:flex 2xl:justify-between justify-evenly '>
+                <div className='hidden sm:grid sm:grid-flow-col sm:grid-rows-2 sm:justify-evenly 2xl:flex 2xl:justify-between  '>
                     {Object.keys(services).slice(0, 4).map(key => (
                         <ServiceCard
                             key={key}
@@ -73,7 +73,17 @@ const Dashboard = () => {
                         />
                     ))}
                 </div>
-                <div className='hidden sm:block sm:mt-12'>
+                <div className='flex flex-col w-full items-center sm:hidden'>
+                    {Object.keys(services).slice(0, 2).map(key => (
+                        <ServiceCard
+                            key={key}
+                            title={services[key].title}
+                            summary={services[key].description}
+                            img={services[key].imgRelated}
+                        />
+                    ))}
+                </div>
+                <div className='hidden sm:block lg:mt-12'>
                     <p className='text-lg text-black'>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor.
                         Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
@@ -161,7 +171,7 @@ const Dashboard = () => {
                         <img src={SYRINGE_IMAGE} alt="" className='w-full h-full object-cover' />
                     </aside>
                     <div className='p-4 flex justify-center flex-col text-pretty'>
-                        <h1 className='text-black text-xl 2xl:text-2xl'>
+                        <h1 className='font-medium text-black text-xl 2xl:text-2xl'>
                             Horarios de atención
                         </h1>
                         <p className='mb-6 text-xs xl:text-sm 2xl:text-base'>
@@ -180,7 +190,7 @@ const Dashboard = () => {
                     </div>
 
                 </div>
-                <p className='text-xs md:hidden'>
+                <p className='py-2 text-xs md:hidden'>
                     Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
                     aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
                     imperdiet a, venenatis vitae, justo. Nullam dictum felis eu

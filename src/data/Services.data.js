@@ -1,31 +1,39 @@
+import FISIOTERAPIA_IMG from '../assets/img/ServiciosImg/Fisioterapia.png';
+import NUTRICION_IMG from '../assets/img/ServiciosImg/Nutricion.png';
+import ODONTOLOGIA_IMG from '../assets/img/ServiciosImg/Odontologia.png';
+import PEDIATRIA_IMG from '../assets/img/ServiciosImg/Pediatria.png';
+import FONOAUDILOGIA_IMG from '../assets/img/ServiciosImg/Fonoaudiologia.png';
+import CARDIOLOGIA_IMG from '../assets/img/ServiciosImg/Cardiologia.png';
+
+
 export const services = {
     service1: {
         title: 'Fisioterapia',
         description: 'Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi',
-        imgRelated: ''
+        imgRelated: FISIOTERAPIA_IMG
     },
     service2: {
         title: 'Nutrición',
         description: 'Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi',
-        imgRelated: ''
+        imgRelated: NUTRICION_IMG
     },
     service3: {
         title: 'Odontologia',
         description: 'Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi',
-        imgRelated: ''
+        imgRelated: ODONTOLOGIA_IMG
     },
     service4: {
         title: 'Pediatria',
         description: 'Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi',
-        imgRelated: ''
+        imgRelated: PEDIATRIA_IMG
     }, service5: {
         title: 'Fonoaudiologia',
         description: 'Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi',
-        imgRelated: ''
+        imgRelated: FONOAUDILOGIA_IMG
     },
     service6: {
         title: 'Cardiologia',
         description: 'Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi',
-        imgRelated: ''
+        imgRelated: CARDIOLOGIA_IMG
     },
 }
