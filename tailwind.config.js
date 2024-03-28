@@ -19,8 +19,6 @@ export default {
         'imagen-fondo-login': "url('./src/assets/img/backgrounds/Background_Login.png')",
         'imagen-fondo-dashboard-pc': "url('./src/assets/img/backgrounds/BackGround_PC.png')",
         'imagen-fondo-dashboard-movil': "url('./src/assets/img/backgrounds/BackGround_PHONE.png')",
-
-
       },
       boxShadow: {
         'customNav': '0 6px 12px 0 rgba(0, 0, 0, 0.25)',
