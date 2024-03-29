@@ -13,7 +13,7 @@ const NotFound = () => {
                         <img src={WISIN} alt="" className="w-full h-full object-cover"/> 
                     </div>
                     <div className='flex items-center flex-col'>
-                        <h1 className='font-bold text-5xl'>Página no encontrada</h1>
+                        <h1 className='font-bold text-3xl sm:text-5xl'>Página no encontrada</h1>
                         <h2 className='text-2xl font-normal'>Error-404</h2>
                     </div>
                     
