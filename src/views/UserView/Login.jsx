@@ -7,9 +7,9 @@ import ARROW_TO_BACK from '../../assets/svg/icons/ArrowBack.svg'
 const Login = () => {
     return (
         <main className="flex items-center justify-center flex-col h-screen  bg-imagen-fondo-login bg-cover" >
-            <div className='absolute top-0 left-0 px-10 py-4'>
+            <div className='absolute top-0 left-0 px-4 sm:px-10 py-4'>
                 <a href="/">
-                    <img src={ARROW_TO_BACK} alt="arrow_to_back" className='w-11 h-11 hover:size-12' />
+                    <img src={ARROW_TO_BACK} alt="arrow_to_back" className='w-9 h-9 2xl:w-11 2xl:h-11 hover:scale-110' />
                 </a>
             </div>
             <div id="test" className='flex items-center justify-center flex-col h-screen '>

@@ -16,10 +16,10 @@ const LoginCard = () => {
     const { register, handleSubmit, formState: { errors }, watch } = useForm({
         resolver: zodResolver(userSchema),
     })
-    const {signinContext} = useAuth()
+    const { signinContext } = useAuth()
     const onSubmit = handleSubmit(data => signinContext(data))
     return (
-        <article className="bg-white rounded-2xl text-black flex flex-col items-center justify-evenly box-border p-4 " style={{ width: '370px', height: '420px' }}>
+        <article className="bg-white rounded-2xl text-black flex flex-col items-center justify-evenly box-border p-4 w-80 sm:w-[370px] sm:h-[420px]">
             <header>
                 <div className="flex items-center justify-center w-64 p-2 mt-2">
                     <img src={LOGO_BLUE_IPS} alt="logo_ips" />
