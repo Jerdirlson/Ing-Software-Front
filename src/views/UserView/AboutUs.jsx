@@ -4,6 +4,9 @@ import { aboutUs } from '../../data/AboutUs.data'
 import NavBar from '../../components/NavBar'
 import Footer from '../../components/Footer'
 import { useState } from 'react'
+import MISION_IMG from '../../assets/svg/icons/aboutUs/mision.svg'
+import VISION_IMG from '../../assets/svg/icons/aboutUs/vision.svg'
+import OBJETIVO_IMG from '../../assets/svg/icons/aboutUs/objetivo.svg'
 
 /**
  * This section contains the information about the IPS 
@@ -98,14 +101,17 @@ const AboutUs = () => {
 
                 <section className="flex flex-col items-center">
                     <div className='flex p-10'>
-                        <button className={`overflow-hidden rounded-full w-32 h-32 mx-20 ${activeButton === "mision" ? "scale-110 shadow-2xl" : ""}`} onClick={() => handleInfo("mision")}>
-                            <img className="w-full h-full object-cover" src="https://i.pinimg.com/564x/21/66/09/21660951a46544a515b183040acb502c.jpg" alt="" />
+                        <button className={`flex flex-col items-center justify-center overflow-hidden rounded-full w-52 h-52 mx-20 ${activeButton === "mision" ? "scale-110 shadow-2xl" : ""}`} onClick={() => handleInfo("mision")}>
+                            <img className="w-1/2 h-1/2 ml-6" src={MISION_IMG} alt="" />
+                            <h3 className='textl-xl text-black font-bold'>Misión</h3>
                         </button>
-                        <button className={`overflow-hidden rounded-full w-32 h-32 mx-20 ${activeButton === "vision" ? "scale-110 shadow-2xl" : ""}`} onClick={() => handleInfo("vision")}>
-                            <img className="w-full h-full object-cover" src="https://i.pinimg.com/564x/29/71/c9/2971c9b35bfcca2a03dac13800e51e93.jpg" alt="" />
+                        <button className={`flex flex-col items-center justify-center overflow-hidden rounded-full w-52 h-52 mx-20 ${activeButton === "vision" ? "scale-110 shadow-2xl" : ""}`} onClick={() => handleInfo("vision")}>
+                            <img className="w-1/2 h-1/2 " src={VISION_IMG} alt="" />
+                            <h3 className='textl-xl text-black font-bold'>Visión</h3>
                         </button>
-                        <button className={`overflow-hidden rounded-full w-32 h-32 mx-20 ${activeButton === "objetivo" ? "scale-110 shadow-2xl" : ""}`} onClick={() => handleInfo("objetivo")}>
-                            <img className="w-full h-full object-cover" src="https://i.pinimg.com/564x/61/2c/09/612c099e01825c92e48182b807643ba5.jpg" alt="" />
+                        <button className={`flex flex-col items-center justify-center overflow-hidden rounded-full w-52 h-52 mx-20 ${activeButton === "objetivo" ? "scale-110 shadow-2xl" : ""}`} onClick={() => handleInfo("objetivo")}>
+                            <img className="w-1/2 h-1/2 " src={OBJETIVO_IMG} alt="" />
+                            <h3 className='textl-xl text-black font-bold'>Objetivo</h3>
                         </button>
                     </div>
                     <div className='mt-6 mb-24'>
