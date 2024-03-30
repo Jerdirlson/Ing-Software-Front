@@ -1,58 +1,15 @@
-import { useEffect, useState } from "react"
 import Calendar from "../../components/Calendar"
-import { useForm } from "react-hook-form"
-import update_Hours from "../../services/appointments/updateHours.service"
-import add_appointment from "../../services/appointments/appointment.service"
 import { Sites } from "../../data/Sites.data"
+import useAppointmentScheduler from "../../hooks/useAppointmentScheduler.js"
 
+
+const className = `border-gray-400 border rounded-lg h-8 p-1`
 /**
  * 
- * @returns 
+ * @returns {Component} Add appointment view component
  */
-const className = `border-gray-400 border rounded-lg h-8 p-1`
-
 const ScheduleAppointment = () => {
-    const { register, handleSubmit } = useForm()
-    const [selectedDate, setSelectedDate] = useState(null); // Estado para la fecha seleccionada
-    const [hoursAvailable, setHoursAvailable] = useState(null)
-
-    const defineDate = () => {
-        const year = selectedDate ? selectedDate.$y : null;
-        const month = selectedDate ? selectedDate.$M + 1 : null; // El mes es zero-based, por eso sumamos 1
-        const day = selectedDate ? selectedDate.$D : null;
-        return (`${year}-${month}-${day}`)
-    }
-    useEffect(() => {
-
-        const updateHours = async () => {
-            const date = defineDate()
-            if (date == "null-null-null") {
-                return ''
-            }
-            console.log(date)
-            try {
-                const res_hours = await update_Hours(date);
-                console.log('pipipiip', res_hours.schedule);
-                setHoursAvailable(res_hours.schedule)
-                console.log('-', hoursAvailable)
-                if (!res_hours) return console.log('kakakakakakakakak')
-            } catch (error) {
-                throw new Error('Error updating hours: ' + error.message)
-
-            }
-        };
-        updateHours()
-    }, [selectedDate]);
-
-    const onSubmit = handleSubmit(async (data) => {
-        console.log("after:", data)
-        selectedDate ? data['dia'] = defineDate() : data['dia'] = ''
-        console.log("before", data)
-        const response = await add_appointment(data)
-        console.log(response)
-
-    }
-    )
+    const { register, onSubmit, setSelectedDate, hoursAvailable } = useAppointmentScheduler();    // Custom hook
     return (
         <>
             <main className="w-full flex flex-col p-16">
