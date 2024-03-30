@@ -1,23 +1,23 @@
 const host = import.meta.env.VITE_HOST
 /**
  * @async 
- *  takes the token from a cookie and calls the server
- * @returns a json object (USER), otherwise catches the error
+ *  brings the available hours
+ * @returns a json object (hours), otherwise catches the error
  * @param {*} data 
  */
-export default async function verifyTokenRequest(token) {
+export default async function update_Hours(date) {
     try {
-        const response = await fetch(`${host}auth/profile`, { // Ajuste en la URL para llamar al endpoint 'signin'
+        console.log(typeof (date))
+        console.log("THE DATE:", date)
+        const response = await fetch(`${host}appointments/getFechaAvailable?date=${date}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                'auth-token': token,
-
             },
             credentials: "include"
         })
         if (!response.ok) {
-            throw new Error('Error al iniciar sesión');
+            throw new Error('Error al traer la informacion');
         }
 
         const jsonResponse = await response.json();
@@ -27,5 +27,10 @@ export default async function verifyTokenRequest(token) {
         // Manejar errores de red o de análisis JSON
         console.error('Error al procesar la solicitud:', error);
     }
-
 }
+
+
+
+
+
+

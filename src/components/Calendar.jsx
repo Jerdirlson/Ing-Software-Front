@@ -4,8 +4,8 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import dayjs from 'dayjs';
 
-const Calendar = () => {
-  const [selectedDate, setSelectedDate] = useState(dayjs());
+const Calendar = ({ setSelectedDate }) => {
+  const [selectedDate, setSelectedDateState] = useState(dayjs());
   console.log("Sissi", selectedDate);
 
 
@@ -20,13 +20,14 @@ const Calendar = () => {
     const isSelected = dayjs(selectedDate).isSame(date, 'day');
     console.log("Is selected: ", isSelected);
     return {
-      onClick: () => isSelectable && setSelectedDate(date),
+      onClick: () => isSelectable && setSelectedDateState(date),
       selected: isSelected,
       disabled: !isSelectable
     };
   };
 
   const handleDateChange = (newDate) => {
+    setSelectedDateState(newDate);
     setSelectedDate(newDate);
   };
 

@@ -1,14 +1,14 @@
 const host = import.meta.env.VITE_HOST
 /**
  * @async 
- *  takes the token from a cookie and calls the server
- * @returns a json object (USER), otherwise catches the error
+ *  sends the data (user) to the server 
+ * @returns 'true' if data matches with server info, otherwise catches the error
  * @param {*} data 
  */
 export default async function signin(data) {
     console.log(data)
     try {
-        const response = await fetch(`${host}api/auth/signin`, { // Ajuste en la URL para llamar al endpoint 'signin'
+        const response = await fetch(`${host}auth/signin`, { // Ajuste en la URL para llamar al endpoint 'signin'
             method: "POST",
             body: JSON.stringify(data), // data is the user object
             headers: {

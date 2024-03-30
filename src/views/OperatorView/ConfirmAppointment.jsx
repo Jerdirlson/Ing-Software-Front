@@ -1,5 +1,5 @@
 import InfoAppointment from "../../components/Appointment/InfoAppointment"
-import InputField from "../../components/Appointment/InputField"
+const className = `border-gray-400 border rounded-lg h-8 p-1`
 
 /**
  * 
@@ -16,7 +16,7 @@ const ConfirmAppointment = () => {
                     </header>
                     <section className="flex flex-col p-4">
                         <h2 className="text-2xl">Numero de documento</h2>
-                        <InputField type={"text"} name={"Cedula de Ciudadania"} size={"w-1/3"} />
+                        <input className={`${className} w-1/3`} type={"text"} name={"Cedula de Ciudadania"} />
                         {/* <input className="w-1/3 border border-gray-400 rounded-lg " type="text" name="CC" id="" /> */}
                     </section>
                     {/* CALL API TO INFO */}

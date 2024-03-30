@@ -109,7 +109,7 @@ const AboutUs = () => {
                         </button>
                     </div>
                     <div className='mt-6 mb-24'>
-                        <p className='px-64'>
+                        <p className='px-64 h-24'>
                             {
                                 info ? info.description : 'Haz click en las imagenes para ver información'
                             }
