@@ -101,15 +101,15 @@ const AboutUs = () => {
 
                 <section className="flex flex-col items-center">
                     <div className='flex p-10'>
-                        <button className={`flex flex-col items-center justify-center overflow-hidden rounded-full w-52 h-52 mx-20 ${activeButton === "mision" ? "scale-110 shadow-2xl" : ""}`} onClick={() => handleInfo("mision")}>
+                        <button className={`flex flex-col items-center justify-center overflow-hidden rounded-full w-52 h-52 mx-20 ${activeButton === "mision" ? "scale-110 shadow-2xl duration-300" : ""}`} onClick={() => handleInfo("mision")}>
                             <img className="w-1/2 h-1/2 ml-6" src={MISION_IMG} alt="" />
                             <h3 className='textl-xl text-black font-bold'>Misión</h3>
                         </button>
-                        <button className={`flex flex-col items-center justify-center overflow-hidden rounded-full w-52 h-52 mx-20 ${activeButton === "vision" ? "scale-110 shadow-2xl" : ""}`} onClick={() => handleInfo("vision")}>
+                        <button className={`flex flex-col items-center justify-center overflow-hidden rounded-full w-52 h-52 mx-20 ${activeButton === "vision" ? "scale-110 shadow-2xl duration-300" : ""}`} onClick={() => handleInfo("vision")}>
                             <img className="w-1/2 h-1/2 " src={VISION_IMG} alt="" />
                             <h3 className='textl-xl text-black font-bold'>Visión</h3>
                         </button>
-                        <button className={`flex flex-col items-center justify-center overflow-hidden rounded-full w-52 h-52 mx-20 ${activeButton === "objetivo" ? "scale-110 shadow-2xl" : ""}`} onClick={() => handleInfo("objetivo")}>
+                        <button className={`flex flex-col items-center justify-center overflow-hidden rounded-full w-52 h-52 mx-20 ${activeButton === "objetivo" ? "scale-110 shadow-2xl duration-300" : ""}`} onClick={() => handleInfo("objetivo")}>
                             <img className="w-1/2 h-1/2 " src={OBJETIVO_IMG} alt="" />
                             <h3 className='textl-xl text-black font-bold'>Objetivo</h3>
                         </button>
