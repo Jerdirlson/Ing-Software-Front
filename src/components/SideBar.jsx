@@ -22,7 +22,7 @@ import {
 import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import LOGO_YELLOW_IPS from '../assets/img/logos/LogoIps_Mesa de trabajo 1.png'
 import { operatorNavigation } from "../utils/Routes.routes"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 /**
  * Contains the side menu of the operator options
@@ -30,9 +30,15 @@ import { Link } from "react-router-dom";
  */
 const SideBar = () => {
     const [open, setOpen] = React.useState(0);
+    const navigate = useNavigate();
+
 
     const handleOpen = (value) => {
         setOpen(open === value ? 0 : value);
+    };
+    const handleItemClick = (category) => {
+        navigate("/management/schedule", { state: { category } });
+
     };
     return (
         <div className="lg:mr-80">
@@ -83,25 +89,37 @@ const SideBar = () => {
                         </ListItem>
                         <AccordionBody className="py-1">
                             <List className="p-0 text-white">
-                                <ListItem>
+                                <ListItem onClick={() => handleItemClick("General")}>
                                     <ListItemPrefix>
                                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                                     </ListItemPrefix>
                                     General
                                 </ListItem>
-                                <ListItem>
+                                <ListItem onClick={() => handleItemClick("Fisioterapia")}>
                                     <ListItemPrefix>
                                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                                     </ListItemPrefix>
                                     Fisioterapia
                                 </ListItem>
-                                <ListItem>
+                                <ListItem onClick={() => handleItemClick("Cardiologia")}>
                                     <ListItemPrefix>
                                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                                     </ListItemPrefix>
                                     Cardiologia
                                 </ListItem>
-                                <ListItem>
+                                <ListItem onClick={() => handleItemClick("Odontologia")}>
+                                    <ListItemPrefix>
+                                        <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                                    </ListItemPrefix>
+                                    Odontologia
+                                </ListItem>
+                                <ListItem onClick={() => handleItemClick("Nutricion")}>
+                                    <ListItemPrefix>
+                                        <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                                    </ListItemPrefix>
+                                    Nutricion
+                                </ListItem>
+                                <ListItem onClick={() => handleItemClick("Fonoaudiologia")}>
                                     <ListItemPrefix>
                                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                                     </ListItemPrefix>
@@ -119,7 +137,7 @@ const SideBar = () => {
                         </ListItem>
                     </Link>
                 </List>
-                
+
             </div>
         </div>
     )
