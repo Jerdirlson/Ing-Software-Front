@@ -33,10 +33,24 @@ const RescheduleFormAppointment = () => {
             <h2 className="italic my-14">Información de paciente</h2>
             <form action="">
                 <section className="flex border-l-2 border-gray-400 pl-8">
-                    <div className="w-1/4 mr-32">
-                        <h3 className="font-normal">Fecha y hora</h3>
-                        <Calendar />
-                    </div>
+                    <section className="flex justify-center mr-12 ">
+                        <div className="flex flex-col">
+                            <h2 className="text-gray-700 pb-1">Fecha y hora</h2>
+                            <Calendar />
+                        </div>
+                        {/* AQUI SE LLAMA API Y MIRA LAS HORAS DISPONIBLES */}
+                        <div className="flex flex-col px-4 mx-2 translate-y-12">
+                            <h2 className="font-light p-1 text-nowrap">Horas disponibles:</h2>
+
+                            {/* <select name="" id=""{...register('hora')}>
+                                <option disabled defaultValue={"Seleccione una hora"} value="">Seleccione una hora</option>
+                                {hoursAvailable &&
+                                    hoursAvailable.map((horaItem, index) => (
+                                        <option key={index} value={horaItem.value}>{horaItem.hora}</option>
+                                    ))}
+                            </select> */}
+                        </div>
+                    </section>
                     <div className="flex flex-col">
                         <div className="flex">
                             <div className="p-2 mr-32">

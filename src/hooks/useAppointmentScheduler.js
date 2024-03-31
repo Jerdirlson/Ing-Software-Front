@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import update_Hours from '../services/appointments/updateHours.service';
-import add_appointment from '../services/appointments/appointment.service';
+import {add_appointment} from '../services/appointments/appointment.service';
 /**
  * Custom hook for adding an appointment
  * @returns functions for management of adding appointments

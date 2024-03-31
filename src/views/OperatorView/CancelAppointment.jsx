@@ -1,11 +1,20 @@
+import { useForm } from "react-hook-form";
 import InfoAppointment from "../../components/Appointment/InfoAppointment"
+import { cancel_appointment } from "../../services/appointments/appointment.service";
 const className = `border-gray-400 border rounded-lg h-8 p-1`
 
 /**
  * 
  * @returns 
  */
+
 const CancelAppointment = () => {
+    const { register, handleSubmit } = useForm();
+
+    const onSubmit = handleSubmit(async (data) => {
+        const response = await cancel_appointment(data)
+        console.log(response);
+    });
     return (
         <>
             <main className="w-full flex flex-col p-36 ">
@@ -15,8 +24,10 @@ const CancelAppointment = () => {
                         <div className="w-full h-0.5 bg-slate-400" />
                     </header>
                     <section className="flex flex-col p-4">
-                        <h2 className="text-2xl ">Numero de documento</h2>
-                        <input className={`${className} w-1/3`} type={"text"} name={"Cedula de Ciudadania"}/>
+                        <h2 className="text-2xl ">Codigo de Cita</h2>
+                        <form onSubmit={onSubmit}>
+                            <input className={`${className} w-1/3`} type="text" name="Codigo identificador de Cita" {...register('id')} />
+                        </form>
                         {/* <input className="w-1/3 border border-gray-400 rounded-lg " type="text" name="CC" id="" /> */}
                     </section>
                     {/* CALL API TO INFO */}

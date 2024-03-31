@@ -5,12 +5,12 @@ const host = import.meta.env.VITE_HOST
  * @returns a json object (), otherwise catches the error
  * @param {*} data 
  */
-export default async function add_appointment(data) {
+export async function add_appointment(data) {
     console.log(data)
     try {
-        const response = await fetch(`${host}appointments/appointment`, { 
+        const response = await fetch(`${host}appointments/appointment`, {
             method: "POST",
-            body: JSON.stringify(data), 
+            body: JSON.stringify(data),
             headers: {
                 "Content-Type": "application/json",
             },
@@ -30,5 +30,65 @@ export default async function add_appointment(data) {
     }
 
 }
+/**
+ * @async 
+ *  sends data to check an appointment 
+ * @returns a json object (), otherwise catches the error
+ * @param {*} data 
+ */
+export async function confirm_appointment(data) {
+    console.log(data)
+    try {
+        const response = await fetch(`${host}appointments/appointment`, {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include"
 
+        })
+        if (!response.ok) {
+            throw new Error('Error al crear la cita');
+        }
+
+        const jsonResponse = await response.json();
+        console.log("Success:", jsonResponse); // <= True or false <= Response
+        return jsonResponse; // Devolver el resultado de la solicitud 
+    } catch (error) {
+        // Manejar errores de red o de análisis JSON
+        console.error('Error al procesar la solicitud:', error);
+    }
+
+}
+/**
+ * @async 
+ *  sends data to cancel an appointment 
+ * @returns a json object (), otherwise catches the error
+ * @param {*} data 
+ */
+export async function cancel_appointment(data) {
+    console.log(data)
+    try {
+        const response = await fetch(`${host}appointments/deleteAppointemtIdUser/${data.id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include"
+
+        })
+        if (!response.ok) {
+            throw new Error('Error al crear la cita');
+        }
+
+        const jsonResponse = await response.json();
+        console.log("Success:", jsonResponse); // <= True or false <= Response
+        return jsonResponse; // Devolver el resultado de la solicitud 
+    } catch (error) {
+        // Manejar errores de red o de análisis JSON
+        console.error('Error al procesar la solicitud:', error);
+    }
+
+}
 
