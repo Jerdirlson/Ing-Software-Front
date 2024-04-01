@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom"
 import Calendar from "../../components/Calendar"
 import { Sites } from "../../data/Sites.data"
-import useAppointmentScheduler from "../../hooks/useAppointmentScheduler.js"
+import {useAppointmentScheduler} from "../../hooks/useAppointmentScheduler"
 
 
 const className = `border-gray-400 border rounded-lg h-8 p-1`

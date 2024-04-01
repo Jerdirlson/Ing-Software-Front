@@ -1,4 +1,6 @@
 import RescheduleFormAppointment from "../../components/Appointment/RescheduleForm"
+import { useState } from "react"
+import { useInfoAppointment } from "../../hooks/useInfoAppointment"
 const className = `border-gray-400 border rounded-lg h-8 p-1`
 
 /**
@@ -6,7 +8,8 @@ const className = `border-gray-400 border rounded-lg h-8 p-1`
  * @returns 
  */
 const RescheduleAppointment = () => {
-    const yeye = true
+    const { register, cita, onSubmit } = useInfoAppointment()    //cita : peticion al back
+
     return (
         <>
             <main className="w-full flex flex-col p-10">
@@ -15,14 +18,14 @@ const RescheduleAppointment = () => {
                         <h1 className="text-2xl mb-2">Reasignar cita</h1>
                         <div className="w-full h-0.5 bg-gray-500" />
                     </header>
-                    <section className="flex flex-col justify-self-start mt-8">
-                        <h2 className="text-xl">Numero de documento</h2>
-                        <input className={`${className} w-1/3`} type={"text"} name={"Cedula de Ciudadania"}/>
+                    <section className="flex flex-col justify-self-start mt-8 ">
+                        <h2 className="text-xl">Codigo de la cita</h2>
+                        <form onSubmit={onSubmit}>
+                            <input className={`${className} w-1/3`} type={"text"} name={"Codigo de Cita"}{...register("id")} />
+                        </form>
                     </section>
                     {/* CALL API TO INFO */}
-                    {yeye ?  <RescheduleFormAppointment/>: ''}
-
-
+                    {true ? <RescheduleFormAppointment cita={"pepe grillo"} /> : ''}
                 </section>
             </main>
         </>

@@ -1,6 +1,12 @@
 import Calendar from "../Calendar.jsx"
+import { useState } from "react";
+import { useAppointment_ReScheduler } from "../../hooks/useAppointmentScheduler.js";
 
-const RescheduleFormAppointment = () => {
+
+const RescheduleFormAppointment = ({ cita }) => {
+    const { setSelectedDate, hoursAvailable, onSubmit, register } = useAppointment_ReScheduler();    // Custom hook
+    console.log(cita)
+    //     setMedic(cita.medic)
     return (
         <div className="p-4 text-xl font-light">
             <h2 className="mb-4">Información de paciente</h2>
@@ -31,24 +37,23 @@ const RescheduleFormAppointment = () => {
                 </div>
             </section>
             <h2 className="italic my-14">Información de paciente</h2>
-            <form action="">
+            <form onSubmit={onSubmit}>
                 <section className="flex border-l-2 border-gray-400 pl-8">
                     <section className="flex justify-center mr-12 ">
                         <div className="flex flex-col">
                             <h2 className="text-gray-700 pb-1">Fecha y hora</h2>
-                            <Calendar />
+                            <Calendar setSelectedDate={setSelectedDate} />
                         </div>
                         {/* AQUI SE LLAMA API Y MIRA LAS HORAS DISPONIBLES */}
                         <div className="flex flex-col px-4 mx-2 translate-y-12">
                             <h2 className="font-light p-1 text-nowrap">Horas disponibles:</h2>
-
-                            {/* <select name="" id=""{...register('hora')}>
+                            <select name="" id=""{...register('hora')}>
                                 <option disabled defaultValue={"Seleccione una hora"} value="">Seleccione una hora</option>
                                 {hoursAvailable &&
                                     hoursAvailable.map((horaItem, index) => (
                                         <option key={index} value={horaItem.value}>{horaItem.hora}</option>
                                     ))}
-                            </select> */}
+                            </select>
                         </div>
                     </section>
                     <div className="flex flex-col">
@@ -63,17 +68,24 @@ const RescheduleFormAppointment = () => {
                                 <p className="italic">Medicina General</p>
                             </div>
                         </div>
-
                         <div className="p-2">
                             <div>
                                 <h3 className="font-normal">Doctor</h3>
+                                {/* {cita.doctorName} */}
                                 <p className="italic">Yeyas J. Santamaria</p>
+                            </div>
+                        </div>
+                        <div className="p-2">
+                            <div>
+                                <h3 className="font-normal">Id Cita</h3>
+                                {/* {cita.id} */}
+                                <p className="italic">id</p>
                             </div>
                         </div>
 
                     </div>
                     <div className="w-full flex justify-end items-end px-32">
-                        <button className="bg-secondary-blue rounded-lg px-14 py-2 text-white text-2xl">
+                        <button type="submit" className="bg-secondary-blue rounded-lg px-14 py-2 text-white text-2xl">
                             Continuar
                         </button>
                     </div>

@@ -37,7 +37,7 @@ const Calendar = ({ setSelectedDate }) => {
         <DateCalendar
           showDaysOutsideCurrentMonth
           fixedWeekNumber={6}
-          disablePast
+          // disablePast
           shouldDisableDate={(date) => !isSelectableDate(date)}
           date={selectedDate}
           onChange={handleDateChange}
