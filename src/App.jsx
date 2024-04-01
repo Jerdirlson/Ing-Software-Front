@@ -14,6 +14,7 @@ import ConfirmAppointment from './views/OperatorView/ConfirmAppointment.jsx';
 import CancelAppointmnet from './views/OperatorView/CancelAppointment.jsx';
 import RescheduleAppointment from './views/OperatorView/RescheduleAppointment.jsx';
 import ScheduleAppointment from './views/OperatorView/ScheduleAppointment.jsx';
+import UserScheduleAppointment from './views/UserView/ScheduleAppointment.jsx';
 
 /**
  * App structure 'routes'
@@ -32,6 +33,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/nosotros' element={<AboutUs />} />
         <Route path='/citas' element={<Appointments />} />
+        <Route path='/agendamiento' element={<UserScheduleAppointment />} />
         <Route path='/servicios' element={<Services />} />
         <Route path='/historiaclinica' element={<MedicalHistory />} />
         {/* OPERADOR */}
