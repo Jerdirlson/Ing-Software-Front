@@ -1,5 +1,5 @@
-import { useForm } from "react-hook-form";
 import InfoAppointment from "../../components/Appointment/InfoAppointment"
+import { useInfoAppointment } from "../../hooks/useInfoAppointment";
 import { cancel_appointment } from "../../services/appointments/appointment.service";
 const className = `border-gray-400 border rounded-lg h-8 p-1`
 
@@ -9,12 +9,11 @@ const className = `border-gray-400 border rounded-lg h-8 p-1`
  */
 
 const CancelAppointment = () => {
-    const { register, handleSubmit } = useForm();
-
-    const onSubmit = handleSubmit(async (data) => {
-        const response = await cancel_appointment(data)
-        console.log(response);
-    });
+    const { cita, register, onSubmit } = useInfoAppointment()
+    const onClick = async (data) => {
+        console.log(data)
+        cancel_appointment(data)
+    }
     return (
         <>
             <main className="w-full flex flex-col p-36 ">
@@ -31,15 +30,15 @@ const CancelAppointment = () => {
                         {/* <input className="w-1/3 border border-gray-400 rounded-lg " type="text" name="CC" id="" /> */}
                     </section>
                     {/* CALL API TO INFO */}
-                    {
+                    {cita !== null ?
                         <section >
-                            <InfoAppointment />
+                            <InfoAppointment props={cita} />
                             <section className="w-full flex justify-end mt-12">
-                                <button className="bg-red-600 rounded-lg px-32 py-2 text-white text-2xl">
+                                <button onClick={() => onClick(cita.select.response.id)} className="bg-red-600 rounded-lg px-32 py-2 text-white text-2xl">
                                     Cancelar Cita
                                 </button>
                             </section>
-                        </section>}
+                        </section> : ''}
                 </section>
 
 

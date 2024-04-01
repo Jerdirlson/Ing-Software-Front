@@ -10,7 +10,7 @@ export const useInfoAppointment = () => {
         try {
             const response = await get_appointment(data)
             console.log(data)
-            setCita(data)
+            setCita(response)
 
         } catch (error) {
             throw new Error('Error updating hours: ' + error.message);

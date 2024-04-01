@@ -70,7 +70,7 @@ export async function confirm_appointment(data) {
 export async function cancel_appointment(data) {
     console.log(data)
     try {
-        const response = await fetch(`${host}appointments/deleteAppointemtIdUser/${data.id}`, {
+        const response = await fetch(`${host}appointments/deleteAppointemtIdUser/${data}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -95,19 +95,21 @@ export async function cancel_appointment(data) {
 export async function get_appointment(data) {   //DATA => ID CITA
     try {
         console.log(data)
-        const response = await fetch(`${host}appointments/getFechaAvailable?id=${id}`, {
-            method: "GET",
+        const response = await fetch(`${host}appointments/getAppointemId`, {
+            method: "POST",
+            body: JSON.stringify(data),
             headers: {
                 "Content-Type": "application/json",
             },
             credentials: "include"
+
         })
         if (!response.ok) {
-            throw new Error('Error al traer la informacion');
+            throw new Error('Error al crear la cita');
         }
 
         const jsonResponse = await response.json();
-        console.log("Success:", jsonResponse);
+        console.log("Success:", jsonResponse); // <= True or false <= Response
         return jsonResponse; // Devolver el resultado de la solicitud 
     } catch (error) {
         // Manejar errores de red o de análisis JSON

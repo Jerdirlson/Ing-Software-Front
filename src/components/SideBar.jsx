@@ -53,7 +53,7 @@ const SideBar = () => {
                             <ListItemPrefix>
                                 <InboxIcon className="h-5 w-5" />
                             </ListItemPrefix>
-                            Registro de Cita
+                            Confirmacion de Cita
                             <ListItemSuffix>
                                 <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
                             </ListItemSuffix>
