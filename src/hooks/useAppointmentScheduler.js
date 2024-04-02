@@ -47,7 +47,18 @@ export const useAppointmentScheduler = () => {
   const onSubmit = handleSubmit(async (data) => {
     data['dia'] = selectedDate ? defineDate(selectedDate) : '';
     const response = await add_appointment(data);
+    //Objeto recien creado
+    const dataToSendCorreo = {
+      nombreUsuario: `${data.nombre} ${data.apellido}`,
+      fecha: data.fecha,
+      hora: data.hora,
+      nombreSede: data.idSite, //TOCA ACITALZAR
+      nombreMedico: data.medic
+    }
+    //-------------------------
+    const responseCorreo = await send_email(dataToSendCorreo)
     console.log(response);
+    console.log(responseCorreo);
   });
 
   return {
@@ -97,8 +108,8 @@ export const useAppointment_ReScheduler = () => {
     //---
     const correoData = getCorreoData(cita)
     const responseCorreo = await send_email(correoData)
-    console.log(responseCorreo);
 
+    console.log(responseCorreo);
     console.log(response);
   });
 
