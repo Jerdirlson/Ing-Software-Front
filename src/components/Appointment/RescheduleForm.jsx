@@ -69,7 +69,7 @@ const RescheduleFormAppointment = ({ props }) => {
                             <div className="p-2 text-nowrap">
                                 <h3 className="font-normal">Id Cita</h3>
                                 {/* {cita.id} */}
-                                <p className="italic" {...register('id')}>{props.response.id}</p>
+                                <p className="italic">{props.response.id}</p>
                             </div>
                         </div>
                         <div className="flex p-2">

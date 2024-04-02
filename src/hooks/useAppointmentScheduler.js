@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { update_Hours_on_reScheduling, update_Hours_on_scheduling } from '../services/appointments/updateHours.service';
-import { add_appointment } from '../services/appointments/appointment.service';
+import { add_appointment, update_appointment } from '../services/appointments/appointment.service';
 
 
 /**
@@ -90,7 +90,8 @@ export const useAppointment_ReScheduler = () => {
 
   const onSubmit = handleSubmit(async (data) => {
     data['dia'] = selectedDate ? defineDate(selectedDate) : '';
-    const response = await add_appointment(data);
+    data['id'] = cita
+    const response = await update_appointment(data);
     console.log(response);
   });
 
@@ -98,6 +99,7 @@ export const useAppointment_ReScheduler = () => {
     setSelectedDate,
     hoursAvailable,
     register,
-    setCita
+    setCita,
+    onSubmit
   };
 };
