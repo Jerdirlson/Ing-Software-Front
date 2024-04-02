@@ -20,7 +20,7 @@ function classNames(...classes) {
  * @returns {Component} Navbar
  */
 const NavBar = () => {
-    const { user, isAuthenticated, logoutContext } = useAuth()
+    const { userLogin, isAuthenticated, logoutContext } = useAuth()
     return (
 
         <Disclosure as="nav" className="bg-white shadow-customNav fixed top-0 left-0 right-0 z-10">
@@ -103,7 +103,7 @@ const NavBar = () => {
                                                         href="#"
                                                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-black')}
                                                     >
-                                                        {user.user.nameUser}
+                                                        {userLogin.user.nameUser}
                                                     </a>
                                                 )}
                                             </Menu.Item> : ''}

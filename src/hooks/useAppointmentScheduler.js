@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { update_Hours_on_reScheduling, update_Hours_on_scheduling } from '../services/appointments/updateHours.service';
 import { add_appointment, update_appointment } from '../services/appointments/appointment.service';
 import { send_email } from '../services/email.service';
-import { getCorreoData, getFecha } from '../utils/correo';
+import { getCorreoData } from '../utils/correo';
 
 
 /**

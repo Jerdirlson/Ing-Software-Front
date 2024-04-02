@@ -2,7 +2,7 @@ import InfoAppointment from "../../components/Appointment/InfoAppointment"
 import { useInfoAppointment } from "../../hooks/useInfoAppointment";
 import { cancel_appointment } from "../../services/appointments/appointment.service";
 import { send_email } from "../../services/email.service";
-import { getCorreoData, getFecha } from "../../utils/correo";
+import { getCorreoData   } from "../../utils/correo";
 const className = `border-gray-400 border rounded-lg h-8 p-1`
 
 /**

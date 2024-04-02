@@ -1,16 +1,21 @@
-import { Navigate, Outlet, useNavigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useEffect } from "react";
+import { roles } from "../utils/roles";
 
 const ProtectedRouteOperator = () => {
-    const { user, loading } = useAuth();
-
+    const { userLogin, loading } = useAuth();
+    // const pepe = userLogin
+    console.log(userLogin)
+    // console.log(pepe)
+    // console.log(userLogin.user.nameUser);
     useEffect(() => {
-        if (user && user.idRol !== undefined) {
+        // console.log(user.user.id)
+        if (userLogin && userLogin.user.idRol !== undefined) {
             // Aquí puedes realizar cualquier acción una vez que tengas acceso a user.idRol
-            console.log('User role:', user.idRol);
+            console.log('User role:', userLogin.user.idRol);
         }
-    }, [user]); // Solo observamos cambios en user
+    }, [userLogin]); // Solo observamos cambios en user
 
     if (loading) {
         // Muestra un indicador de carga mientras se obtiene la información del usuario
@@ -18,11 +23,11 @@ const ProtectedRouteOperator = () => {
     }
 
     // Verifica si el usuario no está autenticado o si no tiene el rol adecuado
-    if (!user || user.idRol !== 2) {
+    if (!userLogin || userLogin.user.idRol !== roles.OPERATOR) {
         return <Navigate to={'/login'} replace />;
     }
-    useNavigate('/management')
-
+    console.log('sksksk')
+    // useNavigate('/management')
     // Si el usuario está autenticado y tiene el rol adecuado, muestra el contenido protegido
     return <Outlet />;
 };

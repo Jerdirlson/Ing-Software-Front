@@ -1,5 +1,4 @@
 import RescheduleFormAppointment from "../../components/Appointment/RescheduleForm"
-import { useState } from "react"
 import { useInfoAppointment } from "../../hooks/useInfoAppointment"
 const className = `border-gray-400 border rounded-lg h-8 p-1`
 

@@ -1,7 +1,7 @@
 import Login from './views/UserView/Login.jsx'
 import Dashboard from './views/UserView/Dashboard.jsx'
 
-import { BrowserRouter, Route, Routes, redirect } from 'react-router-dom';  // Importando librerias de react-router-dom para el manejo de wards ('/')
+import { BrowserRouter, Route, Routes } from 'react-router-dom';  // Importando librerias de react-router-dom para el manejo de wards ('/')
 import Services from './views/UserView/Services.jsx';
 import AboutUs from './views/UserView/AboutUs.jsx';
 import MedicalHistory from './views/UserView/MedicalHistory.jsx';
@@ -39,14 +39,15 @@ function App() {
         {/* OPERADOR */}
 
 
-        {/* <Route element={<ProtectedRouteOperator />}> */}
-        <Route path='/management/' element={<ManagementPanel />}>
-          <Route path='confirm' element={<ConfirmAppointment />} />
-          <Route path='cancel' element={<CancelAppointmnet />} />
-          <Route path='schedule' element={<ScheduleAppointment />} />
-          <Route path='reschedule' element={<RescheduleAppointment />} />
-
+        <Route element={<ProtectedRouteOperator />}>
+          <Route path='/management/' element={<ManagementPanel />}>
+            <Route path='confirm' element={<ConfirmAppointment />} />
+            <Route path='cancel' element={<CancelAppointmnet />} />
+            <Route path='schedule' element={<ScheduleAppointment />} />
+            <Route path='reschedule' element={<RescheduleAppointment />} />
+          </Route>
         </Route>
+
 
         {/* </Route> */}
 

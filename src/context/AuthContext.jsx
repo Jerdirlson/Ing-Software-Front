@@ -25,48 +25,51 @@ export const useAuth = () => {
  * @returns {Component} AuthContext.Provider that envolves the app 
  * */
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null)
+    const [userLogin, setUserLogin] = useState(null)
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [loading, setLoading] = useState(true)
-
     const signinContext = async (user) => {
         try {
             const res = await signin(user)
             console.log(res.user)
             setIsAuthenticated(true)
-            setUser(res)
+            setUserLogin(res)
             console.log('asasd')
+            
+            // const jsonResponse = await res.json();
+            return true
         } catch (err) {
             console.error(err)
         }
     }
     const logoutContext = async (event) => {
         // Prevenir el redirect al login
-        event.preventDefault(); 
+        event.preventDefault();
         event.stopPropagation();
         //Quitar la cookie del user
         Cookies.remove("token");
-        setUser(null);
+        setUserLogin(null);
         setIsAuthenticated(false);
     };
 
     useEffect(() => {
-        const checkLogin = async () => {
 
+
+        const checkLogin = async () => {
             const cookies = Cookies.get();
             if (!cookies.token) {
                 setIsAuthenticated(false);
                 setLoading(false)
                 return;
             }
-
             try {
                 const res = await verifyTokenRequest(cookies.token);
                 console.log('-', res);
                 if (!res) return setIsAuthenticated(false);
                 setIsAuthenticated(true);
                 setLoading(false)
-                setUser(res);
+                setUserLogin(res);
+
             } catch (error) {
                 setIsAuthenticated(false);
                 setLoading(false)
@@ -79,7 +82,7 @@ export const AuthProvider = ({ children }) => {
         <AuthContext.Provider value={{
             signinContext,
             logoutContext,
-            user,
+            userLogin,
             isAuthenticated,
             loading,
         }}>

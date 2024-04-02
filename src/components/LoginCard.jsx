@@ -1,9 +1,9 @@
-import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { userSchema } from "../validations/userSchema"
 import LOGO_BLUE_IPS from '../assets/img/logos/LogoIpsBlue_Mesa de trabajo 1.png'
 import { useAuth } from '../context/AuthContext'
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -16,8 +16,19 @@ const LoginCard = () => {
     const { register, handleSubmit, formState: { errors }, watch } = useForm({
         resolver: zodResolver(userSchema),
     })
-    const { signinContext } = useAuth()
-    const onSubmit = handleSubmit(data => signinContext(data))
+    const { signinContext, userLogin } = useAuth()
+    const navigate = useNavigate()
+    const onSubmit = handleSubmit(data => {
+        const response = signinContext(data)
+        console.log(response)
+        if (userLogin.user.idRol === 1) {
+            console.log(userLogin.responseModule)
+            response ? navigate(userLogin.responseModule[0].link) : ''
+        } else {
+            console.log('sss')
+            response ? navigate(userLogin.responseModule[1].link) : ''
+        }
+    })
     return (
         <article className="bg-white rounded-2xl text-black flex flex-col items-center justify-evenly box-border p-4 w-80 sm:w-[370px] sm:h-[420px]">
             <header>
