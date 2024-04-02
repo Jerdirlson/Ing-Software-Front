@@ -1,6 +1,8 @@
 import InfoAppointment from "../../components/Appointment/InfoAppointment"
 import { useInfoAppointment } from "../../hooks/useInfoAppointment";
 import { cancel_appointment } from "../../services/appointments/appointment.service";
+import { send_email } from "../../services/email.service";
+import { getCorreoData, getFecha } from "../../utils/correo";
 const className = `border-gray-400 border rounded-lg h-8 p-1`
 
 /**
@@ -10,10 +12,20 @@ const className = `border-gray-400 border rounded-lg h-8 p-1`
 
 const CancelAppointment = () => {
     const { cita, register, onSubmit } = useInfoAppointment()
+
+
     const onClick = async (data) => {
+        // Logica de obtencion de fecha & data to send => correo
+        const correoData = getCorreoData(cita)
+        //---------------------------------------
+        // console.log(fecha[0])
         console.log(data)
+        console.log(correoData)
+        //Llamadas fetch
+        send_email(correoData)
         cancel_appointment(data)
     }
+
     return (
         <>
             <main className="w-full flex flex-col p-36 ">

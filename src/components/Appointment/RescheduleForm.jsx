@@ -6,10 +6,11 @@ import { useEffect } from "react";
 const RescheduleFormAppointment = ({ props }) => {
     const { setSelectedDate, hoursAvailable, onSubmit, register, setCita } = useAppointment_ReScheduler();    // Custom hook
     useEffect(() => {
-        setCita(props.response.idScheduleMedic)
+        setCita(props)
     }, [setSelectedDate]);
 
     console.log(props)
+    
     return (
         <div className="p-4 text-xl font-light">
             <h2 className="mb-4">Información de paciente</h2>

@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { update_Hours_on_reScheduling, update_Hours_on_scheduling } from '../services/appointments/updateHours.service';
 import { add_appointment, update_appointment } from '../services/appointments/appointment.service';
+import { send_email } from '../services/email.service';
+import { getCorreoData, getFecha } from '../utils/correo';
 
 
 /**
@@ -67,7 +69,6 @@ export const useAppointment_ReScheduler = () => {
   const [hoursAvailable, setHoursAvailable] = useState(null);
   const [cita, setCita] = useState(null);
 
-
   useEffect(() => {
     const updateHours_Re_Add = async () => {
       const date = defineDate(selectedDate);
@@ -77,7 +78,7 @@ export const useAppointment_ReScheduler = () => {
       try {
         const data = {
           dia: date,
-          id: cita
+          id: cita.response.idScheduleMedic
         }
         const res_hours = await update_Hours_on_reScheduling(data);
         setHoursAvailable(res_hours.schedule);
@@ -90,8 +91,14 @@ export const useAppointment_ReScheduler = () => {
 
   const onSubmit = handleSubmit(async (data) => {
     data['dia'] = selectedDate ? defineDate(selectedDate) : '';
-    data['id'] = cita
+    data['id'] = cita.response.idScheduleMedic
+
     const response = await update_appointment(data);
+    //---
+    const correoData = getCorreoData(cita)
+    const responseCorreo = await send_email(correoData)
+    console.log(responseCorreo);
+
     console.log(response);
   });
 

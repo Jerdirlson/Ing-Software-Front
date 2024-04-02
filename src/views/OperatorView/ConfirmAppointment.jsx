@@ -1,5 +1,6 @@
 import InfoAppointment from "../../components/Appointment/InfoAppointment"
 import { useInfoAppointment } from "../../hooks/useInfoAppointment"
+import { getCorreoData } from "../../utils/correo"
 const className = `border-gray-400 border rounded-lg h-8 p-1`
 
 /**
@@ -7,7 +8,19 @@ const className = `border-gray-400 border rounded-lg h-8 p-1`
  * @returns 
  */
 const ConfirmAppointment = () => {
-    const { cita ,register ,onSubmit} = useInfoAppointment()
+    const { cita, register, onSubmit } = useInfoAppointment()
+    const onClick = async (data) => {
+        // Logica de obtencion de fecha & data to send => correo
+        const correoData = getCorreoData(cita)
+        //---------------------------------------
+        // console.log(fecha[0])
+        console.log(data)
+        console.log(correoData)
+        //Llamadas fetch
+        // send_email(correoData)
+        // confirm CITA
+    }
+
     return (
         <>
             <main className="w-full flex flex-col p-36">
@@ -24,11 +37,11 @@ const ConfirmAppointment = () => {
                         {/* <input className="w-1/3 border border-gray-400 rounded-lg " type="text" name="CC" id="" /> */}
                     </section>
                     {/* CALL API TO INFO */}
-                    {cita!==null ?
+                    {cita !== null ?
                         <section >
-                            <InfoAppointment props={cita}/>
+                            <InfoAppointment props={cita} />
                             <section className="w-full flex justify-end mt-12">
-                                <button className="bg-secondary-blue rounded-lg px-32 py-2 text-white text-2xl">
+                                <button onClick={() => onClick()} className="bg-secondary-blue rounded-lg px-32 py-2 text-white text-2xl">
                                     Confirmar Llegada
                                 </button>
                             </section>

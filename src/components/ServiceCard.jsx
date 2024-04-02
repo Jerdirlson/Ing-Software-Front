@@ -14,7 +14,7 @@ const ServiceCard = ({ title, summary, img }) => {
                     <h1 className='text-[#0B2D64] font-bold'>{title}</h1>
                     <p>{summary}</p>
                 </div>
-                <div class="absolute -z-10 bg-[#C0F723] -bottom-full h-full w-full p-3 flex flex-col gap-1 group-hover:bottom-0 group-hover:duration-600 duration-500" />
+                <div className="absolute -z-10 bg-[#C0F723] -bottom-full h-full w-full p-3 flex flex-col gap-1 group-hover:bottom-0 group-hover:duration-600 duration-500" />
             </div>
 
         </article>
