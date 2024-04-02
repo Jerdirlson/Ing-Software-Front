@@ -1,39 +1,42 @@
 import Calendar from "../Calendar.jsx"
-import { useState } from "react";
 import { useAppointment_ReScheduler } from "../../hooks/useAppointmentScheduler.js";
+import { useEffect } from "react";
 
 
-const RescheduleFormAppointment = ({ cita }) => {
-    const { setSelectedDate, hoursAvailable, onSubmit, register } = useAppointment_ReScheduler();    // Custom hook
-    console.log(cita)
-    //     setMedic(cita.medic)
+const RescheduleFormAppointment = ({ props }) => {
+    const { setSelectedDate, hoursAvailable, onSubmit, register, setCita } = useAppointment_ReScheduler();    // Custom hook
+    useEffect(() => {
+        setCita(props.response.idScheduleMedic)
+    }, [setSelectedDate]);
+
+    console.log(props)
     return (
         <div className="p-4 text-xl font-light">
             <h2 className="mb-4">Información de paciente</h2>
             <section className="grid grid-cols-3 justify-self-start border-l-2 border-gray-400 pl-8">
                 <div>
                     <h3 className="font-normal">Nombre Completo</h3>
-                    <p className="italic">Juan David Carvajal</p>
+                    <p className="italic">{props.userById.nameUser} {props.userById.lastNameUser}</p>
                 </div>
                 <div>
                     <h3 className="font-normal">Numero de telefono</h3>
-                    <p className="italic">3188210834</p>
+                    <p className="italic">{props.numero.telf}</p>
                 </div>
                 <div>
                     <h3 className="font-normal">Correo electronico</h3>
-                    <p className="italic">correoElectronico@gmail.com</p>
+                    <p className="italic">{props.userById.emailUser}</p>
                 </div>
                 <div>
                     <h3 className="font-normal">EPS</h3>
-                    <p className="italic">EjemploEps</p>
+                    <p className="italic">{props.eps.nameEps}</p>
                 </div>
                 <div>
                     <h3 className="font-normal">Documento</h3>
-                    <p className="italic">937240679</p>
+                    <p className="italic">{props.userById.numId}</p>
                 </div>
                 <div>
-                    <h3 className="font-normal">Tipo</h3>
-                    <p className="italic">Cedula de Ciudadania</p>
+                    <h3 className="font-normal">Lugar</h3>
+                    <p className="italic">{props.site.nameSite}</p>
                 </div>
             </section>
             <h2 className="italic my-14">Información de paciente</h2>
@@ -58,28 +61,22 @@ const RescheduleFormAppointment = ({ cita }) => {
                     </section>
                     <div className="flex flex-col">
                         <div className="flex">
-                            <div className="p-2 mr-32">
-                                <h3 className="font-normal">Atención</h3>
-                                <p className="italic">Presencial</p>
+                            <div className="p-2 mr-32 text-nowrap">
+                                <h3 className="font-normal ">Tipo de Cita</h3>
+                                <p className="italic">{props.service.nameService}</p>
                             </div>
 
                             <div className="p-2 text-nowrap">
-                                <h3 className="font-normal ">Tipo de Cita</h3>
-                                <p className="italic">Medicina General</p>
+                                <h3 className="font-normal">Id Cita</h3>
+                                {/* {cita.id} */}
+                                <p className="italic" {...register('id')}>{props.response.id}</p>
                             </div>
                         </div>
-                        <div className="p-2">
+                        <div className="flex p-2">
                             <div>
                                 <h3 className="font-normal">Doctor</h3>
                                 {/* {cita.doctorName} */}
-                                <p className="italic">Yeyas J. Santamaria</p>
-                            </div>
-                        </div>
-                        <div className="p-2">
-                            <div>
-                                <h3 className="font-normal">Id Cita</h3>
-                                {/* {cita.id} */}
-                                <p className="italic">id</p>
+                                <p className="italic">{props.userMedic.nameUser} {props.userMedic.lastNameUser}</p>
                             </div>
                         </div>
 

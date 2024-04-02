@@ -61,10 +61,12 @@ export const useAppointmentScheduler = () => {
  * @returns functions for management of adding appointments
  */
 export const useAppointment_ReScheduler = () => {
+
   const { register, handleSubmit } = useForm();
   const [selectedDate, setSelectedDate] = useState(null);
   const [hoursAvailable, setHoursAvailable] = useState(null);
-  const [medic, setMedic] = useState("Christian");
+  const [cita, setCita] = useState(null);
+
 
   useEffect(() => {
     const updateHours_Re_Add = async () => {
@@ -74,8 +76,8 @@ export const useAppointment_ReScheduler = () => {
       }
       try {
         const data = {
-          date: date,
-          medic: "Christian"
+          dia: date,
+          id: cita
         }
         const res_hours = await update_Hours_on_reScheduling(data);
         setHoursAvailable(res_hours.schedule);
@@ -86,16 +88,16 @@ export const useAppointment_ReScheduler = () => {
     updateHours_Re_Add();
   }, [selectedDate]);
 
-  // const onSubmit = handleSubmit(async (data) => {
-  //   data['dia'] = selectedDate ? defineDate() : '';
-  //   const response = await add_appointment(data);
-  //   console.log(response);
-  // });
+  const onSubmit = handleSubmit(async (data) => {
+    data['dia'] = selectedDate ? defineDate(selectedDate) : '';
+    const response = await add_appointment(data);
+    console.log(response);
+  });
 
   return {
-    setMedic,
     setSelectedDate,
     hoursAvailable,
-    register
+    register,
+    setCita
   };
 };

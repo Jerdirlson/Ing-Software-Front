@@ -117,4 +117,29 @@ export async function get_appointment(data) {   //DATA => ID CITA
     }
 
 }
+export async function update_appointment(data) {   //DATA => ID CITA, DIA, HORA
+    try {
+        console.log(data)
+        const response = await fetch(`${host}appointments/updAppointemtIdUser`, {
+            method: "PUT",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include"
+
+        })
+        if (!response.ok) {
+            throw new Error('Error al crear la cita');
+        }
+
+        const jsonResponse = await response.json();
+        console.log("Success:", jsonResponse); // <= True or false <= Response
+        return jsonResponse; // Devolver el resultado de la solicitud 
+    } catch (error) {
+        // Manejar errores de red o de análisis JSON
+        console.error('Error al procesar la solicitud:', error);
+    }
+
+}
 

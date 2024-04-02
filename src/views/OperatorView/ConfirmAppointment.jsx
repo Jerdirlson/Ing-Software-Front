@@ -17,7 +17,7 @@ const ConfirmAppointment = () => {
                         <div className="w-full h-0.5 bg-slate-400" />
                     </header>
                     <section className="flex flex-col p-4">
-                        <h2 className="text-2xl">Numero de documento</h2>
+                        <h2 className="text-2xl">Codigo de cita</h2>
                         <form onSubmit={onSubmit}>
                             <input className={`${className} w-1/3`} type={"text"} name={"Codigo identificador de Cita"} {...register('id')} />
                         </form>

@@ -25,7 +25,7 @@ const RescheduleAppointment = () => {
                         </form>
                     </section>
                     {/* CALL API TO INFO */}
-                    {true ? <RescheduleFormAppointment cita={"pepe grillo"} /> : ''}
+                    {cita !== null ? <RescheduleFormAppointment props={cita.select} /> : ''}
                 </section>
             </main>
         </>

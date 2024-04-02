@@ -38,7 +38,7 @@ export async function update_Hours_on_reScheduling(data) {
     try {
         console.log(typeof (data))
         console.log("THE DATE:", data)
-        const response = await fetch(`${host}appointments/getFechaAvailableDoc?date=${data.date}&medic=${data.medic}`, {
+        const response = await fetch(`${host}appointments/getFechaAvailableDoc?date=${data.dia}&medic=${data.id}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
