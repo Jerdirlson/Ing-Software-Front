@@ -16,17 +16,17 @@ const LoginCard = () => {
     const { register, handleSubmit, formState: { errors }, watch } = useForm({
         resolver: zodResolver(userSchema),
     })
-    const { signinContext, userLogin } = useAuth()
+    const { signinContext } = useAuth()
     const navigate = useNavigate()
-    const onSubmit = handleSubmit(data => {
-        const response = signinContext(data)
+    const onSubmit = handleSubmit(async data => {
+        const response = await signinContext(data)
         console.log(response)
-        if (userLogin.user.idRol === 1) {
-            console.log(userLogin.responseModule)
-            response ? navigate(userLogin.responseModule[0].link) : ''
+        if (response.user.idRol === 1) {
+            console.log(response.responseModule)
+            response ? navigate(response.responseModule[0].link) : ''
         } else {
             console.log('sss')
-            response ? navigate(userLogin.responseModule[1].link) : ''
+            response ? navigate(response.responseModule[1].link) : ''
         }
     })
     return (

@@ -36,8 +36,7 @@ export const AuthProvider = ({ children }) => {
             setUserLogin(res)
             console.log('asasd')
             
-            // const jsonResponse = await res.json();
-            return true
+            return res
         } catch (err) {
             console.error(err)
         }
