@@ -63,7 +63,9 @@ const Dashboard = () => {
                 <div className='flex justify-center mb-12'>
                     <h1 className='font-bold text-4xl'>Especialidades</h1>
                 </div>
+                
                 <div className='hidden sm:grid sm:grid-flow-col sm:grid-rows-2 sm:justify-evenly 2xl:flex 2xl:justify-between  '>
+                    
                     {Object.keys(services).slice(0, 4).map(key => (
                         <ServiceCard
                             key={key}
