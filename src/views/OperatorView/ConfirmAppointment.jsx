@@ -1,4 +1,4 @@
-import InfoAppointment from "../../components/Appointment/InfoAppointment"
+import InfoAppointment from "../../components/AppointmentOPERATOR/InfoAppointment"
 import { useInfoAppointment } from "../../hooks/useInfoAppointment"
 import { getCorreoData } from "../../utils/correo"
 const className = `border-gray-400 border rounded-lg h-8 p-1`

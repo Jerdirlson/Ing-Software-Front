@@ -22,7 +22,7 @@ const Appointments = () => {
     return (
         <>
             <NavBar />
-            <main className="h-[940px] flex flex-col items-center justify-center 2xl:h-screen">
+            <main className=" my-24 flex flex-col items-center justify-center h-screen 2xl:my-0">
                 <section className="w-full">
                     <div className="px-48 text-black hidden text-xs md:block">
                         <h2 className=" font-normal text-2xl mb-2 2xl:text-4xl">Atención</h2>
@@ -42,8 +42,8 @@ const Appointments = () => {
                         <AppoinmenntCard title={Presenciales.title} info={Presenciales.info} showMore={Presenciales.link} />
                         <AppoinmenntCard title={Domicilio.title} info={Domicilio.info} showMore={Domicilio.link} />
                     </div>
-                    <div className="absolute right-0 bottom-0  translate-y-6 bg-gradient-to-l from-transparent from-35% to-white to-95% 3xl:w-[800px] 3xl:h-[550px] xl:w-96 xl:h-96 hidden 3xl:block xl:block"></div>
-                    <div className="absolute right-0 bottom-0  translate-y-6 -z-10 3xl:w-[800px] 3xl:h-[550px] xl:w-96 xl:h-96 hidden 3xl:block xl:block">
+                    <div className="absolute right-0 bottom-0 translate-y-6 bg-gradient-to-l from-transparent from-35% to-white to-95% 3xl:w-[800px] 3xl:h-[550px] xl:w-96 xl:h-96 hidden 3xl:block xl:block"></div>
+                    <div className="absolute right-0 bottom-0 translate-y-6 -z-10 3xl:w-[800px] 3xl:h-[550px] xl:w-96 xl:h-96 hidden 3xl:block xl:block">
                         <img src={DOCTOR_EJEMPLO} alt="" className="w-full h-full object-cover" />
                     </div>
 

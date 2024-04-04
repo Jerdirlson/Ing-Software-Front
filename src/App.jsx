@@ -33,7 +33,13 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/nosotros' element={<AboutUs />} />
         <Route path='/citas' element={<Appointments />} />
-        <Route path='/agendamiento' element={<UserScheduleAppointment />} />
+
+        <Route path='/agendamiento' element={<UserScheduleAppointment />} >
+          <Route>
+            path='/agendamiento'
+          </Route>
+        </Route>
+
         <Route path='/servicios' element={<Services />} />
         <Route path='/historiaclinica' element={<MedicalHistory />} />
         {/* OPERADOR */}

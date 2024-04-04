@@ -1,4 +1,4 @@
-import InfoAppointment from "../../components/Appointment/InfoAppointment"
+import InfoAppointment from "../../components/AppointmentOPERATOR/InfoAppointment"
 import { useInfoAppointment } from "../../hooks/useInfoAppointment";
 import { cancel_appointment } from "../../services/appointments/appointment.service";
 import { send_email } from "../../services/email.service";
