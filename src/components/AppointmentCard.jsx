@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom"
 const AppoinmenntCard = ({ title, info, showMore }) => {
     const navigate = useNavigate()
     
-    const onClick =()=>{navigate('/agendamiento')}
+    const onClick =()=>{navigate('/agendamiento/step1')}
     return (
         <article className="flex flex-col flex-wrap w-[302px] h-[365px] rounded-[20px] px-5 pt-8 mr-16 shadow-smallShadow relative 2xl:w-[352px] 2xl:h-[415px]">
             <h2 className="text-3xl mb-8">{title}</h2>

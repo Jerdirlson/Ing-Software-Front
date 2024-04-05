@@ -14,7 +14,12 @@ import ConfirmAppointment from './views/OperatorView/ConfirmAppointment.jsx';
 import CancelAppointmnet from './views/OperatorView/CancelAppointment.jsx';
 import RescheduleAppointment from './views/OperatorView/RescheduleAppointment.jsx';
 import ScheduleAppointment from './views/OperatorView/ScheduleAppointment.jsx';
-import UserScheduleAppointment from './views/UserView/ScheduleAppointment.jsx';
+import UserScheduleAppointment from './views/UserView/UserAppointment.jsx';
+import Step1 from './components/AppointmentUSER/Step1.jsx';
+import Step2 from './components/AppointmentUSER/Step2.jsx';
+import Step3 from './components/AppointmentUSER/Step3.jsx';
+import Confirm from './components/AppointmentUSER/Confirm.jsx';
+
 
 /**
  * App structure 'routes'
@@ -34,10 +39,11 @@ function App() {
         <Route path='/nosotros' element={<AboutUs />} />
         <Route path='/citas' element={<Appointments />} />
 
-        <Route path='/agendamiento' element={<UserScheduleAppointment />} >
-          <Route>
-            path='/agendamiento'
-          </Route>
+        <Route path='/agendamiento/' element={<UserScheduleAppointment />} >
+          <Route path='step1' element={<Step1 />} />
+          <Route path='step2' element={<Step2 />} />
+          <Route path='step3' element={<Step3 />} />
+          <Route path='confirmarCita' element={<Confirm/>} />
         </Route>
 
         <Route path='/servicios' element={<Services />} />
