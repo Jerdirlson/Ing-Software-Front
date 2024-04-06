@@ -16,8 +16,8 @@ const Services = () => {
             <main className="h-screen flex flex-col ">
                 <section className='flex justify-center items-center w-full h-64 mt-36'>
                     {/* Rectangulo azul */}
-                    <article className='flex bg-blue-500 h-60 w-[950px] rounded-[60px] p-5 bg-gradient-to-r from-[#46A8FB] to-[#2176FF]'>
-                        <div className='w-[550px] mt-5 ml-9'>
+                    <article className='flex h-60 w-auto rounded-[60px] p-5 bg-gradient-to-r from-[#46A8FB] to-[#2176FF]'>
+                        <div className='w-[550px] mt-5 mx-8 lg:mx-0 lg:ml-9 '>
                             <h1 className='font-bold text-white text-3xl'>
                                 Servicios
                             </h1>
@@ -27,7 +27,7 @@ const Services = () => {
                             </p>
                         </div>
 
-                        <aside className='relative w-[400px] h-auto'>
+                        <aside className='relative hidden lg:block w-[400px] h-auto'>
                             <div className='w-64 h-64 absolute translate-x-9 -translate-y-9'>
                                 <img className='h-full w-full object-cover' src={NURSE} alt="una eñora" />
                             </div>
@@ -35,7 +35,7 @@ const Services = () => {
 
                     </article>
                     {/* Texto complementario */}
-                    <div className='w-96 ml-20 text-xl font-light flex items-center'>
+                    <div className='w-96 ml-20 text-xl font-light items-center hidden lg:flex'>
                         <p>
                             Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
                             rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
@@ -54,7 +54,7 @@ const Services = () => {
                 </section>
                 {/* SERVICIOS */}
                 <section className='w-full flex flex-col justify-center mx-auto'>
-                    <div className='grid grid-cols-3 gap-x-44 mx-auto mt-12'>
+                    <div className='grid grid-cols-3 gap-x-12 lg:gap-x-44 mx-auto mt-12'>
                         {Object.keys(services).map(key => (
                             <ServiceCard
                                 key={key}

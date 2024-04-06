@@ -20,14 +20,14 @@ const Step1 = () => {
             <section className='flex-col flex items-center justify-center m-14'>
                 <div className='flex-col flex m-4'>
                     <label className='text-2xl mb-1'>¿Que tipo de cita desea?</label>
-                    <select class={input} placeholder={"Selecciona una opción"}>
+                    <select className={input} placeholder={"Selecciona una opción"}>
                         <option defaultValue=''>Seleccione una opción</option>
                         <option>General</option>
                     </select>
                 </div>
                 <div className='flex-col flex m-4'>
                     <label className='text-2xl mb-1'>Sede</label>
-                    <select class={input} placeholder={"Selecciona una opción"}>
+                    <select className={input} placeholder={"Selecciona una opción"}>
                         <option defaultValue=''>Seleccione una opción</option>
                         <option>Calle 45 No. 55 - 65. Bucaramanga, Colombia.</option>
                     </select>
