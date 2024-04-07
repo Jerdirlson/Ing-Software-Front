@@ -14,7 +14,7 @@ const Services = () => {
         <>
             <NavBar />
             <main className="h-screen flex flex-col ">
-                <section className='flex justify-center items-center w-full h-64 mt-36'>
+                <section className='flex justify-center items-center w-full h-64 mt-36 px-12'>
                     {/* Rectangulo azul */}
                     <article className='flex h-60 w-auto rounded-[60px] p-5 bg-gradient-to-r from-[#46A8FB] to-[#2176FF]'>
                         <div className='w-[550px] mt-5 mx-8 lg:mx-0 lg:ml-9 '>
@@ -35,7 +35,7 @@ const Services = () => {
 
                     </article>
                     {/* Texto complementario */}
-                    <div className='w-96 ml-20 text-xl font-light items-center hidden lg:flex'>
+                    <div className='w-96 ml-20 text-xl font-light items-center hidden 2xl:flex'>
                         <p>
                             Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
                             rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.

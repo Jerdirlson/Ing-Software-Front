@@ -13,8 +13,8 @@ import OBJETIVO_IMG from '../../assets/svg/icons/aboutUs/objetivo.svg'
  * @returns {Component} AboutUs
  */
 const AboutUs = () => {
-    const [info, setInfo] = useState(null)
-    const [activeButton, setActiveButton] = useState('')
+    const [info, setInfo] = useState(aboutUs['mision'])
+    const [activeButton, setActiveButton] = useState('mision')
 
 
     const handleInfo = (option) => {
