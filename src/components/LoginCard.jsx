@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
  * @returns {Component} LoginCard
  */
 const LoginCard = () => {
-    const { register, handleSubmit, formState: { errors }, watch } = useForm({
+    const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: zodResolver(userSchema),
     })
     const { signinContext, loading, setLoading } = useAuth()

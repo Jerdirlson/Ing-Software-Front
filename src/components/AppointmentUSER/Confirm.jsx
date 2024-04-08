@@ -1,7 +1,20 @@
-const Confirm = () => {
+import { useSteps } from "../../context/MultiStepContext"
+import NEXTBUTTON from '../../assets/svg/icons/NextButton.svg'
 
+const Confirm = () => {
+    const { backStep } = useSteps()
     return (
-        <h1></h1>
+        <>
+            <button className='justify-start rotate-180' onClick={() => backStep()}>
+                <img src={NEXTBUTTON} alt="Continuar" className='mx-3'></img>
+            </button>
+            <div>
+                info
+                <button type='submit'><img src={NEXTBUTTON} alt="Continuar" className='mx-3'></img></button>
+            </div>
+
+        </>
     )
+
 }
 export default Confirm
