@@ -25,9 +25,8 @@ export const useSteps = () => {
  * */
 export const StepsProvider = ({ children }) => {
     const [currentStep, setCurrentStep] = useState(1)
-    // const [finalData, setFinalData] = useState([])
-    // const [userData, setUserData] = useState({})
-    const { register, handleSubmit, formState: { errors } } = useForm()
+    const [finalData, setFinalData] = useState({})
+    const { register, handleSubmit, formState: { errors },watch } = useForm()
 
 
     const nextStep = () => {
@@ -46,19 +45,15 @@ export const StepsProvider = ({ children }) => {
             console.log('error', e)
         }
     })
-    // const onSubmit = () => {
-    //     console.log("pepepeppepepe")
-    // }
 
     return (
         <MultiStepContext.Provider value={{
             currentStep,
             nextStep,
             backStep,
-            // finalData,
-            // setFinalData,
             register,
-            onSubmit
+            onSubmit,
+            watch
         }}>
             {children}
         </MultiStepContext.Provider>

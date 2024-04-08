@@ -97,7 +97,7 @@ const Dashboard = () => {
             <section className='bg-secondary-blue text-white'>
                 <div className='flex flex-row items-center justify-center py-12 sm:justify-evenly sm:flex-col lg:flex-row sm:px-2 md:px-4 lg:px-6 xl:px-8 '>
 
-                    <aside className='flex justify-center items-center pb-12 -mr-12 sm:m-0 sm:p-0 sm:mr-4 sm:p-8 2xl:mr-0'>
+                    <aside className='flex justify-center items-center pb-12 -mr-12 sm:m-0 sm:mr-4 sm:p-8 2xl:mr-0'>
                         <figure className='rounded-full  w-28 h-28   sm:translate-x-12 sm:-translate-y-14 overflow-hidden sm:w-64 sm:h-64 xl:w-80 xl:h-80 2xl:w-96 2xl:h-96'>
                             <img src={OUR_PLACES_1} alt="" className='w-full h-full object-cover' />
                         </figure>
