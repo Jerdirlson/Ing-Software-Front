@@ -4,6 +4,7 @@ import { update_Hours_on_reScheduling, update_Hours_on_scheduling } from '../ser
 import { add_appointment, update_appointment } from '../services/appointments/appointment.service';
 import { send_email } from '../services/email.service';
 import { getCorreoData } from '../utils/correo';
+import { useSteps } from '../context/MultiStepContext';
 
 
 /**
@@ -27,10 +28,13 @@ export const useAppointmentScheduler = () => {
   const { register, handleSubmit } = useForm();
   const [selectedDate, setSelectedDate] = useState(null);
   const [hoursAvailable, setHoursAvailable] = useState(null);
+  const { setDate } = useSteps()
+
 
   useEffect(() => {
     const updateHours_Add = async () => {
       const date = defineDate(selectedDate);
+      setDate(date)
       if (date === 'null-null-null') {
         return '';
       }

@@ -25,9 +25,8 @@ export const useSteps = () => {
  * */
 export const StepsProvider = ({ children }) => {
     const [currentStep, setCurrentStep] = useState(1)
-    const [finalData, setFinalData] = useState({})
+    const [selectedDate, setDate] = useState(null)
     const { register, handleSubmit, formState: { errors },watch } = useForm()
-
 
     const nextStep = () => {
         setCurrentStep(currentStep + 1)
@@ -36,6 +35,7 @@ export const StepsProvider = ({ children }) => {
         setCurrentStep(currentStep - 1)
     }
     const onSubmit = handleSubmit(async data => {
+        data['dia'] = selectedDate
         console.log("pepepeppepepe")
         console.log(data)
         try {
@@ -53,6 +53,7 @@ export const StepsProvider = ({ children }) => {
             backStep,
             register,
             onSubmit,
+            setDate,
             watch
         }}>
             {children}
