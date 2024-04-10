@@ -7,7 +7,7 @@
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../context/AuthContext"
 
-const AppoinmenntCard = ({ title, info, showMore }) => {
+const AppoinmenntCard = ({ title, info, showMore, isDisabled }) => {
     const { userLogin } = useAuth()
     const navigate = useNavigate()
 
@@ -25,8 +25,8 @@ const AppoinmenntCard = ({ title, info, showMore }) => {
                     ...{showMore}
                 </a>
             </div>
-            <button onClick={() => onClick()} className="flex items-center justify-center text-2xl bg-gradient-to-r shadow-[rgba(0,0,0,0.16)_0px_3px_6px]
-               from-[#34A192] to-[#3FBA57] text-white absolute bottom-0 left-0 right-0 h-14 rounded-b-xl">Agendar</button>
+            <button disabled={isDisabled} onClick={() => onClick()} className={` ${isDisabled ? "opacity-60" : ""} flex items-center justify-center text-2xl bg-gradient-to-r shadow-[rgba(0,0,0,0.16)_0px_3px_6px]      
+            from-[#34A192] to-[#3FBA57] text-white absolute bottom-0 left-0 right-0 h-14 rounded-b-xl`}>Agendar</button>
 
 
         </article>
