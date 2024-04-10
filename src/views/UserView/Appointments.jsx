@@ -22,7 +22,7 @@ const Appointments = () => {
     return (
         <>
             <NavBar />
-            <main className="flex flex-col items-center justify-center h-screen md:my-24 lg:my-16 xl:my-12 ">
+            <main className="flex flex-col items-center justify-center h-screen md:my-24 lg:my-16 xl:my-14 2xl:my-24 3xl:m-0  ">
                 <section className="w-full">
                     <div className="px-48 text-black hidden text-xs md:block">
                         <h2 className=" font-normal text-2xl mb-2 2xl:text-4xl">Atención</h2>
@@ -39,8 +39,11 @@ const Appointments = () => {
                 </div>
                 <section className="flex w-full relative ">
                     <div className="flex pl-12 lg:pl-48">
-                        <AppoinmenntCard title={Presenciales.title} info={Presenciales.info} showMore={Presenciales.link} />
-                        <AppoinmenntCard title={Domicilio.title} info={Domicilio.info} showMore={Domicilio.link} isDisabled={true} />
+                        <AppoinmenntCard title={Presenciales.title} info={Presenciales.info} showMore={Presenciales.link} citaType={'Schedule'} action={'Agendar'} />
+                        <div className="flex flex-col justify-between">
+                            <AppoinmenntCard title={'Reagendación de Citas'} citaType={'Re-Schedule'} action={'Re-Agendar'} />
+                            <AppoinmenntCard title={'Cancelación'} citaType={'Delete'} action={'Cancelar'}/>
+                        </div>
                     </div>
                     <div className="absolute right-0 bottom-0 translate-y-6 bg-gradient-to-l from-transparent from-35% to-white to-95% 3xl:w-[800px] 3xl:h-[550px] xl:w-96 xl:h-96 hidden 3xl:block xl:block"></div>
                     <div className="absolute right-0 bottom-0 translate-y-6 -z-10 3xl:w-[800px] 3xl:h-[550px] xl:w-96 xl:h-96 hidden 3xl:block xl:block">
