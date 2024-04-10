@@ -26,7 +26,8 @@ export const useSteps = () => {
 export const StepsProvider = ({ children }) => {
     const [currentStep, setCurrentStep] = useState(1)
     const [selectedDate, setDate] = useState(null)
-    const { register, handleSubmit, formState: { errors },watch } = useForm()
+    const [sent, isSent] = useState(false)
+    const { register, handleSubmit, formState: { errors }, watch } = useForm()
 
     const nextStep = () => {
         setCurrentStep(currentStep + 1)
@@ -36,9 +37,17 @@ export const StepsProvider = ({ children }) => {
     }
     const onSubmit = handleSubmit(async data => {
         data['dia'] = selectedDate
+        isSent(true)
         console.log("pepepeppepepe")
         console.log(data)
         try {
+            //documento
+            //medic => string nombre
+            //dia => data
+            //hora => hora
+            
+            //LLAMADA AL ENDPOINT
+
             // const response = await signinContext(data)   
             console.log(data)
         } catch (e) {
@@ -54,6 +63,8 @@ export const StepsProvider = ({ children }) => {
             register,
             onSubmit,
             setDate,
+            selectedDate,
+            sent,
             watch
         }}>
             {children}
