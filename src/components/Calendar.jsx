@@ -7,8 +7,6 @@ import dayjs from 'dayjs';
 const Calendar = ({ setSelectedDate }) => {
   const [selectedDate, setSelectedDateState] = useState(dayjs());
   console.log("Sissi", selectedDate);
-
-
   const isSelectableDate = (date) => {
     const today = dayjs();
     const nextWeek = today.add(1, 'week');

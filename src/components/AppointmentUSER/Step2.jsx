@@ -1,12 +1,12 @@
 import NEXTBUTTON from '../../assets/svg/icons/NextButton.svg'
 import { useSteps } from "../../context/MultiStepContext";
-import { useAppointmentScheduler } from '../../hooks/useAppointmentScheduler';
+import {useAppointmentSchedulerUSER } from '../../hooks/useAppointmentScheduler';
 import Calendar from '../Calendar';
 const input = 'border-secondaryGray border rounded-lg h-12 w-[425px] text-2xl font-light pl-3 pr-3'
 
 const Step2 = () => {
     const { nextStep, backStep, register } = useSteps()
-    const { setSelectedDate, hoursAvailable } = useAppointmentScheduler();    // Custom hook
+    const { setSelectedDate, hoursAvailable } = useAppointmentSchedulerUSER();    // Custom hook
     return (
         <> {/* Inputs */}
             <section className='flex-col flex items-center justify-center m-4'>

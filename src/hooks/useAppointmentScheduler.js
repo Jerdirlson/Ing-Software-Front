@@ -28,13 +28,9 @@ export const useAppointmentScheduler = () => {
   const { register, handleSubmit } = useForm();
   const [selectedDate, setSelectedDate] = useState(null);
   const [hoursAvailable, setHoursAvailable] = useState(null);
-  const { setDate } = useSteps()
-
-
   useEffect(() => {
     const updateHours_Add = async () => {
       const date = defineDate(selectedDate);
-      setDate(date)
       if (date === 'null-null-null') {
         return '';
       }
@@ -72,6 +68,38 @@ export const useAppointmentScheduler = () => {
     hoursAvailable,
   };
 };
+/**
+ * 
+ * @returns functions for management of adding appointments on USER 
+ */
+export const useAppointmentSchedulerUSER = () => {
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [hoursAvailable, setHoursAvailable] = useState(null);
+  const { setDate } = useSteps()
+  useEffect(() => {
+    const updateHours_Add = async () => {
+      const date = defineDate(selectedDate);
+      setDate(date)
+      if (date === 'null-null-null') {
+        return '';
+      }
+      try {
+        const res_hours = await update_Hours_on_scheduling(date);
+        setHoursAvailable(res_hours.schedule);
+      } catch (error) {
+        throw new Error('Error updating hours: ' + error.message);
+      }
+    };
+    updateHours_Add();
+  }, [selectedDate]);
+
+
+  return {
+    setSelectedDate,
+    hoursAvailable,
+  };
+};
+
 
 /**
  * Custom hook for re scheduling an appointment
