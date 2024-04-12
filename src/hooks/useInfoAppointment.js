@@ -3,21 +3,26 @@ import { get_appointment } from "../services/appointments/appointment.service";
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { appointmentSchema } from "../validations/appointmentSchema";
+import { Alert } from "@material-tailwind/react";
 
 export const useInfoAppointment = () => {
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: zodResolver(appointmentSchema),
     })
     const [cita, setCita] = useState(null)
+    const [alert, setAlert] = useState(false)
 
     const onSubmit = handleSubmit(async (data) => {
         console.log(data)
         try {
             const response = await get_appointment(data)
+            console.log(response)
             if (response) {
                 setCita(response)
+            } else {
+                console.log('entra')
+                setAlert(true)
             }
-            console.log(data)
         } catch (error) {
             throw new Error('Error updating hours: ' + error.message);
         }
@@ -27,6 +32,8 @@ export const useInfoAppointment = () => {
         register,
         onSubmit,
         cita,
-        errors
+        errors,
+        alert,
+        setAlert
     };
 };

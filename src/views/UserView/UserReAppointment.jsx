@@ -2,19 +2,19 @@ import Footer from '../../components/Footer.jsx'
 import NavBar from '../../components/NavBar.jsx'
 import NEXTBUTTON from '../../assets/svg/icons/NextButton.svg'
 import { useNavigate } from "react-router-dom";
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
 import { useInfoAppointment } from '../../hooks/useInfoAppointment.js';
 import { getCorreoData } from '../../utils/correo.js';
 import { send_email } from '../../services/email.service.js';
 import { cancel_appointment } from '../../services/appointments/appointment.service.js';
-import { Alert } from '@material-tailwind/react';
+import { AlertTitle, Alert } from '@mui/material';
+import Alerta from '../../components/Alerta.jsx';
+import { useEffect } from 'react';
 const input = 'border-secondaryGray border rounded-lg h-10 w-[425px] text-2xl font-light pl-3 pr-3'
 
 const Re_ScheduleAppointment = () => {
 
     // console.log("Schedule")
-    const { cita, register, onSubmit, errors } = useInfoAppointment()
+    const { cita, register, onSubmit, errors, alert,setAlert } = useInfoAppointment()
     const navigate = useNavigate()
     const onClick = async (data) => {
         // Logica de obtencion de fecha & data to send => correo
@@ -36,12 +36,19 @@ const Re_ScheduleAppointment = () => {
             navigate('/citas')
         }
     }
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setAlert(false); // Ocultar la alerta automáticamente después de un tiempo
+        }, 3000);
+        return () => clearTimeout(timer);
+    }, [alert]);
+
     return (
         <>
             <NavBar />
             <main className='h-screen flex flex-col bg-gradient-to-b from-[#FFFFFF] to-[#EFF0F1]'>
-
                 <div className='flex flex-col justify-center items-center h-full '>
+                    {alert && <Alerta severityType="error" />}
                     <section className='flex flex-col items-center'>
                         <div className='flex items-center justify-center w-[700px] mb-6'>
                             <div className={` ${!cita ? "h-3 w-3" : "h-2 w-2"} rounded-full h-2  w-2 bg-primaryGray  mx-1`} />
