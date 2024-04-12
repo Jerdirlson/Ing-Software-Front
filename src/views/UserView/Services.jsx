@@ -3,7 +3,7 @@ import NURSE from '../../assets/img/people/nurseServices.png'
 import ServiceCard from '../../components/ServiceCard.jsx'
 import { services } from '../../data/Services.data.js'
 import Footer from '../../components/Footer.jsx'
-import SERVICES_BACKGROUND from '../../assets/img/backgrounds/ServicesBackground.png'
+import SERVICES_BACKGROUND from '../../assets/img/backgrounds/ServicesBackground.jpg'
 /**
  * This section contains the services of the app
  * @returns {Component} Services
