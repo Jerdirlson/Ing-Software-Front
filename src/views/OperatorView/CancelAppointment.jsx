@@ -1,7 +1,7 @@
 import InfoAppointment from "../../components/AppointmentOPERATOR/InfoAppointment"
 import { useInfoAppointment } from "../../hooks/useInfoAppointment";
 import { cancel_appointment } from "../../services/appointments/appointment.service";
-import { send_email } from "../../services/email.service";
+import { send_email_cancel } from "../../services/email.service";
 import { getCorreoData   } from "../../utils/correo";
 const className = `border-gray-400 border rounded-lg h-8 p-1`
 
@@ -22,7 +22,7 @@ const CancelAppointment = () => {
         console.log(data)
         console.log(correoData)
         //Llamadas fetch
-        send_email(correoData)
+        send_email_cancel(correoData)
         cancel_appointment(data)
     }
 

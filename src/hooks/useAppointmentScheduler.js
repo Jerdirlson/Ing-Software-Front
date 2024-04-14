@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { update_Hours_on_reScheduling, update_Hours_on_scheduling } from '../services/appointments/updateHours.service';
 import { add_appointment, update_appointment } from '../services/appointments/appointment.service';
-import { send_email } from '../services/email.service';
+import { send_email_re_add, send_email_add } from '../services/email.service';
 import { getCorreoData } from '../utils/correo';
 import { useSteps } from '../context/MultiStepContext';
 
@@ -56,7 +56,7 @@ export const useAppointmentScheduler = () => {
       nombreMedico: data.medic
     }
     //-------------------------
-    const responseCorreo = await send_email(dataToSendCorreo)
+    const responseCorreo = await send_email_add(dataToSendCorreo)
     console.log(response);
     console.log(responseCorreo);
   });
@@ -139,7 +139,7 @@ export const useAppointment_ReScheduler = () => {
     const response = await update_appointment(data);
     //---
     const correoData = getCorreoData(cita)
-    const responseCorreo = await send_email(correoData)
+    const responseCorreo = await send_email_re_add(correoData)
 
     console.log(responseCorreo);
     console.log(response);
