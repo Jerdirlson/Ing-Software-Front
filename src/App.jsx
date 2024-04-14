@@ -16,6 +16,7 @@ import RescheduleAppointment from './views/OperatorView/RescheduleAppointment.js
 import ScheduleAppointment from './views/OperatorView/ScheduleAppointment.jsx';
 import UserScheduleAppointment from './views/UserView/UserAppointment.jsx';
 import Re_ScheduleAppointment from './views/UserView/UserReAppointment.jsx';
+import ProtectedRouteMedic from './routes/ProtectedRouteMedic.jsx';
 /**
  * App structure 'routes'
  * Defines routes and its related components
@@ -39,7 +40,7 @@ function App() {
         <Route path="/agendamiento/" element={<UserScheduleAppointment />} />
         {/* STEPS TO CANCEL SCHEDULE AS USER*/}
 
-        <Route path="/cancelar/" element={<Re_ScheduleAppointment/>} />
+        <Route path="/cancelar/" element={<Re_ScheduleAppointment />} />
 
         <Route path='/servicios' element={<Services />} />
         <Route path='/historiaclinica' element={<MedicalHistory />} />
@@ -59,9 +60,9 @@ function App() {
         {/* </Route> */}
 
         {/* MEDICO */}
-        {/* <Route element={<ProtectedRoute isAllowed={user.rol === 3} />} > */}
-        <Route path='medico' element={<DoctorDashboard />} />
-        {/* </Route> */}
+        <Route element={<ProtectedRouteMedic />} >
+          <Route path='medico' element={<DoctorDashboard />} />
+        </Route>
 
 
         {/* RUTAS NO EXISTENTES */}

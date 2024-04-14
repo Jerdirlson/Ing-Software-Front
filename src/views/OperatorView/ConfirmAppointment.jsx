@@ -17,7 +17,7 @@ const ConfirmAppointment = () => {
         console.log(data)
         console.log(correoData)
         //Llamadas fetch
-        // send_email(correoData)
+
         // confirm CITA
     }
 
