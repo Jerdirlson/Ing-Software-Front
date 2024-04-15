@@ -113,17 +113,23 @@ const SideBar = () => {
                                     </ListItemPrefix>
                                     Odontologia
                                 </ListItem>
-                                <ListItem onClick={() => handleItemClick("Nutricion")}>
+                                <ListItem onClick={() => handleItemClick("Nutrición")}>
                                     <ListItemPrefix>
                                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                                     </ListItemPrefix>
-                                    Nutricion
+                                    Nutrición
                                 </ListItem>
-                                <ListItem onClick={() => handleItemClick("Fonoaudiologia")}>
+                                <ListItem onClick={() => handleItemClick("Fonoaudiología")}>
                                     <ListItemPrefix>
                                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                                     </ListItemPrefix>
-                                    Odontologia
+                                    Fonoaudiología
+                                </ListItem>
+                                <ListItem onClick={() => handleItemClick("Pedriatria")}>
+                                    <ListItemPrefix>
+                                        <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                                    </ListItemPrefix>
+                                    Pedriatria
                                 </ListItem>
                             </List>
                         </AccordionBody>
