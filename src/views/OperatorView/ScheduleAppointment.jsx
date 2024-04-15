@@ -1,7 +1,8 @@
 import { useLocation } from "react-router-dom"
 import Calendar from "../../components/Calendar"
 import { Sites } from "../../data/Sites.data"
-import {useAppointmentScheduler} from "../../hooks/useAppointmentScheduler"
+import { useAppointmentScheduler } from "../../hooks/useAppointmentScheduler"
+import { useEffect } from "react"
 
 
 const className = `border-gray-400 border rounded-lg h-8 p-1`
@@ -10,7 +11,7 @@ const className = `border-gray-400 border rounded-lg h-8 p-1`
  * @returns {Component} Add appointment view component
  */
 const ScheduleAppointment = () => {
-    const { register, onSubmit, setSelectedDate, hoursAvailable } = useAppointmentScheduler();    // Custom hook
+    const { register, onSubmit, setSelectedDate, hoursAvailable, setService, medics } = useAppointmentScheduler();    // Custom hook
     const location = useLocation();
     const { category } = location.state || {};
     return (
@@ -21,28 +22,29 @@ const ScheduleAppointment = () => {
                 </div>
                 <form onSubmit={onSubmit}>
 
-                    <section className="flex justify-between px-4 mx-16 mb-12 mt-10">
-                        <section >
+                    <section className="flex px-4 mx-16 mb-12 mt-10">
+                        <section className="mr-80">
                             <div>
                                 <h2>Formato de atención</h2>
                                 <div className="border border-gray-400 p-2 mb-10">
-                                    <p>Presencial</p>
+                                    <p>• Presencial</p>
                                     <p>Domiciliaria</p>
                                 </div>
                             </div>
                             <div>
                                 <h2 className="mb-2">Seleccionar Especialista</h2>
-                                <div className="my-2">
-                                    <button className="bg-blue-600 p-3">
-                                        Si
-                                    </button>
-                                    <button className="bg-red-600 p-3">
-                                        No
-                                    </button>
-                                </div>
-                                {true ?
-                                    <input className={className} type="text" name={"Especialista"} placeholder={"Buscar..."} {...register('medic')} />
-                                    : ""}
+                                <select className={className} type=""{...register('medic')} onClick={() => {
+                                    console.log('click')
+                                    setService(category)
+                                }} >
+                                    <option disabled defaultValue="Selecciona una opción">Selecciona una opción</option>
+                                    {medics && medics.map(medic => (
+                                        <option key={medic.id} value={medic.value}>
+                                            {medic.nameUser} {medic.lastNameUser}
+                                        </option>
+                                    ))}
+
+                                </select >
                             </div>
                         </section>
                         <section className="flex justify-center">
@@ -64,24 +66,6 @@ const ScheduleAppointment = () => {
                             </div>
                         </section>
 
-                        {/* IMPLEMENTAR LA LOGICA DE SI ES UNA CITA DE DOMICILIO O NO */}
-                        {/* IMPLEMENTAR LA LOGICA DE SI ES UNA CITA DE DOMICILIO O NO */}
-                        {/* IMPLEMENTAR LA LOGICA DE SI ES UNA CITA DE DOMICILIO O NO */}
-                        <section className="flex flex-col mr-8">
-                            <h2 className="font-light p-1">Domicilio</h2>
-                            <div className="flex flex-col my-2">
-                                <label >Barrio</label>
-                                <input className={className} type="text" name={"Barrio"} disabled />
-                            </div>
-                            <div className="flex flex-col my-2">
-                                <label >Direccion</label>
-                                <input className={className} type="text" name={"Direccion"} disabled />
-                            </div>
-                            <div className="flex flex-col my-2">
-                                <label >Informacion Adicional</label>
-                                <input className={className} type="text" name={"Informacion Adicional"} disabled />
-                            </div>
-                        </section>
                     </section>
                     <div className="flex items-center">
                         <div className=" bg-gray-400 w-16 h-0.5" /><h1 className="italic font-light px-8 text-nowrap text-xl">Informacion del paciente</h1><div className="w-full h-0.5 bg-gray-400" />

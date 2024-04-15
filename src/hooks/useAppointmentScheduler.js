@@ -5,6 +5,7 @@ import { add_appointment, update_appointment } from '../services/appointments/ap
 import { send_email_re_add, send_email_add } from '../services/email.service';
 import { getCorreoData } from '../utils/correo';
 import { useSteps } from '../context/MultiStepContext';
+import { get_doctors } from '../services/appointments/getDoctors.service';
 
 
 /**
@@ -28,6 +29,28 @@ export const useAppointmentScheduler = () => {
   const { register, handleSubmit } = useForm();
   const [selectedDate, setSelectedDate] = useState(null);
   const [hoursAvailable, setHoursAvailable] = useState(null);
+  const [service, setService] = useState(null);
+  const [medics, setMedics] = useState([]);
+
+  useEffect(() => {
+    const get_medics = async () => {
+      console.log('estoy en getMedics')
+      console.log(service);
+      try {
+        if(service === null) return null
+        const data = {
+          service: service
+        }
+        const res_medics = await get_doctors(data);
+        console.log(res_medics);
+        if (res_medics) setMedics(res_medics.userMedic);
+      } catch (error) {
+        throw new Error('Error getting medicos: ' + error.message);
+      }
+    }
+    get_medics()
+  }, [service])
+
   useEffect(() => {
     const updateHours_Add = async () => {
       const date = defineDate(selectedDate);
@@ -66,6 +89,8 @@ export const useAppointmentScheduler = () => {
     onSubmit,
     setSelectedDate,
     hoursAvailable,
+    setService,
+    medics
   };
 };
 /**

@@ -47,14 +47,14 @@ function App() {
 
 
         {/* OPERADOR */}
-        <Route element={<ProtectedRouteOperator />}>
+        {/* <Route element={<ProtectedRouteOperator />}> */}
           <Route path='/management/' element={<ManagementPanel />}>
             <Route path='confirm' element={<ConfirmAppointment />} />
             <Route path='cancel' element={<CancelAppointmnet />} />
             <Route path='schedule' element={<ScheduleAppointment />} />
             <Route path='reschedule' element={<RescheduleAppointment />} />
           </Route>
-        </Route>
+        {/* </Route> */}
 
 
         {/* </Route> */}
