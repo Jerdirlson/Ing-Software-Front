@@ -4,14 +4,13 @@ import NEXTBUTTON from '../../assets/svg/icons/NextButton.svg'
 import { useNavigate } from "react-router-dom";
 import { useInfoAppointment } from '../../hooks/useInfoAppointment.js';
 import { getCorreoData } from '../../utils/correo.js';
-import { send_email } from '../../services/email.service.js';
+import { send_email_cancel } from '../../services/email.service.js';
 import { cancel_appointment } from '../../services/appointments/appointment.service.js';
-import { AlertTitle, Alert } from '@mui/material';
 import Alerta from '../../components/Alerta.jsx';
 import { useEffect } from 'react';
 const input = 'border-secondaryGray border rounded-lg h-10 w-[425px] text-2xl font-light pl-3 pr-3'
 
-const Re_ScheduleAppointment = () => {
+const UserCancelAppointment = () => {
 
     // console.log("Schedule")
     const { cita, register, onSubmit, errors, alert,setAlert } = useInfoAppointment()
@@ -27,7 +26,7 @@ const Re_ScheduleAppointment = () => {
             const response = await cancel_appointment(data)
             console.log(response)
             if (response) {
-                send_email(correoData)
+                send_email_cancel(correoData)
             }
         } catch (error) {
             console.log('error', error)
@@ -118,4 +117,4 @@ const Re_ScheduleAppointment = () => {
     )
 
 }
-export default Re_ScheduleAppointment 
+export default UserCancelAppointment 

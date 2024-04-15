@@ -15,8 +15,8 @@ import CancelAppointmnet from './views/OperatorView/CancelAppointment.jsx';
 import RescheduleAppointment from './views/OperatorView/RescheduleAppointment.jsx';
 import ScheduleAppointment from './views/OperatorView/ScheduleAppointment.jsx';
 import UserScheduleAppointment from './views/UserView/UserAppointment.jsx';
-import Re_ScheduleAppointment from './views/UserView/UserReAppointment.jsx';
 import ProtectedRouteMedic from './routes/ProtectedRouteMedic.jsx';
+import UserCancelAppointment from './views/UserView/UserCancelAppoinment.jsx';
 /**
  * App structure 'routes'
  * Defines routes and its related components
@@ -40,7 +40,7 @@ function App() {
         <Route path="/agendamiento/" element={<UserScheduleAppointment />} />
         {/* STEPS TO CANCEL SCHEDULE AS USER*/}
 
-        <Route path="/cancelar/" element={<Re_ScheduleAppointment />} />
+        <Route path="/cancelar/" element={<UserCancelAppointment/>} />
 
         <Route path='/servicios' element={<Services />} />
         <Route path='/historiaclinica' element={<MedicalHistory />} />
