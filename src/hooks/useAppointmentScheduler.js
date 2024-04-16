@@ -26,7 +26,7 @@ const defineDate = (selectedDate) => {
  * @returns functions for management of adding appointments
  */
 export const useAppointmentScheduler = () => {
-  const { register, handleSubmit , watch} = useForm();
+  const { register, handleSubmit, watch } = useForm();
   const [selectedDate, setSelectedDate] = useState(null);
   const [hoursAvailable, setHoursAvailable] = useState(null);
   const [service, setService] = useState(null);
@@ -37,7 +37,7 @@ export const useAppointmentScheduler = () => {
       console.log('estoy en getMedics')
       console.log(service);
       try {
-        if(service === null) return null
+        if (service === null) return null
         const data = {
           service: service
         }
@@ -105,17 +105,44 @@ export const useAppointmentScheduler = () => {
 export const useAppointmentSchedulerUSER = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [hoursAvailable, setHoursAvailable] = useState(null);
-  const { setDate } = useSteps()
+  const { setDate, watch } = useSteps()
+  const [service, setService] = useState(null);
+  const [medics, setMedics] = useState([]);
+
+  useEffect(() => {
+    const get_medics = async () => {
+      console.log('estoy en getMedics')
+      const service = watch('service')
+      console.log(service);
+      try {
+        if (service === null || undefined) return null
+        const data = {
+          service: service
+        }
+        const res_medics = await get_doctors(data);
+        console.log(res_medics);
+        if (res_medics) setMedics(res_medics.userMedic);
+      } catch (error) {
+        throw new Error('Error getting medicos: ' + error.message);
+      }
+    }
+    get_medics()
+  }, [service])
+
   useEffect(() => {
     const updateHours_Add = async () => {
       const date = defineDate(selectedDate);
       setDate(date)
+      const medic = watch('medic')
       if (date === 'null-null-null') {
         return '';
       }
       try {
-        //HACE FALTA ADAPTARLO AL FETCH
-        // const res_hours = await update_Hours_on_scheduling(date);
+        const data = {
+          dia: date,
+          id: medic
+        }
+        const res_hours = await update_Hours_on_scheduling(data);
         setHoursAvailable(res_hours.schedule);
       } catch (error) {
         throw new Error('Error updating hours: ' + error.message);
@@ -124,10 +151,11 @@ export const useAppointmentSchedulerUSER = () => {
     updateHours_Add();
   }, [selectedDate]);
 
-
   return {
     setSelectedDate,
     hoursAvailable,
+    medics,
+    setService
   };
 };
 

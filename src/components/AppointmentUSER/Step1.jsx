@@ -1,5 +1,6 @@
 import NEXTBUTTON from '../../assets/svg/icons/NextButton.svg'
 import { useSteps } from "../../context/MultiStepContext";
+import { useAppointmentSchedulerUSER } from '../../hooks/useAppointmentScheduler';
 const input = 'border-secondaryGray border rounded-lg h-12 w-[425px] text-2xl font-light pl-3 pr-3'
 
 const Step1 = () => {
@@ -10,9 +11,15 @@ const Step1 = () => {
             <section className='flex-col flex items-center justify-center m-14'>
                 <div className='flex-col flex m-4'>
                     <label className='text-2xl mb-1'>¿Que tipo de cita desea?</label>
-                    <select className={input} placeholder={"Selecciona una opción"} {...register('TipoCita')}>
-                        <option defaultValue=''>Seleccione una opción</option>
+                    <select className={input} placeholder={"Selecciona una opción"} {...register('service')}>
+                        <option disabled defaultValue=''>Seleccione una opción</option>
                         <option>General</option>
+                        <option>Fisioterapia</option>
+                        <option>Nutrición</option>
+                        <option>Odontologia</option>
+                        <option>Cardiologia</option>
+                        <option>Pedriatria</option>
+                        <option>Fonoaudiología</option>
                     </select>
                 </div>
                 <div className='flex-col flex m-4'>
