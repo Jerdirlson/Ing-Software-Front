@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { update_Hours_on_reScheduling, update_Hours_on_scheduling } from '../services/appointments/updateHours.service';
+import { update_Hours } from '../services/appointments/updateHours.service';
 import { add_appointment, update_appointment } from '../services/appointments/appointment.service';
 import { send_email_re_add, send_email_add } from '../services/email.service';
 import { getCorreoData } from '../utils/correo';
@@ -26,7 +26,7 @@ const defineDate = (selectedDate) => {
  * @returns functions for management of adding appointments
  */
 export const useAppointmentScheduler = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit , watch} = useForm();
   const [selectedDate, setSelectedDate] = useState(null);
   const [hoursAvailable, setHoursAvailable] = useState(null);
   const [service, setService] = useState(null);
@@ -54,11 +54,16 @@ export const useAppointmentScheduler = () => {
   useEffect(() => {
     const updateHours_Add = async () => {
       const date = defineDate(selectedDate);
+      const medic = watch('medic')
       if (date === 'null-null-null') {
         return '';
       }
       try {
-        const res_hours = await update_Hours_on_scheduling(date);
+        const data = {
+          dia: date,
+          id: medic
+        }
+        const res_hours = await update_Hours(data);
         setHoursAvailable(res_hours.schedule);
       } catch (error) {
         throw new Error('Error updating hours: ' + error.message);
@@ -109,7 +114,7 @@ export const useAppointmentSchedulerUSER = () => {
         return '';
       }
       try {
-        const res_hours = await update_Hours_on_scheduling(date);
+        const res_hours = await update_Hours(date);
         setHoursAvailable(res_hours.schedule);
       } catch (error) {
         throw new Error('Error updating hours: ' + error.message);
@@ -148,7 +153,7 @@ export const useAppointment_ReScheduler = () => {
           dia: date,
           id: cita.response.idScheduleMedic
         }
-        const res_hours = await update_Hours_on_reScheduling(data);
+        const res_hours = await update_Hours(data);
         setHoursAvailable(res_hours.schedule);
       } catch (error) {
         throw new Error('Error updating hours: ' + error.message);

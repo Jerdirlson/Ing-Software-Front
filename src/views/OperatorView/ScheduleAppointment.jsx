@@ -39,7 +39,7 @@ const ScheduleAppointment = () => {
                                 }} >
                                     <option disabled defaultValue="Selecciona una opción">Selecciona una opción</option>
                                     {medics && medics.map(medic => (
-                                        <option key={medic.id} value={medic.value}>
+                                        <option key={medic.medicId} value={medic.medicId}>
                                             {medic.nameUser} {medic.lastNameUser}
                                         </option>
                                     ))}
