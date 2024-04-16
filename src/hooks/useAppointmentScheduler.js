@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { update_Hours } from '../services/appointments/updateHours.service';
+import { update_Hours_on_re_scheduling, update_Hours_on_scheduling } from '../services/appointments/updateHours.service';
 import { add_appointment, update_appointment } from '../services/appointments/appointment.service';
 import { send_email_re_add, send_email_add } from '../services/email.service';
 import { getCorreoData } from '../utils/correo';
@@ -63,7 +63,7 @@ export const useAppointmentScheduler = () => {
           dia: date,
           id: medic
         }
-        const res_hours = await update_Hours(data);
+        const res_hours = await update_Hours_on_scheduling(data);
         setHoursAvailable(res_hours.schedule);
       } catch (error) {
         throw new Error('Error updating hours: ' + error.message);
@@ -114,7 +114,8 @@ export const useAppointmentSchedulerUSER = () => {
         return '';
       }
       try {
-        const res_hours = await update_Hours(date);
+        //HACE FALTA ADAPTARLO AL FETCH
+        // const res_hours = await update_Hours_on_scheduling(date);
         setHoursAvailable(res_hours.schedule);
       } catch (error) {
         throw new Error('Error updating hours: ' + error.message);
@@ -153,7 +154,7 @@ export const useAppointment_ReScheduler = () => {
           dia: date,
           id: cita.response.idScheduleMedic
         }
-        const res_hours = await update_Hours(data);
+        const res_hours = await update_Hours_on_re_scheduling(data);
         setHoursAvailable(res_hours.schedule);
       } catch (error) {
         throw new Error('Error updating hours: ' + error.message);
