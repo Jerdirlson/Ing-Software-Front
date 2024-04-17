@@ -26,7 +26,7 @@ const defineDate = (selectedDate) => {
  * @returns functions for management of adding appointments
  */
 export const useAppointmentScheduler = () => {
-  const { register, handleSubmit, watch } = useForm();
+  const { register, handleSubmit, watch ,reset} = useForm();
   const [selectedDate, setSelectedDate] = useState(null);
   const [hoursAvailable, setHoursAvailable] = useState(null);
   const [service, setService] = useState(null);
@@ -95,7 +95,8 @@ export const useAppointmentScheduler = () => {
     setSelectedDate,
     hoursAvailable,
     setService,
-    medics
+    medics,
+    reset
   };
 };
 /**

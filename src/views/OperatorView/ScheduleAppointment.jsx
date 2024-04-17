@@ -11,9 +11,12 @@ const className = `border-gray-400 border rounded-lg h-8 p-1`
  * @returns {Component} Add appointment view component
  */
 const ScheduleAppointment = () => {
-    const { register, onSubmit, setSelectedDate, hoursAvailable, setService, medics } = useAppointmentScheduler();    // Custom hook
+    const { register, onSubmit, setSelectedDate, hoursAvailable, setService, medics,reset } = useAppointmentScheduler();    // Custom hook
     const location = useLocation();
     const { category } = location.state || {};
+    useEffect(()=>{
+        reset()
+    },[category])
     return (
         <>
             <main className="w-full flex flex-col p-16">
