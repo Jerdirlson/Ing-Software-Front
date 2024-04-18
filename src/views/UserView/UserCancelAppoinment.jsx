@@ -13,7 +13,7 @@ const input = 'border-secondaryGray border rounded-lg h-10 w-[425px] text-2xl fo
 const UserCancelAppointment = () => {
 
     // console.log("Schedule")
-    const { cita, register, onSubmit, errors, alert,setAlert } = useInfoAppointment()
+    const { cita, register, onSubmit, errors, alert, setAlert } = useInfoAppointment()
     const navigate = useNavigate()
     const onClick = async (data) => {
         // Logica de obtencion de fecha & data to send => correo
@@ -67,9 +67,11 @@ const UserCancelAppointment = () => {
                                             errors.id?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.id.message}</p>
                                         }
                                     </div>
-                                    <button type='submit'>
-                                        <img src={NEXTBUTTON} alt="Continuar" className='mx-3'></img>
-                                    </button>
+                                    <div className={`flex items-center ${errors.id ? 'self-center': ''}`}>
+                                        <button type='submit'>
+                                            <img src={NEXTBUTTON} alt="Continuar" className='mx-3'></img>
+                                        </button>
+                                    </div>
                                 </div> : ''
                         }
                     </form>
