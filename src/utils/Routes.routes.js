@@ -15,5 +15,7 @@ export const operatorNavigation = [
     { name: 'Cancelacion', href: '/management/cancel'},
     { name: 'Agendar Citas', href: '/management/schedule'},
     { name: 'Reasignacion de citas', href: '/management/reschedule'},
+    { name: 'Agregar Usuario', href: '/management/addUser'},
+
     
 ]

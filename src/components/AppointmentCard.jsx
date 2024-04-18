@@ -18,7 +18,7 @@ const AppoinmenntCard = ({ title, info, showMore,action, citaType }) => {
                 navigate('/agendamiento')   
                 break
             case 'Re-Schedule':
-                navigate('/servicios')  // => Re-Schedule
+                navigate('/reagendar')  // => Re-Schedule
                 break
             case 'Delete':
                 navigate('/cancelar') // => Delete

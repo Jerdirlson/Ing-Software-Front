@@ -42,7 +42,7 @@ const Appointments = () => {
                         <AppoinmenntCard title={Presenciales.title} info={Presenciales.info} showMore={Presenciales.link} citaType={'Schedule'} action={'Agendar'} />
                         <div className="flex flex-col justify-between">
                             <AppoinmenntCard title={'Reagendación de Citas'} citaType={'Re-Schedule'} action={'Re-Agendar'} />
-                            <AppoinmenntCard title={'Cancelación'} citaType={'Delete'} action={'Cancelar'}/>
+                            <AppoinmenntCard title={'Cancelación'} citaType={'Delete'} action={'Cancelar'} />
                         </div>
                     </div>
                     <div className="absolute right-0 bottom-0 translate-y-6 bg-gradient-to-l from-transparent from-35% to-white to-95% 3xl:w-[800px] 3xl:h-[550px] xl:w-96 xl:h-96 hidden 3xl:block xl:block"></div>

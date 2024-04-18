@@ -13,11 +13,10 @@ import {
 } from "@material-tailwind/react";
 import {
     PresentationChartBarIcon,
-    ShoppingBagIcon,
     UserCircleIcon,
     Cog6ToothIcon,
     InboxIcon,
-    PowerIcon,
+    XMarkIcon,
 } from "@heroicons/react/24/solid";
 import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import LOGO_YELLOW_IPS from '../assets/img/logos/LogoIps_Mesa de trabajo 1.png'
@@ -62,7 +61,7 @@ const SideBar = () => {
                     <Link to={operatorNavigation[1].href}>
                         <ListItem>
                             <ListItemPrefix>
-                                <UserCircleIcon className="h-5 w-5" />
+                                <XMarkIcon className="h-5 w-5" />
                             </ListItemPrefix>
                             Cancelaciones
                         </ListItem>
@@ -140,6 +139,14 @@ const SideBar = () => {
                                 <Cog6ToothIcon className="h-5 w-5" />
                             </ListItemPrefix>
                             Reasignación de citas
+                        </ListItem>
+                    </Link>
+                    <Link to={operatorNavigation[4].href}>
+                        <ListItem>
+                            <ListItemPrefix>
+                                <UserCircleIcon className="h-5 w-5" />
+                            </ListItemPrefix>
+                            Registrar Paciente
                         </ListItem>
                     </Link>
                 </List>
