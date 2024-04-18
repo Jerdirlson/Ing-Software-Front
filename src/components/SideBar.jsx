@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-    Card,
     Typography,
     List,
     ListItem,
@@ -12,11 +11,11 @@ import {
     AccordionBody,
 } from "@material-tailwind/react";
 import {
-    PresentationChartBarIcon,
-    UserCircleIcon,
-    Cog6ToothIcon,
     InboxIcon,
     XMarkIcon,
+    FolderPlusIcon,
+    PencilSquareIcon,
+    UserPlusIcon
 } from "@heroicons/react/24/solid";
 import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import LOGO_YELLOW_IPS from '../assets/img/logos/LogoIps_Mesa de trabajo 1.png'
@@ -46,7 +45,7 @@ const SideBar = () => {
                     <img src={LOGO_YELLOW_IPS} alt="" />
                 </div>
                 <hr className="w-11/12 mx-auto" />
-                <List>
+                <List className="gap-2">
                     <Link to={operatorNavigation[0].href}>
                         <ListItem>
                             <ListItemPrefix>
@@ -79,7 +78,7 @@ const SideBar = () => {
                         <ListItem className="p-0" selected={open === 1}>
                             <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 p-3">
                                 <ListItemPrefix>
-                                    <PresentationChartBarIcon className="h-5 w-5" />
+                                    <FolderPlusIcon className="h-5 w-5" />
                                 </ListItemPrefix>
                                 <Typography color="blue-gray" className="mr-auto font-normal">
                                     Agendar Citas
@@ -136,7 +135,7 @@ const SideBar = () => {
                     <Link to={operatorNavigation[3].href}>
                         <ListItem>
                             <ListItemPrefix>
-                                <Cog6ToothIcon className="h-5 w-5" />
+                                <PencilSquareIcon className="h-5 w-5" />
                             </ListItemPrefix>
                             Reasignación de citas
                         </ListItem>
@@ -144,7 +143,7 @@ const SideBar = () => {
                     <Link to={operatorNavigation[4].href}>
                         <ListItem>
                             <ListItemPrefix>
-                                <UserCircleIcon className="h-5 w-5" />
+                                <UserPlusIcon className="h-5 w-5" />
                             </ListItemPrefix>
                             Registrar Paciente
                         </ListItem>

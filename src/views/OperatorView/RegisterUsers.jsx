@@ -83,7 +83,7 @@ const RegisterUsers = () => {
                             </div>
                             <div className="flex flex-col p-2">
                                 <label>EPS</label>
-                                <select className={className} type="text" name={"EPS"}{...register('idEPS')}
+                                <select className={className} type="text" name={"EPS"}{...register('eps')}
                                 >
                                     <option disabled defaultValue={"Seleccione una sede"} value="">Seleccione una eps</option>
                                     {EPS.map((item, index) => (
