@@ -194,7 +194,7 @@ export const useAppointment_ReScheduler = () => {
 
   const onSubmit = handleSubmit(async (data) => {
     data['dia'] = selectedDate ? defineDate(selectedDate) : '';
-    data['id'] = cita.response.idScheduleMedic
+    data['id'] = cita.response.id
     console.log(data)
     const response = await update_appointment(data);
     //---
