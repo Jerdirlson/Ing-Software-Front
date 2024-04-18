@@ -18,21 +18,21 @@ export const services = {
         imgRelated: NUTRICION_IMG
     },
     service3: {
-        title: 'Odontologia',
+        title: 'Odontología',
         description: 'Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi',
         imgRelated: ODONTOLOGIA_IMG
     },
     service4: {
-        title: 'Pediatria',
+        title: 'Pediatría',
         description: 'Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi',
         imgRelated: PEDIATRIA_IMG
     }, service5: {
-        title: 'Fonoaudiologia',
+        title: 'Fonoaudiología',
         description: 'Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi',
         imgRelated: FONOAUDILOGIA_IMG
     },
     service6: {
-        title: 'Cardiologia',
+        title: 'Cardiología',
         description: 'Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi',
         imgRelated: CARDIOLOGIA_IMG
     },

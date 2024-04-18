@@ -1,25 +1,30 @@
+import { useLocation } from 'react-router-dom';
 import NEXTBUTTON from '../../assets/svg/icons/NextButton.svg'
 import { useSteps } from "../../context/MultiStepContext";
 import { useAppointmentSchedulerUSER } from '../../hooks/useAppointmentScheduler';
 const input = 'border-secondaryGray border rounded-lg h-12 w-[425px] text-2xl font-light pl-3 pr-3'
 
 const Step1 = () => {
+
+    const location = useLocation();
+    const { service } = location.state || {};
     const { nextStep, register } = useSteps()
+
     return (
         <>
             {/* Inputs */}
             <section className='flex-col flex items-center justify-center m-14'>
                 <div className='flex-col flex m-4'>
                     <label className='text-2xl mb-1'>¿Que tipo de cita desea?</label>
-                    <select className={input} placeholder={"Selecciona una opción"} {...register('service')}>
-                        <option disabled defaultValue=''>Seleccione una opción</option>
-                        <option>General</option>
-                        <option>Fisioterapia</option>
-                        <option>Nutrición</option>
-                        <option>Odontologia</option>
-                        <option>Cardiologia</option>
-                        <option>Pedriatria</option>
-                        <option>Fonoaudiología</option>
+                    <select className={input} placeholder={"Selecciona una opción"} defaultValue={service} {...register('service')}>
+                        <option disabled value=''>Seleccione una opción</option>
+                        <option value="General">General</option>
+                        <option value="Fisioterapia">Fisioterapia</option>
+                        <option value="Nutrición">Nutrición</option>
+                        <option value="Odontología">Odontología</option>
+                        <option value="Cardiología">Cardiología</option>
+                        <option value="Pediatría">Pediatría</option>
+                        <option value="Fonoaudiología">Fonoaudiología</option>
                     </select>
                 </div>
                 <div className='flex-col flex m-4'>

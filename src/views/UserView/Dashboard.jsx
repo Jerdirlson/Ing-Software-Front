@@ -47,7 +47,7 @@ const Dashboard = () => {
                             <li className='flex items-center mx-2 p-2 sm:p-0 2xl:mx-1 2xl:p-1'>                            <img src={SYRINGE_ICON} alt="syringe_icon" className='w-10 h-10 mr-4' />
                                 <p className='2xl:text-base xl:text-xs sm:hidden lg:block '>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p></li>
                             <li className='mx-2 2xl:mx-1 2xl:p-1'>
-                                <a href="#" className='hover:underline hover:decoration-black' >
+                                <a href="/servicios" className='hover:underline hover:decoration-black' >
                                     <p className='italic text-base 2xl:text-base sm:text-xs'>Conocer más...</p>
                                 </a>
                             </li>
