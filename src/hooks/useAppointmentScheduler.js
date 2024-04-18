@@ -195,11 +195,11 @@ export const useAppointment_ReScheduler = () => {
   const onSubmit = handleSubmit(async (data) => {
     data['dia'] = selectedDate ? defineDate(selectedDate) : '';
     data['id'] = cita.response.idScheduleMedic
-
+    console.log(data)
     const response = await update_appointment(data);
     //---
-    const correoData = getCorreoData(cita)
-    const responseCorreo = await send_email_re_add(correoData)
+    // const correoData = getCorreoData(cita)
+    // const responseCorreo = await send_email_re_add(correoData)
 
     console.log(responseCorreo);
     console.log(response);
