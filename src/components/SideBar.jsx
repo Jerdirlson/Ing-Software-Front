@@ -45,13 +45,13 @@ const SideBar = () => {
                     <img src={LOGO_YELLOW_IPS} alt="" />
                 </div>
                 <hr className="w-11/12 mx-auto" />
-                <List className="gap-2">
+                <List className="gap-4 mt-4">
                     <Link to={operatorNavigation[0].href}>
                         <ListItem>
                             <ListItemPrefix>
                                 <InboxIcon className="h-5 w-5" />
                             </ListItemPrefix>
-                            Confirmacion de Cita
+                            {operatorNavigation[0].name}
                             <ListItemSuffix>
                                 <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
                             </ListItemSuffix>
@@ -62,7 +62,7 @@ const SideBar = () => {
                             <ListItemPrefix>
                                 <XMarkIcon className="h-5 w-5" />
                             </ListItemPrefix>
-                            Cancelaciones
+                            {operatorNavigation[1].name}
                         </ListItem>
                     </Link>
 
@@ -137,7 +137,7 @@ const SideBar = () => {
                             <ListItemPrefix>
                                 <PencilSquareIcon className="h-5 w-5" />
                             </ListItemPrefix>
-                            Reasignación de citas
+                            {operatorNavigation[3].name}
                         </ListItem>
                     </Link>
                     <Link to={operatorNavigation[4].href}>
@@ -145,7 +145,7 @@ const SideBar = () => {
                             <ListItemPrefix>
                                 <UserPlusIcon className="h-5 w-5" />
                             </ListItemPrefix>
-                            Registrar Paciente
+                            {operatorNavigation[4].name}
                         </ListItem>
                     </Link>
                 </List>

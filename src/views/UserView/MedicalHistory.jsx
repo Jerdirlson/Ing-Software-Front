@@ -12,8 +12,8 @@ const MedicalHistory = () => {
         <>
             <NavBar />
             <main className="h-screen flex items-center justify-center">
-                <SimpleTable/>
-                {/* <div className="flex flex-col items-center justify-center text-2xl p-20 text-center">
+                {/* <SimpleTable/> */}
+                <div className="flex flex-col items-center justify-center text-2xl p-20 text-center">
                     <h1 className="font-bold">Sorry</h1>
                     <h2 className="font-bold" >
                         We still working on it
@@ -25,9 +25,7 @@ const MedicalHistory = () => {
                             Atrás
                         </button>
                     </Link>
-                    
-
-                </div> */}
+                </div>
             </main>
 
             <Footer />

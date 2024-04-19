@@ -19,6 +19,9 @@ import ProtectedRouteMedic from './routes/ProtectedRouteMedic.jsx';
 import UserCancelAppointment from './views/UserView/UserCancelAppoinment.jsx';
 import UserReScheduleAppoinment from './views/UserView/UserReScheduleAppoinment.jsx';
 import RegisterUsers from './views/OperatorView/RegisterUsers.jsx';
+import MedicSchedule from './views/DoctorView/MedicSchedule.jsx';
+import HisorialesClinicos from './views/DoctorView/HIstorialesClinicos.jsx';
+import InfoPacientes from './views/DoctorView/InfoPacientes.jsx';
 /**
  * App structure 'routes'
  * Defines routes and its related components
@@ -42,12 +45,11 @@ function App() {
         <Route path="/agendamiento/" element={<UserScheduleAppointment />} />
         {/* STEPS TO CANCEL SCHEDULE AS USER*/}
 
-        <Route path="/cancelar/" element={<UserCancelAppointment/>} />
+        <Route path="/cancelar/" element={<UserCancelAppointment />} />
         {/* STEPS TO RE_SCHEDULE AS USER */}
 
-        <Route path="/reAgendar/" element={<UserReScheduleAppoinment/>} />
+        <Route path="/reAgendar/" element={<UserReScheduleAppoinment />} />
 
-        
         <Route path='/servicios' element={<Services />} />
         <Route path='/historiaclinica' element={<MedicalHistory />} />
 
@@ -67,9 +69,13 @@ function App() {
         {/* </Route> */}
 
         {/* MEDICO */}
-        <Route element={<ProtectedRouteMedic />} >
-          <Route path='medico' element={<DoctorDashboard />} />
-        </Route>
+        {/* <Route element={<ProtectedRouteMedic />} > */}
+          <Route path='medico' element={<DoctorDashboard />} >
+            <Route path='agenda' element={<MedicSchedule />} />
+            <Route path='historiales_clinicos' element={<HisorialesClinicos />} />
+            <Route path='pacientes' element={<InfoPacientes />} />
+          </Route>
+        {/* </Route> */}
 
 
         {/* RUTAS NO EXISTENTES */}

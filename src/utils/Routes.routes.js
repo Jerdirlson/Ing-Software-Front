@@ -11,11 +11,14 @@ export const navigation = [
  * Object that contains the routes on the sideBar operator
  */
 export const operatorNavigation = [
-    { name: 'Confirmacion de cita', href: '/management/confirm' },
-    { name: 'Cancelacion', href: '/management/cancel'},
+    { name: 'Confirmación de cita', href: '/management/confirm' },
+    { name: 'Cancelación', href: '/management/cancel'},
     { name: 'Agendar Citas', href: '/management/schedule'},
-    { name: 'Reasignacion de citas', href: '/management/reschedule'},
+    { name: 'Reasignación de citas', href: '/management/reschedule'},
     { name: 'Agregar Usuario', href: '/management/addUser'},
-
-    
+]
+export const medicNavigation = [
+    { name: 'Agenda', href: '/medico/agenda' },
+    { name: 'Ver historiales clínicos', href: '/medico/historiales_clinicos'},
+    { name: 'Información de Pacientes', href: '/medico/pacientes'}
 ]
