@@ -69,13 +69,13 @@ function App() {
         {/* </Route> */}
 
         {/* MEDICO */}
-        {/* <Route element={<ProtectedRouteMedic />} > */}
+        <Route element={<ProtectedRouteMedic />} >
           <Route path='medico' element={<DoctorDashboard />} >
             <Route path='agenda' element={<MedicSchedule />} />
             <Route path='historiales_clinicos' element={<HisorialesClinicos />} />
             <Route path='pacientes' element={<InfoPacientes />} />
           </Route>
-        {/* </Route> */}
+        </Route>
 
 
         {/* RUTAS NO EXISTENTES */}

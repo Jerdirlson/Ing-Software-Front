@@ -2,6 +2,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useEffect } from "react";
 import { roles } from "../utils/roles";
+import Loader2 from "../components/Loader2";
 
 const ProtectedRouteMedic = () => {
     const { userLogin, loading } = useAuth();
@@ -19,7 +20,12 @@ const ProtectedRouteMedic = () => {
 
     if (loading) {
         // Muestra un indicador de carga mientras se obtiene la información del usuario
-        return <div>Cargando...</div>;
+        return (
+            <>
+                <div className="h-screen flex items-center justify-center">
+                    <Loader2 />
+                </div>
+            </>)
     }
 
     // Verifica si el usuario no está autenticado o si no tiene el rol adecuado
