@@ -14,14 +14,14 @@ const Services = () => {
         <>
             <NavBar />
             <main className="h-screen flex flex-col ">
-                <section className='flex justify-center items-center w-full h-64 mt-36 px-12'>
+                <section className='flex justify-center items-center w-full h-64 mt-36 sm:px-12'>
                     {/* Rectangulo azul */}
-                    <article className='flex h-60 w-auto rounded-[60px] p-5 bg-gradient-to-r from-[#46A8FB] to-[#2176FF]'>
-                        <div className='w-[550px] mt-5 mx-8 lg:mx-0 lg:ml-9 '>
+                    <article className='flex w-10/12 h-auto sm:w-auto sm:h-60 rounded-[60px] p-5 bg-gradient-to-r from-[#46A8FB] to-[#2176FF]'>
+                        <div className='flex flex-col w-[550px] sm:mt-5 mx-8 lg:mx-0 lg:ml-9 '>
                             <h1 className='font-bold text-white text-3xl'>
                                 Servicios
                             </h1>
-                            <p className='text-white text-xl'>
+                            <p className='text-white text-base sm:text-xl'>
                                 SaludPRO IPS, se permite ofrecerles a los afiliados del régimen contributivo y subsidiado,
                                 servicios del Plan Obligatorio de Salud de la ley 100, en el nivel I, II y III de atención ambulatoria.
                             </p>
@@ -54,7 +54,7 @@ const Services = () => {
                 </section>
                 {/* SERVICIOS */}
                 <section className='w-full flex flex-col justify-center mx-auto'>
-                    <div className='grid grid-cols-3 gap-x-12 lg:gap-x-44 mx-auto mt-12'>
+                    <div className='grid grid-cols-2 sm:grid-cols-3 gap-x-2 sm:gap-x-12 lg:gap-x-44 mx-auto mt-12'>
                         {Object.keys(services).map(key => (
                             <ServiceCard
                                 key={key}
@@ -69,7 +69,7 @@ const Services = () => {
                         <div className='w-full'>
                             <img className="w-full h-full object-contain" src={SERVICES_BACKGROUND} alt="Doctor Smiling" />
                         </div>
-                        <h1 className='px-40 py-14'>Donec vitae sapien ut libero venenatis faucibus.
+                        <h1 className='text-sm p-8 sm:text-base sm:px-40 sm:py-14'>Donec vitae sapien ut libero venenatis faucibus.
                             Nullam quis ante. Etiam sit amet orci eget eros
                             faucibus tincidunt. Duis leo. Sed fringilla
                             mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.</h1>
