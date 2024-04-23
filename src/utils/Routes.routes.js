@@ -22,3 +22,7 @@ export const medicNavigation = [
     { name: 'Ver historiales clínicos', href: '/medico/historiales_clinicos'},
     { name: 'Información de Pacientes', href: '/medico/pacientes'}
 ]
+export const adminNavigation = [
+    { name: 'Cargar Usuarios Nuevos', href: '/management/load_users' },
+    { name: 'Horario Medico', href: '/management/manage_medic'}
+]

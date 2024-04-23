@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import {
     Typography,
     List,
@@ -15,12 +15,16 @@ import {
     XMarkIcon,
     FolderPlusIcon,
     PencilSquareIcon,
-    UserPlusIcon
+    UserPlusIcon,
+    CalendarDaysIcon
 } from "@heroicons/react/24/solid";
-import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
+import { ChevronRightIcon, ChevronDownIcon, ArrowUpOnSquareIcon } from "@heroicons/react/24/outline";
 import LOGO_YELLOW_IPS from '../assets/img/logos/LogoIps_Mesa de trabajo 1.png'
-import { operatorNavigation } from "../utils/Routes.routes"
+import { adminNavigation, medicNavigation, operatorNavigation } from "../utils/Routes.routes"
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { roles } from "../utils/roles";
+import Loader2 from "./Loader2";
 
 /**
  * Contains the side menu of the operator options
@@ -38,6 +42,17 @@ const SideBar = () => {
         navigate("/management/schedule", { state: { category } });
 
     };
+    const { userLogin, loading } = useAuth()
+    if (loading) {
+        // Muestra un loader mientras se obtiene la información del usuario
+        return (
+            <>
+                <div className="h-screen w-screen absolute flex items-center justify-center">
+                    <Loader2 />
+                </div>
+            </>)
+    }
+
     return (
         <div className="lg:mr-80">
             <div className="h-screen max-w-[20rem] fixed hidden p-4 shadow-xl bg-primary-blue text-white lg:block">
@@ -148,6 +163,26 @@ const SideBar = () => {
                             {operatorNavigation[4].name}
                         </ListItem>
                     </Link>
+                    {userLogin && userLogin.user.idRol === roles.ADMIN &&
+                        <>
+                            <Link to={adminNavigation[0].href}>
+                                <ListItem>
+                                    <ListItemPrefix>
+                                        <ArrowUpOnSquareIcon className="h-5 w-5" />
+                                    </ListItemPrefix>
+                                    {adminNavigation[0].name}
+                                </ListItem>
+                            </Link>
+                            <Link to={adminNavigation[1].href}>
+                                <ListItem>
+                                    <ListItemPrefix>
+                                        <CalendarDaysIcon className="h-5 w-5" />
+                                    </ListItemPrefix>
+                                    {adminNavigation[1].name}
+                                </ListItem>
+                            </Link>
+                        </>
+                    }
                 </List>
 
             </div>

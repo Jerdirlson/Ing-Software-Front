@@ -22,6 +22,8 @@ import RegisterUsers from './views/OperatorView/RegisterUsers.jsx';
 import MedicSchedule from './views/DoctorView/MedicSchedule.jsx';
 import HisorialesClinicos from './views/DoctorView/HIstorialesClinicos.jsx';
 import InfoPacientes from './views/DoctorView/InfoPacientes.jsx';
+import LoadUser from './views/AdminView/LoadUsers.jsx';
+import Manage_medic from './views/AdminView/ManageMedic.jsx';
 /**
  * App structure 'routes'
  * Defines routes and its related components
@@ -56,13 +58,13 @@ function App() {
 
         {/* OPERADOR */}
         {/* <Route element={<ProtectedRouteOperator />}> */}
-          <Route path='/management/' element={<ManagementPanel />}>
-            <Route path='confirm' element={<ConfirmAppointment />} />
-            <Route path='cancel' element={<CancelAppointmnet />} />
-            <Route path='schedule' element={<ScheduleAppointment />} />
-            <Route path='reschedule' element={<RescheduleAppointment />} />
-            <Route path='addUser' element={<RegisterUsers />} />
-          </Route>
+        <Route path='/management/' element={<ManagementPanel />}>
+          <Route path='confirm' element={<ConfirmAppointment />} />
+          <Route path='cancel' element={<CancelAppointmnet />} />
+          <Route path='schedule' element={<ScheduleAppointment />} />
+          <Route path='reschedule' element={<RescheduleAppointment />} />
+          <Route path='addUser' element={<RegisterUsers />} />
+        </Route>
         {/* </Route> */}
 
 
@@ -70,11 +72,21 @@ function App() {
 
         {/* MEDICO */}
         {/* <Route element={<ProtectedRouteMedic />} > */}
-          <Route path='medico' element={<DoctorDashboard />} >
-            <Route path='agenda' element={<MedicSchedule />} />
-            <Route path='historiales_clinicos' element={<HisorialesClinicos />} />
-            <Route path='pacientes' element={<InfoPacientes />} />
-          </Route>
+        <Route path='medico' element={<DoctorDashboard />} >
+          <Route path='agenda' element={<MedicSchedule />} />
+          <Route path='historiales_clinicos' element={<HisorialesClinicos />} />
+          <Route path='pacientes' element={<InfoPacientes />} />
+        </Route>
+        {/* </Route> */}
+
+
+        {/* ADMIN */}
+        {/* <Route element={<ProtectedRouteOperator />}> */}
+        <Route path='/management/' element={<ManagementPanel />}>
+          <Route path='load_users' element={<LoadUser />} />
+          <Route path='manage_medic' element={<Manage_medic />} />
+        </Route>
+
         {/* </Route> */}
 
 
