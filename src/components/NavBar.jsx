@@ -5,6 +5,7 @@ import USER_IMAGE from '../assets/svg/icons/UserBlack.svg'
 import LOGO_BLUE_IPS from '../assets/img/logos/LogoIpsBlue_Mesa de trabajo 1.png'
 import { navigation } from '../utils/Routes.routes'
 import { useAuth } from '../context/AuthContext'
+import { ArrowLeftEndOnRectangleIcon, ArrowLeftStartOnRectangleIcon, UserIcon } from '@heroicons/react/24/solid'
 /**
  * This function takes a list of classes and joins them together in one
  * @param  {...any} classes 
@@ -101,8 +102,9 @@ const NavBar = () => {
                                                 {({ active }) => (
                                                     <a
                                                         href="#"
-                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-black')}
+                                                        className={classNames(active ? 'bg-gray-100' : '', 'flex items-center px-2 py-1 text-sm text-black')}
                                                     >
+                                                        <UserIcon className='w-6 mr-2 text-gray-800' />
                                                         {userLogin.user.nameUser}
                                                     </a>
                                                 )}
@@ -112,8 +114,9 @@ const NavBar = () => {
                                                     <a
                                                         onClick={(event) => logoutContext(event)}
                                                         href='/'
-                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-black')}
+                                                        className={classNames(active ? 'bg-gray-100' : '', 'flex items-center px-2 py-1 text-sm text-black')}
                                                     >
+                                                        <ArrowLeftStartOnRectangleIcon className='w-6 mr-2 text-gray-800' />
                                                         Log out
                                                     </a>
                                                 )}
@@ -121,9 +124,11 @@ const NavBar = () => {
                                                 {({ active }) => (
                                                     <a
                                                         href='/login'
-                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-black')}
+                                                        className={classNames(active ? 'bg-gray-100' : '', 'flex justify-between px-2 py-1 text-sm text-black')}
                                                     >
                                                         Log in
+                                                        <ArrowLeftEndOnRectangleIcon className='w-6 mr-2 text-gray-800' />
+
                                                     </a>
                                                 )}
                                             </Menu.Item>}
