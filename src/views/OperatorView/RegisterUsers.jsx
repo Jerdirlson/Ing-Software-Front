@@ -1,12 +1,28 @@
 // import { useAuth } from "../../context/AuthContext"
+import Loader2 from "../../components/Loader2"
+import { useAuth } from "../../context/AuthContext"
 import { EPS } from "../../data/EPS"
+import { services } from "../../data/Services.data"
 import { Sites } from "../../data/Sites.data"
 import useSignUp from "../../hooks/useSignUp"
+import { roles } from "../../utils/roles"
 
 const className = `border-gray-400 border rounded-lg h-8 p-1`
 // cosnt { userLogin } = useAuth()
 const RegisterUsers = () => {
-    const { register, onSubmit } = useSignUp()
+    const { register, onSubmit, watch } = useSignUp()
+    const rol = watch('idRol')
+    console.log(rol)
+    const { userLogin, loading } = useAuth()
+    if (loading) {
+        // Muestra un loader mientras se obtiene la información del usuario
+        return (
+            <>
+                <div className="h-screen w-screen absolute flex items-center justify-center">
+                    <Loader2 />
+                </div>
+            </>)
+    }
     return (
 
         <>
@@ -98,9 +114,32 @@ const RegisterUsers = () => {
                             <h2 className="font-light p-1 text-xl">Rol</h2>
                             <div className="flex flex-col p-2">
                                 <label>Rol en el sistema</label>
-                                
-                                <input readOnly className={className} value='4'{...register('idRol')} />
+                                <select className={className} {...register('idRol')}>
+                                    <option disabled defaultValue={"Seleccione un rol"} value="">Seleccione un rol</option>
+                                    <option value={roles.USER}>Usuario</option>
+                                    {
+                                        userLogin && userLogin.user.idRol === roles.ADMIN &&
+                                        <>
+                                            <option value={roles.ADMIN}>Administrador</option>
+                                            <option value={roles.OPERATOR}>Operador</option>
+                                            <option value={roles.MEDIC}>Medico</option>
+                                        </>
+                                    }
+                                </select>
                             </div>
+                            {
+                                rol == roles.MEDIC &&
+                                <div className="flex flex-col p-2">
+                                    <label>Especialidad</label>
+                                    <select className={className} type="text" name={"especialidad"}{...register('especialidad')}
+                                    >
+                                        <option disabled defaultValue={"Seleccione una especialidad"} value="">Seleccione una especialidad</option>
+                                        {Object.values(services).map((service) => (
+                                            <option key={service.title} value={service.title}>{service.title}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                            }
                         </div>
 
                         <div className="flex flex-col w-1/4 mr-24">
@@ -111,7 +150,7 @@ const RegisterUsers = () => {
                             </div>
                             <div className="flex flex-col my-2">
                                 <label >Fijo</label>
-                                <input className={className} type="text" name={"fijo"}{...register('fijo')}  />
+                                <input className={className} type="text" name={"fijo"}{...register('fijo')} />
                             </div>
                         </div>
                     </section>
