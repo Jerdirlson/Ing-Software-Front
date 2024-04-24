@@ -11,7 +11,7 @@ const MedicSchedule = () => {
                         <div className="w-full h-0.5 bg-slate-400" />
                     </header>
                     <section className="flex flex-col p-4">
-                        <SimpleTable />
+                        <SimpleTable  />
                     </section>
 
                 </section>

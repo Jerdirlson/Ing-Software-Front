@@ -26,7 +26,7 @@ const defineDate = (selectedDate) => {
  * @returns functions for management of adding appointments
  */
 export const useAppointmentScheduler = () => {
-  const { register, handleSubmit, watch ,reset} = useForm();
+  const { register, handleSubmit, watch, reset } = useForm();
   const [selectedDate, setSelectedDate] = useState(null);
   const [hoursAvailable, setHoursAvailable] = useState(null);
   const [service, setService] = useState(null);
@@ -196,13 +196,20 @@ export const useAppointment_ReScheduler = () => {
     data['dia'] = selectedDate ? defineDate(selectedDate) : '';
     data['id'] = cita.response.id
     console.log(data)
-    const response = await update_appointment(data);
-    //---
-    // const correoData = getCorreoData(cita)
-    // const responseCorreo = await send_email_re_add(correoData)
+    try {
+      const response = await update_appointment(data);
+      //---
+      if (response) {
+        //ARREGLAR AQUI =>=>==>==>=>>==> CAMBIAR LA INFORMACION PARA ENVIAR LOS CORREOS
+        const correoData = getCorreoData(cita)
+        const responseCorreo = await send_email_re_add(correoData)
+      }
+      console.log(responseCorreo);
+      console.log(response);
+    } catch (error) {
+      console.log(error)
+    }
 
-    console.log(responseCorreo);
-    console.log(response);
   });
 
   return {
