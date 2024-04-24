@@ -7,7 +7,8 @@ import { getCorreoData } from '../../utils/correo.js';
 import { send_email_cancel } from '../../services/email.service.js';
 import { cancel_appointment } from '../../services/appointments/appointment.service.js';
 import Alerta from '../../components/Alerta.jsx';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import BasicModal from '../../components/Modal.jsx';
 const input = 'border-secondaryGray border rounded-lg h-10 w-[425px] text-2xl font-light pl-3 pr-3'
 
 const UserCancelAppointment = () => {
@@ -15,6 +16,8 @@ const UserCancelAppointment = () => {
     // console.log("Schedule")
     const { cita, register, onSubmit, errors, alert, setAlert } = useInfoAppointment()
     const navigate = useNavigate()
+    const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar la visibilidad del modal
+
     const onClick = async (data) => {
         // Logica de obtencion de fecha & data to send => correo
         const correoData = getCorreoData(cita)
@@ -31,8 +34,12 @@ const UserCancelAppointment = () => {
         } catch (error) {
             console.log('error', error)
 
-        } finally {
-            navigate('/citas')
+        }
+        finally {
+            setIsModalOpen(true); // Abre el modal después de que la cita se haya cancelado
+            setTimeout(() => {
+                navigate('/citas'); // Redirige después de un cierto tiempo
+            }, 3000); // Tiempo en milisegundos (en este caso, 3 segundos)
         }
     }
     useEffect(() => {
@@ -44,7 +51,9 @@ const UserCancelAppointment = () => {
 
     return (
         <>
+
             <NavBar />
+            {isModalOpen && <BasicModal title={'Cita cancelada'} description={'La cita fue cancelada con exito'} />}
             <main className='h-screen flex flex-col bg-gradient-to-b from-[#FFFFFF] to-[#EFF0F1]'>
                 <div className='flex flex-col justify-center items-center h-full '>
                     {alert && <Alerta severityType="error" />}
@@ -67,7 +76,7 @@ const UserCancelAppointment = () => {
                                             errors.id?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.id.message}</p>
                                         }
                                     </div>
-                                    <div className={`flex items-center ${errors.id ? 'self-center': ''}`}>
+                                    <div className={`flex items-center ${errors.id ? 'self-center' : ''}`}>
                                         <button type='submit'>
                                             <img src={NEXTBUTTON} alt="Continuar" className='mx-3'></img>
                                         </button>
