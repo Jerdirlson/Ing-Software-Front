@@ -1,22 +1,10 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { useState } from 'react';
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
-
-export default function BasicModal({title,description}) {   //COLor???
-  const [open, setOpen] = React.useState(true);
+export default function BasicModal({ title, description }) {
+  const [open, setOpen] = useState(true);
   const handleClose = () => setOpen(false);
 
   return (
@@ -27,13 +15,34 @@ export default function BasicModal({title,description}) {   //COLor???
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            {title}
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {description}
-          </Typography>
+        <Box className={`animate-fade-in animate-iteration-count-once absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-auto h-auto border-2 rounded-xl shadow-lg p-2 bg-gradient-to-r from-[#34A192] to-[#3FBA57] `}>
+          <div
+            role="alert"
+            class="mx-auto max-w-lg rounded-lg border border-stone bg-stone-100 p-4 shadow-lg sm:p-6 lg:p-8"
+          >
+            <div class="flex items-center gap-4">
+              <span class="shrink-0 rounded-full bg-emerald-400 p-2 text-white">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="h-4 w-4"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M18 3a1 1 0 00-1.447-.894L8.763 6H5a3 3 0 000 6h.28l1.771 5.316A1 1 0 008 18h1a1 1 0 001-1v-4.382l6.553 3.276A1 1 0 0018 15V3z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </span>
+
+              <p class="font-medium sm:text-2xl text-emerald-600">{title}!</p>
+            </div>
+
+            <p class="mt-4 text-gray-600">
+              {description}
+            </p>
+          </div>
         </Box>
       </Modal>
     </div>

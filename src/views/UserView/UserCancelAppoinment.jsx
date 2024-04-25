@@ -33,7 +33,6 @@ const UserCancelAppointment = () => {
             }
         } catch (error) {
             console.log('error', error)
-
         }
         finally {
             setIsModalOpen(true); // Abre el modal después de que la cita se haya cancelado
@@ -53,7 +52,7 @@ const UserCancelAppointment = () => {
         <>
 
             <NavBar />
-            {isModalOpen && <BasicModal title={'Cita cancelada'} description={'La cita fue cancelada con exito'} />}
+            {isModalOpen && <BasicModal title={'Cita cancelada'} description={'Su cita ha sido cancelada con exito, revise su correo electronico para mas información'} />}
             <main className='h-screen flex flex-col bg-gradient-to-b from-[#FFFFFF] to-[#EFF0F1]'>
                 <div className='flex flex-col justify-center items-center h-full '>
                     {alert && <Alerta severityType="error" />}
