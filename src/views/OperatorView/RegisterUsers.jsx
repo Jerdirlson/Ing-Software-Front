@@ -135,7 +135,7 @@ const RegisterUsers = () => {
                                     >
                                         <option disabled defaultValue={"Seleccione una especialidad"} value="">Seleccione una especialidad</option>
                                         {Object.values(services).map((service) => (
-                                            <option key={service.title} value={service.title}>{service.title}</option>
+                                            <option key={service.id} value={service.id}>{service.title}</option>
                                         ))}
                                     </select>
                                 </div>

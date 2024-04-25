@@ -10,30 +10,36 @@ export const services = {
     service1: {
         title: 'Fisioterapia',
         description: 'Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi',
-        imgRelated: FISIOTERAPIA_IMG
+        imgRelated: FISIOTERAPIA_IMG,
+        id: 1,
     },
     service2: {
         title: 'Nutrición',
         description: 'Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi',
-        imgRelated: NUTRICION_IMG
+        imgRelated: NUTRICION_IMG,
+        id: 2,
     },
     service3: {
         title: 'Odontología',
         description: 'Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi',
-        imgRelated: ODONTOLOGIA_IMG
+        imgRelated: ODONTOLOGIA_IMG,
+        id: 3,
     },
     service4: {
         title: 'Pediatría',
         description: 'Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi',
-        imgRelated: PEDIATRIA_IMG
+        imgRelated: PEDIATRIA_IMG,
+        id: 5,
     }, service5: {
         title: 'Fonoaudiología',
         description: 'Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi',
-        imgRelated: FONOAUDILOGIA_IMG
+        imgRelated: FONOAUDILOGIA_IMG,
+        id: 6,
     },
     service6: {
         title: 'Cardiología',
         description: 'Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi',
-        imgRelated: CARDIOLOGIA_IMG
+        imgRelated: CARDIOLOGIA_IMG,
+        id: 4,
     },
 }
