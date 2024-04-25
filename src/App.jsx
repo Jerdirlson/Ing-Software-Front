@@ -24,6 +24,7 @@ import HisorialesClinicos from './views/DoctorView/HIstorialesClinicos.jsx';
 import InfoPacientes from './views/DoctorView/InfoPacientes.jsx';
 import LoadUser from './views/AdminView/LoadUsers.jsx';
 import Manage_medic from './views/AdminView/ManageMedic.jsx';
+import HealthCheck from './views/HealthCheck.jsx';
 /**
  * App structure 'routes'
  * Defines routes and its related components
@@ -93,6 +94,8 @@ function App() {
         {/* RUTAS NO EXISTENTES */}
         <Route path="*" element={<NotFound />} />
 
+        {/* HealthCheck */}
+        <Route path="/health" element={<HealthCheck />} />
       </Routes>
     </BrowserRouter >
 

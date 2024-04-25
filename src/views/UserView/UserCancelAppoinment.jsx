@@ -55,7 +55,7 @@ const UserCancelAppointment = () => {
             {isModalOpen && <BasicModal title={'Cita cancelada'} description={'Su cita ha sido cancelada con exito, revise su correo electronico para mas información'} />}
             <main className='h-screen flex flex-col bg-gradient-to-b from-[#FFFFFF] to-[#EFF0F1]'>
                 <div className='flex flex-col justify-center items-center h-full '>
-                    {alert && <Alerta severityType="error" />}
+                    {alert && <Alerta info="Esta cita es no existe, asegurate de ingresar una cita existente" />}
                     <section className='flex flex-col items-center'>
                         <div className='flex items-center justify-center w-[700px] mb-6'>
                             <div className={` ${!cita ? "h-3 w-3" : "h-2 w-2"} rounded-full h-2  w-2 bg-primaryGray  mx-1`} />
