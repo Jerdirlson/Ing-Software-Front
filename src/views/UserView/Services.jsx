@@ -37,8 +37,18 @@ const Services = () => {
                     {/* Texto complementario */}
                     <div className='w-96 ml-20 text-xl font-light items-center hidden 2xl:flex'>
                         <p>
-                            Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
-                            rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+                            <p>
+                            • Atención ambulatoria y recuperación de la salud.
+                            </p>
+                            <p>
+                            • Programa de cardiología integral.
+                            </p>
+                            <p>
+                            • La participación activa de la población total asignada.
+                            </p>
+                            <p>
+                            • Salud, con estimulación del autocuidado y garantizando.
+                            </p>
                         </p>
                     </div>
 

@@ -33,10 +33,11 @@ const AboutUs = () => {
                         </div>
                         <div className="w-1/2  font-light px-6 py-2 text-pretty">
                             <h1 className='font-bold text-3xl'>Quienes somos</h1>
-                            <p>Donec pede justo, fringilla vel, aliquet nec,
-                                vulputate eget, arcu. In enim justo,
-                                rhoncus ut, imperdiet a, venenatis vitae,
-                                justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+                            <p>
+                                En SaludPro, nos enorgullece ser mucho más que una institución prestadora de salud; somos un equipo comprometido 
+                                con la excelencia en el cuidado y bienestar de nuestros pacientes. Desde nuestros humildes comienzos, nos hemos 
+                                dedicado a brindar atención médica de calidad con un enfoque centrado en las personas. Nuestra misión es simple 
+                                pero poderosa: mejorar la vida de nuestros pacientes a través de un cuidado compasivo, innovador y personalizado.
                             </p>
                             <p>
                                 Brindamos servicios de atención médica domiciliaria,
@@ -80,16 +81,16 @@ const AboutUs = () => {
                                 Valores
                             </h1>
                             <ul className='list-disc'>
-                                <li>Feugiat a, tellus.
+                                <li>Compasión.
                                 </li>
-                                <li>Phasellus viverra nulla ut metus varius
+                                <li>Excelencia.
                                 </li>
-                                <li>laoreet. Quisque rutrum.
+                                <li>Integridad.
                                 </li>
-                                <li>Aenean imperdiet. </li>
-                                <li>Etiam ultricies nisi vel augue. Curabitur
+                                <li>Innovación. </li>
+                                <li>Respeto y transparencia.
                                 </li>
-                                <li> Nam eget dui. </li>
+                                <li> Responsabilidad Social. </li>
                             </ul>
 
                         </div>

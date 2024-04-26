@@ -27,10 +27,11 @@ const Appointments = () => {
                     <div className="px-48 text-black hidden text-xs md:block">
                         <h2 className=" font-normal text-2xl mb-2 2xl:text-4xl">Atención</h2>
                         <p className="font-light text-lg 2xl:text-2xl">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor.
-                            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor.
-                            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                            Entendemos lo importante que es contar con un sistema de citas médicas eficiente y conveniente. 
+                            Nuestro servicio de citas está diseñado para ofrecerte una experiencia sin complicaciones, permitiéndote programar 
+                            fácilmente tus consultas con nuestros profesionales de la salud en línea o por teléfono. Ya sea que necesites una consulta 
+                            de seguimiento, un chequeo de rutina o un tratamiento especializado, nuestro equipo está listo para atenderte. Además, te ofrecemos 
+                            la flexibilidad de elegir la sede y el horario que mejor se adapten a tu agenda.
                         </p>
                     </div>
                 </section>
