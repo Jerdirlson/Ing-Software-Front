@@ -11,6 +11,7 @@ import dayjs from "dayjs";
 import { getPacients } from "../services/doctor/pacients.service";
 import { useAuth } from "../context/AuthContext";
 import { button } from "@material-tailwind/react";
+import { EPS } from "../data/EPS";
 
 function SimpleTable() {
     const [data, setData] = useState([])
@@ -34,7 +35,8 @@ function SimpleTable() {
                     if (res) {
                         const newData = res.users.map(user => ({
                             ...user,
-                            fullName: `${user.nameUser} ${user.lastNameUser}`
+                            fullName: `${user.nameUser} ${user.lastNameUser}`,
+                            epsName: EPS.find(eps => eps.id === user.eps)?.name || 'EPS Desconocida'
                         }));
                         setData(newData)
                     }
@@ -66,7 +68,7 @@ function SimpleTable() {
         },
         {
             header: "EPS",
-            accessorKey: "eps",
+            accessorKey: "epsName",
         },
         // {
         //     header: "Fecha de nacimiento",

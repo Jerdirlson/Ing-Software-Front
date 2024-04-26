@@ -5,6 +5,7 @@ import LOGO_BLUE_IPS from '../assets/img/logos/LogoIpsBlue_Mesa de trabajo 1.png
 import { useAuth } from '../context/AuthContext'
 import { useNavigate } from "react-router-dom";
 import Loader from "./Loader"
+import { roles } from "../utils/roles"
 
 
 
@@ -25,7 +26,7 @@ const LoginCard = () => {
             setLoading(true)
             const response = await signinContext(data)
             console.log(response)
-            if (response.user.idRol === 1) {
+            if (response.user.idRol === roles.USER) {
                 console.log(response.responseModule)
                 response ? navigate(response.responseModule[0].link) : ''
             } else {
