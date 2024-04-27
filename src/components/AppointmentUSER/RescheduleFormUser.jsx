@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { useAppointment_ReScheduler } from "../../hooks/useAppointmentScheduler";
 import Calendar from "../Calendar";
+import BasicModal from "../Modal";
 
 const RescheduleFormAppointmentUser = ({ props }) => {
-    const { setSelectedDate, hoursAvailable, onSubmit, register, setCita } = useAppointment_ReScheduler();    // Custom hook
+    const { setSelectedDate, hoursAvailable, onSubmit, register, setCita, isModalOpen } = useAppointment_ReScheduler();    // Custom hook
     useEffect(() => {
         setCita(props)
     }, [setSelectedDate]);
@@ -11,6 +12,7 @@ const RescheduleFormAppointmentUser = ({ props }) => {
     console.log(props)
     return (
         <>
+            {isModalOpen ? < BasicModal title={'Cita Reagendada'} description={'Su cita ha sido reagendada con exito, revise su correo electronico para mas información'} /> : ''}
             < article className='h-auto w-[700px] bg-white rounded-[40px] shadow-bigShadow p-10 mt-12'>
                 <div className="flex flex-col text-2xl mb-4">
                     <h3 className="font-light my-6">

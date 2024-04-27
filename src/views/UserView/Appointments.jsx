@@ -30,8 +30,7 @@ const Appointments = () => {
                             Entendemos lo importante que es contar con un sistema de citas médicas eficiente y conveniente. 
                             Nuestro servicio de citas está diseñado para ofrecerte una experiencia sin complicaciones, permitiéndote programar 
                             fácilmente tus consultas con nuestros profesionales de la salud en línea o por teléfono. Ya sea que necesites una consulta 
-                            de seguimiento, un chequeo de rutina o un tratamiento especializado, nuestro equipo está listo para atenderte. Además, te ofrecemos 
-                            la flexibilidad de elegir la sede y el horario que mejor se adapten a tu agenda.
+                            de seguimiento, un chequeo de rutina o un tratamiento especializado, nuestro equipo está listo para atenderte.
                         </p>
                     </div>
                 </section>

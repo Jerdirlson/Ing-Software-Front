@@ -39,13 +39,13 @@ const Dashboard = () => {
                                 <h1 className='text-xl font-bold'>Servicios</h1>
                             </li>
                             <li className='flex items-center mx-2 p-2 sm:p-0 2xl:mx-1 2xl:p-1'>                            <img src={BLOOD_ICON} alt="tipo_de_sangre_icon" className='w-10 h-10 mr-4' />
-                                <p className='2xl:text-base xl:text-xs sm:hidden lg:block '>Laboratorio, toma de pruebas y muestras.</p></li>
+                                <p className='2xl:text-base xl:text-xs sm:hidden lg:block '>Laboratorio, toma de pruebas y análisis de muestras.</p></li>
                             <li className='hidden sm:flex sm:items-center sm:mx-2 p-2 sm:p-0 2xl:mx-1 2xl:p-1'>                            <img src={HOSPITAL_ICON} alt="hospital_icon" className='hidden sm:block w-10 h-10 sm:mr-4' />
                                 <p className='2xl:text-base xl:text-xs sm:hidden lg:block '>Hospitalización y atención personalizada.</p></li>
                             <li className='flex items-center mx-2 p-2 sm:p-0 2xl:mx-1 2xl:p-1'>                            <img src={STETHOSCOPE_ICON} alt="stethoscope_icon" className='w-10 h-10 mr-4' />
                                 <p className='2xl:text-base xl:text-xs sm:hidden lg:block '>Exámenes y citas con atención específica y especializada..</p></li>
                             <li className='flex items-center mx-2 p-2 sm:p-0 2xl:mx-1 2xl:p-1'>                            <img src={SYRINGE_ICON} alt="syringe_icon" className='w-10 h-10 mr-4' />
-                                <p className='2xl:text-base xl:text-xs sm:hidden lg:block '>Vacunación e inyectologia.</p></li>
+                                <p className='2xl:text-base xl:text-xs sm:hidden lg:block '>Vacunación e inyectología con seguimiento médico </p></li>
                             <li className='mx-2 2xl:mx-1 2xl:p-1'>
                                 <a href="/servicios" className='hover:underline hover:decoration-black' >
                                     <p className='italic text-base 2xl:text-base sm:text-xs'>Conocer más...</p>

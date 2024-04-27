@@ -6,6 +6,7 @@ import { send_email_re_add, send_email_add } from '../services/email.service';
 import { getCorreoData } from '../utils/correo';
 import { useSteps } from '../context/MultiStepContext';
 import { get_doctors } from '../services/appointments/getDoctors.service';
+import { useNavigate } from 'react-router-dom';
 
 
 /**
@@ -171,7 +172,8 @@ export const useAppointment_ReScheduler = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [hoursAvailable, setHoursAvailable] = useState(null);
   const [cita, setCita] = useState(null);
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate()
   useEffect(() => {
     const updateHours_Re_Add = async () => {
       const date = defineDate(selectedDate);
@@ -200,14 +202,19 @@ export const useAppointment_ReScheduler = () => {
       const response = await update_appointment(data);
       //---
       if (response) {
+        setIsModalOpen(true)
         //ARREGLAR AQUI =>=>==>==>=>>==> CAMBIAR LA INFORMACION PARA ENVIAR LOS CORREOS
-        const correoData = getCorreoData(cita)
-        const responseCorreo = await send_email_re_add(correoData)
+        // const correoData = getCorreoData(cita)
+        // const responseCorreo = await send_email_re_add(correoData)
       }
       console.log(responseCorreo);
       console.log(response);
     } catch (error) {
       console.log(error)
+    } finally {
+      setTimeout(() => {
+        navigate('/citas');
+      }, 3000);
     }
 
   });
@@ -217,6 +224,7 @@ export const useAppointment_ReScheduler = () => {
     hoursAvailable,
     register,
     setCita,
+    isModalOpen,
     onSubmit
   };
 };
