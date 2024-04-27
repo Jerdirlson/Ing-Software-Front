@@ -1,6 +1,5 @@
 import InfoAppointment from "../../components/AppointmentOPERATOR/InfoAppointment"
 import { useInfoAppointment } from "../../hooks/useInfoAppointment"
-import { getCorreoData } from "../../utils/correo"
 const className = `border-gray-400 border rounded-lg h-8 p-1`
 
 /**
@@ -11,11 +10,11 @@ const ConfirmAppointment = () => {
     const { cita, register, onSubmit } = useInfoAppointment()
     const onClick = async (data) => {
         // Logica de obtencion de fecha & data to send => correo
-        const correoData = getCorreoData(cita)
+        // const correoData = getCorreoData(cita)
         //---------------------------------------
         // console.log(fecha[0])
-        console.log(data)
-        console.log(correoData)
+        // console.log(data)
+        // console.log(correoData)
         //Llamadas fetch
 
         // confirm CITA

@@ -2,7 +2,7 @@ import InfoAppointment from "../../components/AppointmentOPERATOR/InfoAppointmen
 import { useInfoAppointment } from "../../hooks/useInfoAppointment";
 import { cancel_appointment } from "../../services/appointments/appointment.service";
 import { send_email_cancel } from "../../services/email.service";
-import { getCorreoData   } from "../../utils/correo";
+import { getCorreoDataCancel } from "../../utils/correo";
 const className = `border-gray-400 border rounded-lg h-8 p-1`
 
 /**
@@ -16,14 +16,22 @@ const CancelAppointment = () => {
 
     const onClick = async (data) => {
         // Logica de obtencion de fecha & data to send => correo
-        const correoData = getCorreoData(cita)
-        //---------------------------------------
-        // console.log(fecha[0])
-        console.log(data)
-        console.log(correoData)
-        //Llamadas fetch
-        send_email_cancel(correoData)
-        cancel_appointment(data)
+        try {
+            const correoData = getCorreoDataCancel(cita)
+            //---------------------------------------
+            // console.log(fecha[0])
+            console.log(data)
+            console.log(correoData)
+            //Llamadas fetch      
+            const response = cancel_appointment(data)
+
+            if (response) {
+                send_email_cancel(correoData)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+
     }
 
     return (

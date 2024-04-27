@@ -3,7 +3,6 @@ import NavBar from '../../components/NavBar.jsx'
 import NEXTBUTTON from '../../assets/svg/icons/NextButton.svg'
 import { useNavigate } from "react-router-dom";
 import { useInfoAppointment } from '../../hooks/useInfoAppointment.js';
-import { getCorreoData } from '../../utils/correo.js';
 import { send_email_cancel } from '../../services/email.service.js';
 import { cancel_appointment } from '../../services/appointments/appointment.service.js';
 import Alerta from '../../components/Alerta.jsx';

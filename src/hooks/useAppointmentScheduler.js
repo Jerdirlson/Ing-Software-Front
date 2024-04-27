@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { update_Hours_on_re_scheduling, update_Hours_on_scheduling } from '../services/appointments/updateHours.service';
 import { add_appointment, update_appointment } from '../services/appointments/appointment.service';
 import { send_email_re_add, send_email_add } from '../services/email.service';
-import { getCorreoData } from '../utils/correo';
+import { getCorreDataReAgendar, getCorreoDataAgendar } from '../utils/correo';
 import { useSteps } from '../context/MultiStepContext';
 import { get_doctors } from '../services/appointments/getDoctors.service';
 import { useNavigate } from 'react-router-dom';
@@ -77,17 +77,13 @@ export const useAppointmentScheduler = () => {
     data['dia'] = selectedDate ? defineDate(selectedDate) : '';
     const response = await add_appointment(data);
     //Objeto recien creado
-    const dataToSendCorreo = {
-      nombreUsuario: `${data.nombre} ${data.apellido}`,
-      fecha: data.fecha,
-      hora: data.hora,
-      nombreSede: data.idSite, //TOCA ACITALZAR
-      nombreMedico: data.medic
+    if (response) {
+      const dataToSendCorreo = getCorreoDataAgendar(data)
+      //-------------------------
+      const responseCorreo = await send_email_add(dataToSendCorreo)
+      console.log(response);
+      console.log(responseCorreo);
     }
-    //-------------------------
-    const responseCorreo = await send_email_add(dataToSendCorreo)
-    console.log(response);
-    console.log(responseCorreo);
   });
 
   return {
@@ -204,11 +200,12 @@ export const useAppointment_ReScheduler = () => {
       if (response) {
         setIsModalOpen(true)
         //ARREGLAR AQUI =>=>==>==>=>>==> CAMBIAR LA INFORMACION PARA ENVIAR LOS CORREOS
-        // const correoData = getCorreoData(cita)
-        // const responseCorreo = await send_email_re_add(correoData)
+        const correoData = getCorreDataReAgendar(cita)
+        const responseCorreo = await send_email_re_add(correoData)
+        console.log(responseCorreo);
+        console.log(response);
       }
-      console.log(responseCorreo);
-      console.log(response);
+
     } catch (error) {
       console.log(error)
     } finally {
