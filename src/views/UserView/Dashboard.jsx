@@ -83,7 +83,7 @@ const Dashboard = () => {
                         />
                     ))}
                 </div>
-                <div className='hidden sm:block lg:mt-12'>
+                <div className='hidden sm:block 2xl:mt-12 xl:mt-4'>
                     <p className='text-lg text-black'>
                     Descubre una amplia gama de servicios médicos de alta calidad en SaludPro. 
                     Desde consultas generales hasta tratamientos especializados, nuestro equipo de profesionales 
