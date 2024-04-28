@@ -6,12 +6,13 @@ import Step1 from '../../components/AppointmentUSER/Step1.jsx';
 import Step2 from '../../components/AppointmentUSER/Step2.jsx';
 import Step3 from '../../components/AppointmentUSER/Step3.jsx';
 import Confirm from '../../components/AppointmentUSER/Confirm.jsx';
+import BasicModal from '../../components/Modal.jsx';
 
 const ScheduleAppointment = () => {
 
     // console.log("Schedule")
 
-    const { currentStep, onSubmit, sent } = useSteps()
+    const { currentStep, onSubmit, sent, isModalOpen } = useSteps()
     const actualStep = (currentStep) => {
         switch (currentStep) {
             case 1:
@@ -29,6 +30,7 @@ const ScheduleAppointment = () => {
     return (
         <>
             <NavBar />
+            {isModalOpen && <BasicModal title={'Cita Agendada !'} description={'Su cita ha sido Agendada con exito, revise su correo electronico para mas información'} />}
             <main className='h-screen flex flex-col bg-gradient-to-b from-[#FFFFFF] to-[#EFF0F1]'>
 
                 <div className='flex flex-col justify-center items-center h-full '>
