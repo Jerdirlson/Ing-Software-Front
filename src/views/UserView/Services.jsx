@@ -36,20 +36,20 @@ const Services = () => {
                     </article>
                     {/* Texto complementario */}
                     <div className='w-96 ml-20 text-xl font-light items-center hidden 2xl:flex'>
-                        <p>
-                            <p>
-                            • Atención ambulatoria y recuperación de la salud.
-                            </p>
-                            <p>
-                            • Programa de cardiología integral.
-                            </p>
-                            <p>
-                            • La participación activa de la población total asignada.
-                            </p>
-                            <p>
-                            • Salud, con estimulación del autocuidado y garantizando.
-                            </p>
-                        </p>
+                        <ul className='list-inside'>
+                            <li >
+                                <span className="text-2xl">&#8226;</span> Atención ambulatoria y recuperación de la salud.
+                            </li>
+                            <li >
+                                <span className="text-2xl">&#8226;</span> Programa de cardiología integral.
+                            </li>
+                            <li >
+                                <span className="text-2xl">&#8226;</span> La participación activa de la población total asignada.
+                            </li>
+                            <li >
+                                <span className="text-2xl">&#8226;</span> Salud, con estimulación del autocuidado y garantizando.
+                            </li>
+                        </ul>
                     </div>
 
                 </section>
