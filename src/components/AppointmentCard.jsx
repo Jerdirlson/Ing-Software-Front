@@ -28,7 +28,7 @@ const AppoinmenntCard = ({ title, info, showMore,action, citaType }) => {
         }
     }
     return (
-        <article className="flex flex-col flex-wrap w-[302px] h-auto rounded-[20px] px-5 pt-8 mr-16 shadow-smallShadow relative 2xl:w-[352px]">
+        <article className="flex flex-col flex-wrap w-[302px] h-auto rounded-[20px] mb-10 sm:mb-0 px-5 pt-8 sm:mr-8 xl:mr-16 shadow-smallShadow relative 2xl:w-[352px]">
 
             <h2 className={`${citaType !== 'Schedule' ? "mb-4" : "mb-8"} text-3xl`}>{title}</h2>
 

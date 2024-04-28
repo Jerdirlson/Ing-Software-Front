@@ -14,17 +14,12 @@ const Appointments = () => {
         info: 'Agenda tus citas para ser atendido de forma presencial en nuestras instalaciones, elige la fecha y hora que mejor se adapte a ti',
         link: 'Ver Ubicación'
     }
-    const Domicilio = {
-        title: 'Citas a Domicilio',
-        info: 'Agenda tus citas de forma personalizada para que seas atendido en la comodidad de tu hogar, elige la fecha y hora que mejor necesites',
-        link: 'Ver Condiciones'
-    }
     return (
         <>
             <NavBar />
-            <main className="flex flex-col items-center justify-center h-screen md:my-24 lg:my-16 xl:my-14 2xl:my-24 3xl:m-0  ">
-                <section className="w-full">
-                    <div className="px-48 text-black hidden text-xs md:block">
+            <main className="flex flex-col items-center justify-center h-screen mt-52 mb-12 md:my-14 lg:mt-28 lg:mb-40 2xl:my-0 ">
+                <section className="w-full h-auto">
+                    <div className="px-24 lg:px-48 xl:mt-24 text-black hidden text-xs md:block">
                         <h2 className=" font-normal text-2xl mb-2 2xl:text-4xl">Atención</h2>
                         <p className="font-light text-lg 2xl:text-2xl">
                             Entendemos lo importante que es contar con un sistema de citas médicas eficiente y conveniente. 
@@ -34,11 +29,11 @@ const Appointments = () => {
                         </p>
                     </div>
                 </section>
-                <div className="bg-blue-500 w-[570px] h-14 my-12 flex self-start rounded-r-3xl items-center justify-center">
+                <div className="bg-blue-500 w-11/12 md:w-5/6 lg:w-5/12 h-auto py-2 my-12 flex self-start rounded-r-3xl items-center justify-center">
                     <h1 className="text-white text-3xl font-bold">Agenda tu cita</h1>
                 </div>
-                <section className="flex w-full relative ">
-                    <div className="flex pl-12 lg:pl-48">
+                <section className="flex w-full h-fit relative mb-24 md:mb-0 lg:my-0">
+                    <div className="flex flex-col mx-auto sm:mx-0 sm:flex-row sm:pl-12 lg:pl-48">
                         <AppoinmenntCard title={Presenciales.title} info={Presenciales.info} showMore={Presenciales.link} citaType={'Schedule'} action={'Agendar'} />
                         <div className="flex flex-col justify-between">
                             <AppoinmenntCard title={'Reagendación de Citas'} citaType={'Re-Schedule'} action={'Re-Agendar'} />
