@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 import animations from '@midudev/tailwind-animations'
+import { Margin } from '@mui/icons-material'
 export default {
   content: [
     "./index.html",
@@ -30,6 +31,7 @@ export default {
       colors: {
         'primary-blue': '#2176FF',
         'secondary-blue': '#33A1FD',
+        'Dark-blue': '#0B2D64',
         'aux-1-blue': '#2C91FE',
         'aux-2-blue': '#2176FF',
         'primaryGray': '#7F7F7F',
@@ -39,4 +41,3 @@ export default {
   },
   plugins: [animations],
 }
-

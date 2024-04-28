@@ -25,7 +25,8 @@ export const aboutUs = {
         description: `Gestionar el riesgo de los usuarios buscando intervenirlo para mejorar su salud y calidad de vida.
          Brindar a los usuarios y grupos de interés experiencias que los hagan sentir cuidados.
         Mejorar continuamente, lograr solidez y crecimiento organizacional.
-        Aportar a los aseguradores para su estabilidad y crecimiento`,
+        Aportar a los aseguradores para su estabilidad y crecimiento.
+        Buscamos mejorar continuamente nuestros procesos y servicios, con el objetivo de alcanzar la excelencia en la atención médica y la gestión de la salud.`,
         imgRelated: ''
     }
 }
