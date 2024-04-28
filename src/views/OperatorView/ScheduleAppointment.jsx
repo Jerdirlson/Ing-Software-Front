@@ -117,7 +117,7 @@ const ScheduleAppointment = () => {
                             </div>
                             <div className="flex flex-col p-2">
                                 <label>Sede I.P.S</label>
-                                <select className={className} type="email" name={"Correo Electronico"}
+                                <select className={className} name={"Sitio"}
                                     {...register('idSite')} >
                                     <option disabled defaultValue={"Seleccione una sede"} value="">Seleccione una sede</option>
                                     {Sites.map((item, index) => (

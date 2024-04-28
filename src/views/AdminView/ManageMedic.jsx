@@ -2,10 +2,13 @@ import { useState } from "react";
 import { Schedule } from "../../data/Schedule";
 import { useMedicSchedule } from "../../hooks/useMedicSchedule";
 import CreateSchedule from "./CreateSchedule";
+import dayjs from "dayjs";
+import { services } from "../../data/Services.data";
+import { Sites } from "../../data/Sites.data";
 
 const Manage_medic = () => {
     const [isDefaultActive, setIsDefaultActive] = useState(true);
-    const { register, onSubmit } = useMedicSchedule()
+    const { register, onSubmit, medics } = useMedicSchedule()
     const className = `border-gray-400 border rounded-lg h-8 p-1`
 
     return (
@@ -17,15 +20,31 @@ const Manage_medic = () => {
                 <section className="flex p-8 ">
                     <section className="mr-52">
                         <div>
-                            <h2 className="mb-2">Seleccionar Doctor</h2>
-                            <select className={className} type="">
-
+                            <h2 className="mb-2">Seleccionar Sede</h2>
+                            <select className={className} type="" {...register('idSite')}>
                                 <option disabled defaultValue="Selecciona una opción">Selecciona una opción</option>
+                                {Sites.map((item, index) => (
+                                    <option key={index} value={item.id}>{item.name}</option>
+                                ))}
 
                             </select >
                         </div>
+                        <div>
+                            <h2 className="mb-2">Seleccionar Doctor</h2>
+                            <select className={className} type="" {...register('id')}>
+                                <option disabled defaultValue="Selecciona una opción">Selecciona una opción</option>
+                                {
+                                    medics && medics.map((medico, index) => (
+                                        <option key={index} value={medico.id}>
+                                            {medico.nameUser} {medico.lastNameUser}
+                                        </option>
+                                    ))
+
+                                }
+                            </select >
+                        </div>
                     </section>
-                    <section>
+                    <section className="mr-20">
                         <div className="inline-flex rounded-md shadow-sm" role="group">
                             <button
                                 type="button"
@@ -86,7 +105,8 @@ const Manage_medic = () => {
                                         </ul>
                                     </article>
                                     <div className="flex flex-col gap-y-3">
-                                        <input className={className} type="text" value={'2024-03-30'} {...register('dia')} />
+                                        <label for="start">Start date:</label>
+                                        <input type="date" id="start" name="trip-start" placeholder="Selecciona el día" min={dayjs().format('YYYY-MM-DD')} max={dayjs().add(1, 'month').format('YYYY-MM-DD')} {...register('dia')} />
                                         <select className={className} type="" {...register('schedule')}>
                                             <option disabled defaultValue="Selecciona una opción">Selecciona una opción</option>
                                             {Schedule.map(horario => (
@@ -102,8 +122,10 @@ const Manage_medic = () => {
                             'Drag & Drop'
 
                         }
-                        <button type="submit">submit</button>
-                    </section>
+                    </section >
+                    
+                    <button className="flex items-center justify-center self-center h-fit bg-secondary-blue w-auto rounded-lg px-32 py-2 text-white text-2xl" type="submit">Agendar</button>
+
                 </section>
             </form >
             <section>
