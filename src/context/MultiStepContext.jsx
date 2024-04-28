@@ -2,6 +2,9 @@ import { createContext, useState, useContext, Component } from "react";
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { userSchema } from "../validations/userSchema"
+import { useAppointmentSchedulerUSER } from "../hooks/useAppointmentScheduler";
+import { add_appointment } from "../services/appointments/appointment.service";
+import { useNavigate } from "react-router-dom";
 /**
  * Creates the context of the data to create an appointment
  */
@@ -28,7 +31,8 @@ export const StepsProvider = ({ children }) => {
     const [selectedDate, setDate] = useState(null)
     const [sent, isSent] = useState(false)
     const { register, handleSubmit, formState: { errors }, watch } = useForm()
-
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const navigate = useNavigate()
     const nextStep = () => {
         setCurrentStep(currentStep + 1)
     }
@@ -41,17 +45,16 @@ export const StepsProvider = ({ children }) => {
         console.log("pepepeppepepe")
         console.log(data)
         try {
-            //documento
-            //medic => string nombre
-            //dia => data
-            //hora => hora
-            
             //LLAMADA AL ENDPOINT
-
-            // const response = await signinContext(data)   
+            const response = await add_appointment(data)
+            if(response) setIsModalOpen(true); // Abre el modal después de que la cita se haya cancelado
             console.log(data)
         } catch (e) {
             console.log('error', e)
+        }  finally {
+            setTimeout(() => {
+                navigate('/citas'); // Redirige después de un cierto tiempo
+            }, 3000); // Tiempo en milisegundos (en este caso, 3 segundos)
         }
     })
 
@@ -65,7 +68,8 @@ export const StepsProvider = ({ children }) => {
             setDate,
             selectedDate,
             sent,
-            watch
+            watch,
+            isModalOpen
         }}>
             {children}
         </MultiStepContext.Provider>

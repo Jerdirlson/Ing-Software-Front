@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 import animations from '@midudev/tailwind-animations'
-import { Margin } from '@mui/icons-material'
 export default {
   content: [
     "./index.html",

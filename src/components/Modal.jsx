@@ -20,13 +20,13 @@ export default function BasicModal({ title, description }) {
             role="alert"
             class="mx-auto max-w-lg rounded-lg border border-stone bg-stone-100 p-4 shadow-lg sm:p-6 lg:p-8"
           >
-            <div class="flex items-center gap-4">
-              <span class="shrink-0 rounded-full bg-emerald-400 p-2 text-white">
+            <div className="flex items-center gap-4">
+              <span className="shrink-0 rounded-full bg-emerald-400 p-2 text-white">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  class="h-4 w-4"
+                  className="h-4 w-4"
                 >
                   <path
                     fill-rule="evenodd"
@@ -36,10 +36,10 @@ export default function BasicModal({ title, description }) {
                 </svg>
               </span>
 
-              <p class="font-medium sm:text-2xl text-emerald-600">{title}!</p>
+              <p className="font-medium sm:text-2xl text-emerald-600">{title}!</p>
             </div>
 
-            <p class="mt-4 text-gray-600">
+            <p className="mt-4 text-gray-600">
               {description}
             </p>
           </div>

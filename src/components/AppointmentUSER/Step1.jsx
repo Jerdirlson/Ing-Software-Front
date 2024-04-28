@@ -3,6 +3,7 @@ import NEXTBUTTON from '../../assets/svg/icons/NextButton.svg'
 import { useSteps } from "../../context/MultiStepContext";
 import { useAppointmentSchedulerUSER } from '../../hooks/useAppointmentScheduler';
 import { services } from '../../data/Services.data';
+import { Sites } from '../../data/Sites.data';
 const input = 'border-secondaryGray border rounded-lg h-12 w-[425px] text-2xl font-light pl-3 pr-3'
 
 const Step1 = () => {
@@ -28,9 +29,11 @@ const Step1 = () => {
                 </div>
                 <div className='flex-col flex m-4'>
                     <label className='text-2xl mb-1'>Sede</label>
-                    <select className={input} placeholder={"Selecciona una opción"} {...register('TipoSede')}>
+                    <select className={input} placeholder={"Selecciona una opción"} {...register('idSite')}>
                         <option defaultValue=''>Seleccione una opción</option>
-                        <option>Calle 45 No. 55 - 65. Bucaramanga, Colombia.</option>
+                        {Sites.map((item, index) => (
+                            <option key={index} value={item.id}>{item.name}</option>
+                        ))}
                     </select>
                 </div>
             </section>

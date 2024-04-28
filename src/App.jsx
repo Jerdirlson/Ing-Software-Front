@@ -25,6 +25,7 @@ import InfoPacientes from './views/DoctorView/InfoPacientes.jsx';
 import LoadUser from './views/AdminView/LoadUsers.jsx';
 import Manage_medic from './views/AdminView/ManageMedic.jsx';
 import HealthCheck from './views/HealthCheck.jsx';
+import ProtectedRouteUser from './routes/ProtectedRouteUser.jsx';
 /**
  * App structure 'routes'
  * Defines routes and its related components
@@ -43,15 +44,17 @@ function App() {
         <Route path='/nosotros' element={<AboutUs />} />
         <Route path='/citas' element={<Appointments />} />
 
+        <Route element={<ProtectedRouteUser/>} >
+          {/* STEPS TO SCHEDULE AS USER*/}
+          <Route path="/agendamiento/" element={<UserScheduleAppointment />} />
+          {/* STEPS TO CANCEL SCHEDULE AS USER*/}
 
-        {/* STEPS TO SCHEDULE AS USER*/}
-        <Route path="/agendamiento/" element={<UserScheduleAppointment />} />
-        {/* STEPS TO CANCEL SCHEDULE AS USER*/}
+          <Route path="/cancelar/" element={<UserCancelAppointment />} />
+          {/* STEPS TO RE_SCHEDULE AS USER */}
 
-        <Route path="/cancelar/" element={<UserCancelAppointment />} />
-        {/* STEPS TO RE_SCHEDULE AS USER */}
+          <Route path="/reAgendar/" element={<UserReScheduleAppoinment />} />
+        </Route>
 
-        <Route path="/reAgendar/" element={<UserReScheduleAppoinment />} />
 
         <Route path='/servicios' element={<Services />} />
         <Route path='/historiaclinica' element={<MedicalHistory />} />

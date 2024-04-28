@@ -34,10 +34,10 @@ const AboutUs = () => {
                         <div className='w-1/2 mb-5 mr-6'>
                             <h1 className='font-bold text-4xl mb-3'>¿Quienes somos?</h1>
                             <p>
-                                En SaludPro, nos enorgullece ser mucho más que una institución prestadora de salud; somos un equipo comprometido 
-                                con la excelencia en el cuidado y bienestar de nuestros pacientes. Desde nuestros humildes comienzos, nos hemos 
+                                En SaludPro, nos enorgullece ser mucho más que una institución prestadora de salud; somos un equipo comprometido
+                                con la excelencia en el cuidado y bienestar de nuestros pacientes. Desde nuestros humildes comienzos, nos hemos
                                 dedicado a brindar atención médica de calidad con un enfoque centrado en las personas.
-                            </p> <br/>
+                            </p> <br />
                             <p>
                                 Brindamos servicios de atención médica domiciliaria,
                                 con un equipo interdisciplinario, calificado, capacitado
@@ -46,7 +46,7 @@ const AboutUs = () => {
                                 la promoción del autocuidado y la participación familiar.
                             </p>
                         </div>
-                        
+
                         <div className='ml-2 mr-3 shadow-smallShadow'>
                             <img className="h-full w-full object-cover" src={DOCTOR_CHECKING} alt="" />
                         </div>
