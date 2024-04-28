@@ -11,7 +11,3 @@
   color-scheme: light; /* pagina BLANCA predeterminada */
   color: #000; /* color de letra NEGRO predeterminado */
 }
-.custom-list > li::before {
-  content: "•";
-  margin-right: 0.5rem; /* Ajusta el espaciado entre la viñeta y el texto */
-}
