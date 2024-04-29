@@ -2,7 +2,7 @@ export const aboutUs = {
     mision: {
         title: 'Misión',
         description: `Somos una Institución Prestadora de Servicios de Salud (IPS) 
-        que atiende desde la visión de los usuarios, partiendo de sus necesidades y 
+        que atiende desde la necesidad de los usuarios, sus necesidades y 
         expectativas; desarrollando nuestros servicios con enfoque de riesgos y calidad. 
         Propendemos por la salud y satisfacción de nuestra población, ofreciendo una atención cálida y segura.
          Nos posicionamos como aliados estratégicos del aseguramiento, contando con colaboradores comprometidos 

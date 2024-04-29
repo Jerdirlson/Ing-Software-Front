@@ -24,12 +24,12 @@ const Dashboard = () => {
             <main className='flex flex-col items-end justify-center h-64 mt-16 bg-imagen-fondo-dashboard-movil sm:flex-row sm:h-screen xl:m-0 xl:bg-imagen-fondo-dashboard-pc bg-cover '>
                 {/* Elemento en position absolute */}
                 <div className="flex flex-col  text-wrap w-full px-4 pt-64 mb-12 text-white sm:p-0 sm:m-0 sm:absolute sm:top-1/4 sm:left-36 sm:w-80">
-                    <h1 className="font-bold text-xl mb-1 sm:text-2xl sm:mb-4">Tu bienestar, nuestra prioridad</h1>
-                    <p className='text-sm sm:text-base'>
+                    <h1 className="font-bold text-xl mb-1 sm:text-2xl sm:mb-4 2xl:text-3xl">Tu bienestar, nuestra prioridad</h1>
+                    <p className='text-sm sm:text-base 2xl:text-lg'>
                     En SaludPro, nos esforzamos por ofrecerte una experiencia de atención médica que va más allá de lo ordinario. 
                     Nuestro equipo dedicado de profesionales está comprometido con tu bienestar en cada paso del camino. 
                     </p>
-                    <p className='hidden sm:block'> Desde consultas médicas hasta tratamientos especializados.
+                    <p className='hidden sm:block 2xl:text-lg'> Desde consultas médicas hasta tratamientos especializados.
                     </p>
                 </div>
                 <div className='bg-gradient-to-b from-secondary-blue to-primary-blue w-full flex items-center justify-center sm:p-0 sm:items-start sm:justify-center sm:m-0'>
