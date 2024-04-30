@@ -1,6 +1,6 @@
 // import { useForm } from "react-hook-form";
 // import Loader2 from "../../components/Loader2"
-import { ArrowUpTrayIcon } from "@heroicons/react/24/solid";
+import { ArrowUpTrayIcon, PlusCircleIcon } from "@heroicons/react/24/solid";
 // import { yupResolver } from "@hookform/resolvers/yup";
 // import { fileSchema } from "../../validations/fileSchema";
 // import { send_csv } from "../../services/sendCSV.service";
@@ -60,7 +60,7 @@ const FileUploader = () => {
                                 isDragActive ? <>
                                     <h1 className="text-xl text-primary-blue">Estas colocando un archivo</h1>
                                     <p>Suelta el archivo ...</p>
-                                </> : <div className='border border-primary-blue w-40 h-40 p-4 cursor-pointer flex items-center justify-center text-center'>Arrastralo o da click</div>
+                                </> : <div className='border-2 border-primary-blue border-dotted rounded-xl w-72 h-52 p-4 cursor-pointer flex items-center justify-center text-center '><PlusCircleIcon className="h-10 w-10"/>Arrastralo o da click</div>
                             }
                             {file && (
                                 <p className="p-2">

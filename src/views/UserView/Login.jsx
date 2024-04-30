@@ -16,11 +16,9 @@ const Login = () => {
                 <LoginCard />
             </div>
             <aside className='flex flex-row justify-items-start mr-auto text-wrap text-xs p-3 text-white'>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                Aenean commodo ligula eget dolor. Aenean massa.
-                Cum sociis natoque penatibus et magnis dis parturient montes,
-                nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
-                pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                En SaludPro, nos tomamos muy en serio la privacidad y protección de tus  datos personales.
+                 Estamos comprometidos en garantizar que tu información se mantenga segura y confidencial en todo momento. 
+                 Gracias por confiar en SaludPro para tus necesidades de atención médica y bienestar.
             </aside>
         </main >
     )
