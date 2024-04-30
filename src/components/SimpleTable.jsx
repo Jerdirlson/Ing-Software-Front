@@ -12,6 +12,8 @@ import { getPacients } from "../services/doctor/pacients.service";
 import { useAuth } from "../context/AuthContext";
 import { button } from "@material-tailwind/react";
 import { EPS } from "../data/EPS";
+import { getPDF } from "../services/doctor/getPdf.service";
+import { services } from "../data/Services.data";
 
 function SimpleTable() {
     const [data, setData] = useState([])
@@ -36,9 +38,11 @@ function SimpleTable() {
                         const newData = res.users.map(user => ({
                             ...user,
                             fullName: `${user.nameUser} ${user.lastNameUser}`,
+                            service : Object.values(services).find(service => service.title === user.nameService)?.id,
                             epsName: EPS.find(eps => eps.id === user.eps)?.name || 'EPS Desconocida'
                         }));
                         setData(newData)
+                        console.log(newData)
                     }
                 }
 
@@ -52,7 +56,23 @@ function SimpleTable() {
 
     const [sorting, setSorting] = useState([]);
     const [filtering, setFiltering] = useState("");
+    const callPDF = async (idMedic, idClient, idService, idAppointment) => {
+        console.log('entraaaaa')
+        try {
+            const data = {
+                idMedic: idMedic,
+                idClient: idClient,
+                idService: idService,
+                idAppointment: idAppointment,
+            }
+            const res = await getPDF(data)
+            window.open(res, "_blank");
 
+            console.log(res)
+        } catch (error) {
+            console.log(error)
+        }
+    }
     const columns = [
         {
             header: "Paciente",
@@ -70,11 +90,23 @@ function SimpleTable() {
             header: "EPS",
             accessorKey: "epsName",
         },
-        // {
-        //     header: "Fecha de nacimiento",
-        //     accessorKey: "dayOfBirth",
-        //     cell: (info) => dayjs(info.getValue()).format("DD/MM/YYYY"),
-        // },
+        {
+            header: "ID cita",
+            accessorKey: "idAppointment",
+        },
+        {
+            header: "Acciones",
+            cell: () => (
+                <button onClick={() => callPDF(userLogin.user.id,
+                    data[0].id,
+                    data[0].service,
+                    data[0].idAppointment,
+
+                )} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                    Historia Clinica
+                </button>
+            ),
+        },
     ];
     const table = useReactTable({
         data,
