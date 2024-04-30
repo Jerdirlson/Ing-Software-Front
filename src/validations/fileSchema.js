@@ -15,7 +15,16 @@ export const fileSchema = yup.object().shape({
       .test("fileSize", "The file is too large", (value, context) => {
         return value && value[0] && value[0].size <= 200000;
       })
-      .test("type", "We only support jpeg", function (value) {
-        return value && value[0] && value[0].type === "image/jpeg";
+      .test('fileType', 'Solo admitimos archivos CSV', (value) => {
+        if (!value || !value[0]) {
+          return false;
+        }
+        
+        const fileName = value[0].name;
+        const fileExtension = fileName.split('.').pop().toLowerCase();
+        return fileExtension === 'csv';
       }),
+      // .test("type", "We only support csv", function (value) {
+      //   return value && value[0] && value[0].type === "file/csv";
+      // }),
   });

@@ -31,7 +31,7 @@ export async function send_email_add(data) {
 export async function send_email_cancel(data) {
     console.log(data)
     try {
-        const response = await fetch(`${host}correo/correoReAdd`, {
+        const response = await fetch(`${host}correo/correoCancel`, {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
@@ -55,7 +55,7 @@ export async function send_email_cancel(data) {
 export async function send_email_re_add(data) {
     console.log(data)
     try {
-        const response = await fetch(`${host}correo/correoCancel`, {
+        const response = await fetch(`${host}correo/correoReAdd`, {
             method: "POST",
             body: JSON.stringify(data),
             headers: {

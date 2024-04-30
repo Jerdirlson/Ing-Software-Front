@@ -33,7 +33,8 @@ export const getCorreDataReAgendar = (cita) => {
         fecha: getFecha(cita.schedule.fecha),
         hora: cita.schedule.hora,
         nombreSede: cita.eps.nameEps,
-        nombreMedico: `${cita.userMedic.nameUser} ${cita.userMedic.lastNameUser}`
+        nombreMedico: `${cita.userMedic.nameUser} ${cita.userMedic.lastNameUser}`,
+        correo: cita.userById.emailUser
     }
     return correoData
 }
