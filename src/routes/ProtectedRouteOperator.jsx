@@ -29,9 +29,9 @@ const ProtectedRouteOperator = () => {
     }
 
     // Verifica si el usuario no está autenticado o si no tiene el rol adecuado
-    if (!userLogin || userLogin.user.idRol !== roles.OPERATOR || userLogin.user.idRol !== roles.ADMIN) {
+    if (!userLogin || (userLogin.user.idRol !== roles.OPERATOR && userLogin.user.idRol !== roles.ADMIN)) {
         return <Navigate to={'/login'} replace />;
-    }
+    }    
     console.log('sksksk')
     // useNavigate('/management')
     // Si el usuario está autenticado y tiene el rol adecuado, muestra el contenido protegido

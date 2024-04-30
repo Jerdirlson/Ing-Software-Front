@@ -44,7 +44,7 @@ function App() {
         <Route path='/nosotros' element={<AboutUs />} />
         <Route path='/citas' element={<Appointments />} />
 
-        <Route element={<ProtectedRouteUser/>} >
+        <Route element={<ProtectedRouteUser />} >
           {/* STEPS TO SCHEDULE AS USER*/}
           <Route path="/agendamiento/" element={<UserScheduleAppointment />} />
           {/* STEPS TO CANCEL SCHEDULE AS USER*/}
@@ -61,37 +61,36 @@ function App() {
 
 
         {/* OPERADOR */}
-        {/* <Route element={<ProtectedRouteOperator />}> */}
-        <Route path='/management/' element={<ManagementPanel />}>
-          <Route path='confirm' element={<ConfirmAppointment />} />
-          <Route path='cancel' element={<CancelAppointmnet />} />
-          <Route path='schedule' element={<ScheduleAppointment />} />
-          <Route path='reschedule' element={<RescheduleAppointment />} />
-          <Route path='addUser' element={<RegisterUsers />} />
+        <Route element={<ProtectedRouteOperator />}>
+          <Route path='/management/' element={<ManagementPanel />}>
+            <Route path='confirm' element={<ConfirmAppointment />} />
+            <Route path='cancel' element={<CancelAppointmnet />} />
+            <Route path='schedule' element={<ScheduleAppointment />} />
+            <Route path='reschedule' element={<RescheduleAppointment />} />
+            <Route path='addUser' element={<RegisterUsers />} />
+          </Route>
         </Route>
-        {/* </Route> */}
 
 
         {/* </Route> */}
 
         {/* MEDICO */}
-        {/* <Route element={<ProtectedRouteMedic />} > */}
-        <Route path='medico' element={<DoctorDashboard />} >
-          <Route path='agenda' element={<MedicSchedule />} />
-          <Route path='historiales_clinicos' element={<HisorialesClinicos />} />
-          <Route path='pacientes' element={<InfoPacientes />} />
+        <Route element={<ProtectedRouteMedic />} >
+          <Route path='medico' element={<DoctorDashboard />} >
+            <Route path='agenda' element={<MedicSchedule />} />
+            <Route path='historiales_clinicos' element={<HisorialesClinicos />} />
+            <Route path='pacientes' element={<InfoPacientes />} />
+          </Route>
         </Route>
-        {/* </Route> */}
 
 
         {/* ADMIN */}
-        {/* <Route element={<ProtectedRouteOperator />}> */}
-        <Route path='/management/' element={<ManagementPanel />}>
-          <Route path='load_users' element={<LoadUser />} />
-          <Route path='manage_medic' element={<Manage_medic />} />
+        <Route element={<ProtectedRouteOperator />}>
+          <Route path='/management/' element={<ManagementPanel />}>
+            <Route path='load_users' element={<LoadUser />} />
+            <Route path='manage_medic' element={<Manage_medic />} />
+          </Route>
         </Route>
-
-        {/* </Route> */}
 
 
         {/* RUTAS NO EXISTENTES */}
