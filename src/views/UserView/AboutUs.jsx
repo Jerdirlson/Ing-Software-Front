@@ -151,7 +151,7 @@ const AboutUs = () => {
                     <div className='w-full'>
                         <img className="w-full h-full object-contain" src={SERVICES_BACKGROUND} alt="Doctor Smiling" />
                     </div>
-                    <h1 className='px-40 py-14'>
+                    <h1 className='text-sm p-8 sm:text-base sm:px-40 sm:py-14'>
                         En SaludPro, tu salud es nuestra prioridad número uno. 
                         Nos esforzamos por ofrecerte una experiencia de atención 
                         médica excepcional en cada visita, con instalaciones modernas, 
