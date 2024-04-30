@@ -15,13 +15,13 @@ export const services = {
     },
     service2: {
         title: 'Nutrición',
-        description: 'Transforma tu alimentación y hábitos nutricionales con la guía experta de nuestros nutricionistas.',
+        description: 'Transforma tu alimentación y hábitos nutricionales con la guía de nuestros nutricionistas.',
         imgRelated: NUTRICION_IMG,
         id: 2,
     },
     service3: {
         title: 'Odontología',
-        description: 'Luce tu sonrisa gracias a nuestros servicios dentales, desde limpiezas hasta procedimientos avanzados.',
+        description: 'Intensifica tu belleza y protege tu salud oral con nuestros excelentes servicios dentales.',
         imgRelated: ODONTOLOGIA_IMG,
         id: 3,
     },
@@ -32,13 +32,13 @@ export const services = {
         id: 5,
     }, service5: {
         title: 'Fonoaudiología',
-        description: 'Mejora tu comunicación y calidad de vida con ayuda de nuestros especialistas en fonoaudiología.',
+        description: 'Potencia tu comunicación y confianza con la ayuda de nuestros expertos en fonoaudiología.',
         imgRelated: FONOAUDILOGIA_IMG,
         id: 6,
     },
     service6: {
         title: 'Cardiología',
-        description: 'Protege tu corazón y tu salud cardiovascular con la experiencia de nuestros cardiólogos.',
+        description: 'Protege tu corazón y tu salud cardiovascular gracias a la experiencia de nuestros cardiólogos.',
         imgRelated: CARDIOLOGIA_IMG,
         id: 4,
     },
