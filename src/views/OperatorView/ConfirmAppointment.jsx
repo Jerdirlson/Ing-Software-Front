@@ -1,5 +1,7 @@
+import { zodResolver } from "@hookform/resolvers/zod"
 import InfoAppointment from "../../components/AppointmentOPERATOR/InfoAppointment"
 import { useInfoAppointment } from "../../hooks/useInfoAppointment"
+import { appointmentSchema } from "../../validations/appointmentSchema"
 const className = `border-gray-400 border rounded-lg h-8 p-1`
 
 /**
@@ -7,7 +9,9 @@ const className = `border-gray-400 border rounded-lg h-8 p-1`
  * @returns 
  */
 const ConfirmAppointment = () => {
-    const { cita, register, onSubmit } = useInfoAppointment()
+    const { cita, register, onSubmit, errors } = useInfoAppointment({
+        resolver: zodResolver(appointmentSchema),
+    })
     const onClick = async (data) => {
         // Logica de obtencion de fecha & data to send => correo
         // const correoData = getCorreoData(cita)
@@ -32,6 +36,9 @@ const ConfirmAppointment = () => {
                         <h2 className="text-2xl">Codigo de cita</h2>
                         <form onSubmit={onSubmit}>
                             <input className={`${className} w-1/3`} type={"text"} name={"Codigo identificador de Cita"} {...register('id')} />
+                            {
+                                errors.id?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.id.message}</p>
+                            }
                         </form>
                         {/* <input className="w-1/3 border border-gray-400 rounded-lg " type="text" name="CC" id="" /> */}
                     </section>
