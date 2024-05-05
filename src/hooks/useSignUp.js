@@ -1,8 +1,12 @@
 import { useForm } from "react-hook-form";
 import { signUp } from "../services/auth.service";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { registerSchema } from "../validations/registerSchema";
 
 const useSignUp = () => {
-    const { register, handleSubmit, watch, reset } = useForm();
+    const { register, handleSubmit, watch, reset, formState: { errors } } = useForm({
+        resolver: zodResolver(registerSchema)
+    });
 
     const onSubmit = handleSubmit(async (data) => {
         try {
@@ -22,6 +26,7 @@ const useSignUp = () => {
         onSubmit,
         register,
         watch,
+        errors,
         reset
     }
 }

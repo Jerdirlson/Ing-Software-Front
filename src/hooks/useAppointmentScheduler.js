@@ -7,6 +7,9 @@ import { getCorreDataReAgendar, getCorreoDataAgendar } from '../utils/correo';
 import { useSteps } from '../context/MultiStepContext';
 import { get_doctors } from '../services/appointments/getDoctors.service';
 import { useNavigate } from 'react-router-dom';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { add_appointment_schema } from '../validations/add_appoinmentSchema';
+import { reSchedule_Schema } from '../validations/reSchedule_appointmentSchema';
 
 
 /**
@@ -27,7 +30,10 @@ const defineDate = (selectedDate) => {
  * @returns functions for management of adding appointments
  */
 export const useAppointmentScheduler = () => {
-  const { register, handleSubmit, watch, reset } = useForm();
+  const { register, handleSubmit, watch, reset, formState: { errors } } = useForm({
+    resolver: zodResolver(add_appointment_schema),
+  });
+
   const [selectedDate, setSelectedDate] = useState(null);
   const [hoursAvailable, setHoursAvailable] = useState(null);
   const [service, setService] = useState(null);
@@ -74,6 +80,7 @@ export const useAppointmentScheduler = () => {
   }, [selectedDate]);
 
   const onSubmit = handleSubmit(async (data) => {
+    console.log('onSubmit')
     data['dia'] = selectedDate ? defineDate(selectedDate) : '';
     const response = await add_appointment(data);
     //Objeto recien creado
@@ -93,6 +100,7 @@ export const useAppointmentScheduler = () => {
     hoursAvailable,
     setService,
     medics,
+    errors,
     reset
   };
 };
@@ -164,7 +172,9 @@ export const useAppointmentSchedulerUSER = () => {
  */
 export const useAppointment_ReScheduler = () => {
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState:{errors} } = useForm({
+    resolver: zodResolver(reSchedule_Schema),
+  });
   const [selectedDate, setSelectedDate] = useState(null);
   const [hoursAvailable, setHoursAvailable] = useState(null);
   const [cita, setCita] = useState(null);
@@ -222,6 +232,7 @@ export const useAppointment_ReScheduler = () => {
     register,
     setCita,
     isModalOpen,
-    onSubmit
+    onSubmit, 
+    errors
   };
 };

@@ -2,6 +2,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import InfoAppointment from "../../components/AppointmentOPERATOR/InfoAppointment"
 import { useInfoAppointment } from "../../hooks/useInfoAppointment"
 import { appointmentSchema } from "../../validations/appointmentSchema"
+import Alerta from "../../components/Alerta"
+import { useEffect } from "react"
 const className = `border-gray-400 border rounded-lg h-8 p-1`
 
 /**
@@ -9,9 +11,16 @@ const className = `border-gray-400 border rounded-lg h-8 p-1`
  * @returns 
  */
 const ConfirmAppointment = () => {
-    const { cita, register, onSubmit, errors } = useInfoAppointment({
+    const { cita, register, onSubmit, errors, alert, setAlert } = useInfoAppointment({
         resolver: zodResolver(appointmentSchema),
     })
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setAlert(false); // Ocultar la alerta automáticamente después de un tiempo
+        }, 3000);
+        return () => clearTimeout(timer);
+    }, [alert]);
+
     const onClick = async (data) => {
         // Logica de obtencion de fecha & data to send => correo
         // const correoData = getCorreoData(cita)
@@ -32,6 +41,8 @@ const ConfirmAppointment = () => {
                         <h1 className="font-light text-3xl mb-2">Consultar información de una cita</h1>
                         <div className="w-full h-0.5 bg-slate-400" />
                     </header>
+                    {alert && <Alerta info="Esta cita es no existe, asegurate de ingresar una cita existente" />}
+
                     <section className="flex flex-col p-4">
                         <h2 className="text-2xl">Codigo de cita</h2>
                         <form onSubmit={onSubmit}>

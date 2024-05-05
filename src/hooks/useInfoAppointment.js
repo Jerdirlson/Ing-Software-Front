@@ -3,7 +3,6 @@ import { get_appointment } from "../services/appointments/appointment.service";
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { appointmentSchema } from "../validations/appointmentSchema";
-import { Alert } from "@material-tailwind/react";
 
 export const useInfoAppointment = () => {
     const { register, handleSubmit, formState: { errors } } = useForm({

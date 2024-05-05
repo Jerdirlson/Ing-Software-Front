@@ -11,12 +11,13 @@ const className = `border-gray-400 border rounded-lg h-8 p-1`
  * @returns {Component} Add appointment view component
  */
 const ScheduleAppointment = () => {
-    const { register, onSubmit, setSelectedDate, hoursAvailable, setService, medics,reset } = useAppointmentScheduler();    // Custom hook
+    const { register, onSubmit, setSelectedDate, hoursAvailable, setService, medics, reset, errors } = useAppointmentScheduler();    // Custom hook
     const location = useLocation();
     const { category } = location.state || {};
-    useEffect(()=>{
+    useEffect(() => {
         reset()
-    },[category])
+        console.log(errors)
+    }, [category])
     return (
         <>
             <main className="w-full flex flex-col p-16">
@@ -45,10 +46,13 @@ const ScheduleAppointment = () => {
                                         <option key={medic.medicId} value={medic.medicId}>
                                             {medic.nameUser} {medic.lastNameUser}
                                         </option>
-                                    ))}
 
+                                    ))
+                                    }
                                 </select >
                             </div>
+                            {errors.medic?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.medic.message}</p>
+                            }
                         </section>
                         <section className="flex justify-center">
                             <div className="flex flex-col">
@@ -66,6 +70,8 @@ const ScheduleAppointment = () => {
                                             <option key={index} value={horaItem.value}>{horaItem.hora}</option>
                                         ))}
                                 </select>
+                                {errors.hora?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.hora.message}</p>
+                                }
                             </div>
                         </section>
 
@@ -79,17 +85,22 @@ const ScheduleAppointment = () => {
                                 <label>Nombres</label>
                                 <input className={className} type="text" name={"Nombres"}
                                     {...register('nombre')} />
-
+                                {errors.nombre?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.nombre.message}</p>
+                                }
                             </div>
                             <div className="flex flex-col p-2">
                                 <label>Apellidos</label>
                                 <input className={className} type="text" name={"Apellidos"}
                                     {...register('apellido')} />
+                                {errors.apellido?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.apellido.message}</p>
+                                }
                             </div>
                             <div className="flex flex-col p-2">
                                 <label>Numero de telefono</label>
                                 <input className={className} type="text" name={"Numero de telefono"}
                                     {...register('telefono')} />
+                                {errors.telefono?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.telefono.message}</p>
+                                }
                             </div>
                         </div>
                         <div className="flex flex-col">
@@ -98,22 +109,28 @@ const ScheduleAppointment = () => {
                                     <label>Tipo de documento</label>
                                     <select className={className} type=""{...register('documento_type')} >
                                         <option disabled defaultValue="Selecciona una opción">Selecciona una opción</option>
-                                        <option name="Cedula de Ciudadania" value="">C.C</option>
-                                        <option name="Tarjeta De indentidad" value="">T.I</option>
-
+                                        <option name="Cedula de Ciudadania" value="C.C">C.C</option>
+                                        <option name="Tarjeta De indentidad" value="T.I">T.I</option>
                                     </select >
+                                    {errors.documento_type?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.documento_type.message}</p>
+                                    }
                                 </div>
                                 <div className="flex flex-col ml-2 ">
                                     <label>Numero de documento</label>
                                     <input className={className} type="text" name={"Numero de documento"}
                                         {...register('documento')} />
+                                    {errors.documento?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.documento.message}</p>
+                                    }
                                 </div>
+
                             </div>
 
                             <div className="flex flex-col p-2">
                                 <label>Correo electronico</label>
                                 <input className={className} type="email" name={"Correo Electronico"}
                                     {...register('email')} />
+                                {errors.email?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.email.message}</p>
+                                }
                             </div>
                             <div className="flex flex-col p-2">
                                 <label>Sede I.P.S</label>
@@ -124,6 +141,8 @@ const ScheduleAppointment = () => {
                                         <option key={index} value={item.id}>{item.name}</option>
                                     ))}
                                 </select>
+                                {errors.idSite?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.idSite.message}</p>
+                                }
                             </div>
 
                         </div>

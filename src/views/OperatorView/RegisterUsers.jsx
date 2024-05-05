@@ -10,7 +10,7 @@ import { roles } from "../../utils/roles"
 const className = `border-gray-400 border rounded-lg h-8 p-1`
 // cosnt { userLogin } = useAuth()
 const RegisterUsers = () => {
-    const { register, onSubmit, watch } = useSignUp()
+    const { register, onSubmit, watch, errors } = useSignUp()
     const rol = watch('idRol')
     console.log(rol)
     const { userLogin, loading } = useAuth()
@@ -39,16 +39,25 @@ const RegisterUsers = () => {
                                 <label>Numero de Cédula </label>
                                 <input className={className} type="text" name={"Cédula"}{...register('numId')}
                                 />
+                                {
+                                    errors.numId?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.numId.message}</p>
+                                }
                             </div>
                             <div className="flex flex-col p-2">
                                 <label>Nombre</label>
                                 <input className={className} type="text" name={"Nombre"}{...register('nameUser')}
                                 />
+                                {
+                                    errors.nameUser?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.nameUser.message}</p>
+                                }
                             </div>
                             <div className="flex flex-col p-2">
                                 <label>Apellidos</label>
                                 <input className={className} type="text" name={"Apellidos"} {...register('lastNameUser')}
                                 />
+                                {
+                                    errors.lastNameUser?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.lastNameUser.message}</p>
+                                }
                             </div>
                         </div>
 
@@ -57,14 +66,23 @@ const RegisterUsers = () => {
                             <div className="flex flex-col my-2">
                                 <label >Calle</label>
                                 <input className={className} type="text" name={"Calle"}{...register('street')} />
+                                {
+                                    errors.street?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.street.message}</p>
+                                }
                             </div>
                             <div className="flex flex-col my-2">
                                 <label >Direccion</label>
                                 <input className={className} type="text" name={"Direccion"} {...register('dir')} />
+                                {
+                                    errors.dir?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.dir.message}</p>
+                                }
                             </div>
                             <div className="flex flex-col my-2">
                                 <label >Ciudad</label>
                                 <input className={className} type="text" name={"Ciudad"} {...register('city')} />
+                                {
+                                    errors.city?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.city.message}</p>
+                                }
                             </div>
                         </div>
 
@@ -74,6 +92,9 @@ const RegisterUsers = () => {
                                 <label>Correo electronico</label>
                                 <input className={className} type="email" name={"Correo Electronico"}{...register('emailUser')}
                                 />
+                                {
+                                    errors.emailUser?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.emailUser.message}</p>
+                                }
                             </div>
                         </div>
                     </section>
@@ -86,6 +107,9 @@ const RegisterUsers = () => {
                                 <label>Contraseña</label>
                                 <input className={className} type="text" name={"Contraseña"}{...register('pwdUser')}
                                 />
+                                {
+                                    errors.pwdUser?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.pwdUser.message}</p>
+                                }
                             </div>
                             <div className="flex flex-col p-2">
                                 <label>Sede I.P.S</label>
@@ -96,6 +120,9 @@ const RegisterUsers = () => {
                                         <option key={index} value={item.id}>{item.name}</option>
                                     ))}
                                 </select>
+                                {
+                                    errors.siteUser?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.siteUser.message}</p>
+                                }
                             </div>
                             <div className="flex flex-col p-2">
                                 <label>EPS</label>
@@ -106,6 +133,9 @@ const RegisterUsers = () => {
                                         <option key={index} value={item.id}>{item.name}</option>
                                     ))}
                                 </select>
+                                {
+                                    errors.eps?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.eps.message}</p>
+                                }
                             </div>
 
                         </div>
@@ -126,6 +156,9 @@ const RegisterUsers = () => {
                                         </>
                                     }
                                 </select>
+                                {
+                                    errors.idRol?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.idRol.message}</p>
+                                }
                             </div>
                             {
                                 rol == roles.MEDIC &&
@@ -147,10 +180,16 @@ const RegisterUsers = () => {
                             <div className="flex flex-col my-2">
                                 <label >Celular</label>
                                 <input className={className} type="text" name={"telefono"}{...register('telf')} />
+                                {
+                                    errors.telf?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.telf.message}</p>
+                                }
                             </div>
                             <div className="flex flex-col my-2">
                                 <label >Fijo</label>
                                 <input className={className} type="text" name={"fijo"}{...register('fijo')} />
+                                {
+                                    errors.fijo?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.fijo.message}</p>
+                                }
                             </div>
                         </div>
                     </section>

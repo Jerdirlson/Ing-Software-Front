@@ -4,13 +4,13 @@ import { useEffect } from "react";
 
 
 const RescheduleFormAppointment = ({ props }) => {
-    const { setSelectedDate, hoursAvailable, onSubmit, register, setCita } = useAppointment_ReScheduler();    // Custom hook
+    const { setSelectedDate, hoursAvailable, onSubmit, register, setCita, errors } = useAppointment_ReScheduler();    // Custom hook
     useEffect(() => {
         setCita(props)
     }, [setSelectedDate]);
 
     console.log(props)
-    
+
     return (
         <div className="p-4 text-xl font-light">
             <h2 className="mb-4">Información de paciente</h2>
@@ -58,7 +58,11 @@ const RescheduleFormAppointment = ({ props }) => {
                                         <option key={index} value={horaItem.value}>{horaItem.hora}</option>
                                     ))}
                             </select>
+                            {
+                                errors.hora?.message && <p className="text-sm text-red-600 animate-horizontal-vibration animate-iteration-count-once">{errors.hora.message}</p>
+                            }
                         </div>
+
                     </section>
                     <div className="flex flex-col">
                         <div className="flex">
