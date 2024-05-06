@@ -6,6 +6,8 @@ import { useAuth } from '../context/AuthContext'
 import { useNavigate } from "react-router-dom";
 import Loader from "./Loader"
 import { roles } from "../utils/roles"
+import { useEffect, useState } from "react"
+import LoginModal from "./LoginModal"
 
 
 
@@ -20,6 +22,7 @@ const LoginCard = () => {
     })
     const { signinContext, loading, setLoading } = useAuth()
     const navigate = useNavigate()
+    const [errorOnResponse, setErrorOnResponse] = useState(false)
     //Mientras espera colocar un loader o algo ...
     const onSubmit = handleSubmit(async data => {
         try {
@@ -34,14 +37,22 @@ const LoginCard = () => {
                 response ? navigate(response.responseModule[1].link) : ''
             }
         } catch (e) {
+            setErrorOnResponse(true)
             console.log('error', e)
         } finally {
             setLoading(false)
         }
     })
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setErrorOnResponse(false); // Ocultar la alerta automáticamente después de un tiempo
+        }, 3000);
+        return () => clearTimeout(timer);
+    }, [errorOnResponse]);
     return (
         <article className="bg-white rounded-2xl text-black flex flex-col items-center justify-evenly box-border p-4 w-80 sm:w-[370px] sm:h-[420px] relative">
-            {loading ? <Loader/>: ''}
+            {loading ? <Loader /> : ''}
+            {errorOnResponse ? <LoginModal /> : ''}
             <header>
                 <div className="flex items-center justify-center w-64 p-2 mt-2">
                     <img src={LOGO_BLUE_IPS} alt="logo_ips" />
