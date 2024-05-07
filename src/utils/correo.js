@@ -14,6 +14,7 @@ export const getCorreoDataCancel = (cita) => {
         hora: cita.select.schedule.hora,
         nombreSede: cita.select.site.nameSite,
         nombreMedico: `${cita.select.userMedic.nameUser} ${cita.select.userMedic.lastNameUser}`,
+        correo: cita.userById.emailUser
     }
     return correoData
 }
@@ -23,7 +24,8 @@ export const getCorreoDataAgendar = (data) => {
         fecha: data.dia,
         hora: data.hora,
         nombreSede: `${Sites.find(site => site.id == data.idSite)?.name || 'Site Desconocido'}`,
-        nombreMedico: data.medic
+        nombreMedico: data.medic,
+        correo: data.email
     }
     return correoData
 }
@@ -37,4 +39,12 @@ export const getCorreDataReAgendar = (cita) => {
         correo: cita.userById.emailUser
     }
     return correoData
+}
+export const getCorreoNewUser = (data) => {
+    const correoData = {
+        nombreUsuario: `${data.nameUser} ${data.lastNameUser}`,
+        correo: data.emailUser
+    }
+    return correoData
+
 }
