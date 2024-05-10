@@ -14,12 +14,11 @@ import { button } from "@material-tailwind/react";
 import { EPS } from "../data/EPS";
 import { getPDF } from "../services/doctor/getPdf.service";
 import { services } from "../data/Services.data";
+import { useNavigate } from "react-router-dom";
 
 function SimpleTable() {
     const [data, setData] = useState([])
-    // useEffect(() => {
-
-    // }, [userLogin])
+    const navigate = useNavigate()
     const { userLogin, loading } = useAuth()
 
     useEffect(() => {
@@ -38,7 +37,7 @@ function SimpleTable() {
                         const newData = res.users.map(user => ({
                             ...user,
                             fullName: `${user.nameUser} ${user.lastNameUser}`,
-                            service : Object.values(services).find(service => service.title === user.nameService)?.id,
+                            service: Object.values(services).find(service => service.title === user.nameService)?.id,
                             epsName: EPS.find(eps => eps.id === user.eps)?.name || 'EPS Desconocida'
                         }));
                         setData(newData)
@@ -122,6 +121,7 @@ function SimpleTable() {
         onSortingChange: setSorting,
         onGlobalFilterChange: setFiltering,
     });
+    const firstRowData = data.length > 0 ? data[0] : null;
 
     return (
         <div className="flex flex-col">
@@ -203,7 +203,41 @@ function SimpleTable() {
                     Última Página
                 </button>
             </div>
+
+            <div className="w-full mt-10">
+                <label className="font-bold p-2"> Siguiente Cita</label>
+                <table className="table-auto w-full">
+                    <tbody>
+                        <tr key={firstRowData?.id}>
+                            <td className="border-2 px-4 py-2">
+                                {firstRowData ? flexRender(firstRowData.fullName, {}) : 'No hay datos'}
+                            </td>
+                            <td className="border-2 px-4 py-2">
+                                {firstRowData ? flexRender(firstRowData.hora, {}) : 'No hay datos'}
+                            </td>
+                            <td className="border-2 px-4 py-2">
+                                {firstRowData ? flexRender(firstRowData.nameService, {}) : 'No hay datos'}
+                            </td>
+                            <td className="border-2 px-4 py-2">
+                                {firstRowData ? flexRender(firstRowData.epsName, {}) : 'No hay datos'}
+                            </td>
+                            <td className="border-2 px-4 py-2">
+                                {firstRowData ? flexRender(firstRowData.epsName, {}) : 'No hay datos'}
+                            </td>
+                            <td className="border-2 px-4 py-2">
+                                {firstRowData ? flexRender(firstRowData.idAppointment, {}) : 'No hay datos'}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div className="flex justify-end w-full mt-10">
+                    {data.length > 0 ? <button onClick={() => navigate("/medico/inProgress", { state: { data: firstRowData } })} className="flex self-end px-4 py-2 bg-secondary-blue text-white rounded hover:bg-blue-600 mr-32">Recibir</button>
+                        : ''}
+                </div>
+            </div>
         </div>
+
+
     );
 }
 

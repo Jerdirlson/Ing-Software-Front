@@ -26,6 +26,7 @@ import LoadUser from './views/AdminView/LoadUsers.jsx';
 import Manage_medic from './views/AdminView/ManageMedic.jsx';
 import HealthCheck from './views/HealthCheck.jsx';
 import ProtectedRouteUser from './routes/ProtectedRouteUser.jsx';
+import AppointmentOnGoing from './views/DoctorView/AppointmentOnGoing.jsx';
 /**
  * App structure 'routes'
  * Defines routes and its related components
@@ -80,6 +81,7 @@ function App() {
             <Route path='agenda' element={<MedicSchedule />} />
             <Route path='historiales_clinicos' element={<HisorialesClinicos />} />
             <Route path='pacientes' element={<InfoPacientes />} />
+            <Route path='inProgress' element={<AppointmentOnGoing />} />
           </Route>
         </Route>
 

@@ -47,11 +47,14 @@ export const StepsProvider = ({ children }) => {
         try {
             //LLAMADA AL ENDPOINT
             const response = await add_appointment(data)
-            if(response) setIsModalOpen(true); // Abre el modal después de que la cita se haya cancelado
+            if (response) {
+                setIsModalOpen(true); // Abre el modal después de que la cita se haya cancelado
+                // const resCorreo = await 
+            }
             console.log(data)
         } catch (e) {
             console.log('error', e)
-        }  finally {
+        } finally {
             setTimeout(() => {
                 navigate('/citas'); // Redirige después de un cierto tiempo
             }, 3000); // Tiempo en milisegundos (en este caso, 3 segundos)
