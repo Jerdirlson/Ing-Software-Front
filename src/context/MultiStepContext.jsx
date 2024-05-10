@@ -50,6 +50,7 @@ export const StepsProvider = ({ children }) => {
             if (response) {
                 setIsModalOpen(true); // Abre el modal después de que la cita se haya cancelado
                 // const resCorreo = await 
+                //AQUI FALTA LLAMAR A LO DE HACER CORREO
             }
             console.log(data)
         } catch (e) {

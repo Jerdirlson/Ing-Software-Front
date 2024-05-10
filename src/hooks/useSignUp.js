@@ -4,11 +4,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { registerSchema } from "../validations/registerSchema";
 import { getCorreoNewUser } from "../utils/correo";
 import { send_email_user_add } from "../services/email.service";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const useSignUp = () => {
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm({
         resolver: zodResolver(registerSchema)
     });
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const navigate = useNavigate()
 
     const onSubmit = handleSubmit(async (data) => {
         try {
@@ -24,6 +28,11 @@ const useSignUp = () => {
 
         } catch (e) {
             console.log(e)
+        } finally {
+            setIsModalOpen(true); 
+            setTimeout(() => {
+                navigate('/management');
+            }, 4000); 
         }
     });
     return {
@@ -31,7 +40,8 @@ const useSignUp = () => {
         register,
         watch,
         errors,
-        reset
+        reset,
+        isModalOpen
     }
 }
 export default useSignUp;

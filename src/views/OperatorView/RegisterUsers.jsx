@@ -1,5 +1,6 @@
 // import { useAuth } from "../../context/AuthContext"
 import Loader2 from "../../components/Loader2"
+import BasicModal from "../../components/Modal"
 import { useAuth } from "../../context/AuthContext"
 import { EPS } from "../../data/EPS"
 import { services } from "../../data/Services.data"
@@ -10,7 +11,7 @@ import { roles } from "../../utils/roles"
 const className = `border-gray-400 border rounded-lg h-8 p-1`
 // cosnt { userLogin } = useAuth()
 const RegisterUsers = () => {
-    const { register, onSubmit, watch, errors } = useSignUp()
+    const { register, onSubmit, watch, errors , isModalOpen} = useSignUp()
     const rol = watch('idRol')
     console.log(rol)
     const { userLogin, loading } = useAuth()
@@ -26,6 +27,7 @@ const RegisterUsers = () => {
     return (
 
         <>
+            {isModalOpen ? <BasicModal title={'Usuario Registrado exitosamente'} description={'Usted ha registrado un nuevo usuario para la IPS Salud Pro'} /> : ''}
             <main className="w-full flex flex-col p-16">
                 <div className="flex items-center">
                     <div className=" bg-gray-400 w-16 h-0.5" /><h1 className="italic font-light px-8 text-nowrap text-2xl">Registrar Paciente</h1><div className="w-full h-0.5 bg-gray-400" />

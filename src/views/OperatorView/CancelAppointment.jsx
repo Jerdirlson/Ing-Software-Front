@@ -1,10 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import InfoAppointment from "../../components/AppointmentOPERATOR/InfoAppointment"
 import { useInfoAppointment } from "../../hooks/useInfoAppointment";
 import { cancel_appointment } from "../../services/appointments/appointment.service";
 import { send_email_cancel } from "../../services/email.service";
 import { getCorreoDataCancel } from "../../utils/correo";
 import Alerta from "../../components/Alerta";
+import { useNavigate } from "react-router-dom";
+import BasicModal from "../../components/Modal";
 const className = `border-gray-400 border rounded-lg h-8 p-1`
 
 /**
@@ -14,6 +16,8 @@ const className = `border-gray-400 border rounded-lg h-8 p-1`
 
 const CancelAppointment = () => {
     const { cita, register, onSubmit, alert, setAlert, errors } = useInfoAppointment()
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const navigate = useNavigate()
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -38,12 +42,18 @@ const CancelAppointment = () => {
             }
         } catch (error) {
             console.log(error)
+        } finally {
+            setIsModalOpen(true); // Abre el modal después de que la cita se haya cancelado
+            setTimeout(() => {
+                navigate('/management'); // Redirige después de un cierto tiempo
+            }, 4000); // Tiempo en milisegundos (en este caso, 3 segundos)
         }
 
     }
 
     return (
         <>
+            {isModalOpen ? <BasicModal title={'Cita cancelada'} description={'La cita ha sido cancelada con exito, avisele al paciente que revise su correo electronico'} /> : ''}
             <main className="w-full flex flex-col p-36 ">
                 <section>
                     <header className="flex flex-col items-center p-4 mt-4">

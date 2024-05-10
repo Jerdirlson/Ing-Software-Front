@@ -3,6 +3,7 @@ import Calendar from "../../components/Calendar"
 import { Sites } from "../../data/Sites.data"
 import { useAppointmentScheduler } from "../../hooks/useAppointmentScheduler"
 import { useEffect } from "react"
+import BasicModal from "../../components/Modal"
 
 
 const className = `border-gray-400 border rounded-lg h-8 p-1`
@@ -11,7 +12,7 @@ const className = `border-gray-400 border rounded-lg h-8 p-1`
  * @returns {Component} Add appointment view component
  */
 const ScheduleAppointment = () => {
-    const { register, onSubmit, setSelectedDate, hoursAvailable, setService, medics, reset, errors } = useAppointmentScheduler();    // Custom hook
+    const { register, onSubmit, setSelectedDate, hoursAvailable, setService, medics, reset, errors, isModalOpen } = useAppointmentScheduler();    // Custom hook
     const location = useLocation();
     const { category } = location.state || {};
     useEffect(() => {
@@ -20,6 +21,7 @@ const ScheduleAppointment = () => {
     }, [category])
     return (
         <>
+            {isModalOpen ? <BasicModal title={'Cita Agendada'} description={'La cita ha sido agendada con exito, avisele al paciente que revise su correo electronico!'} /> : ''}
             <main className="w-full flex flex-col p-16">
                 <div className="flex items-center">
                     <div className=" bg-gray-400 w-16 h-0.5" /><h1 className="italic font-light px-8 text-nowrap text-xl">Informacion Cita : {category}</h1><div className="w-full h-0.5 bg-gray-400" />

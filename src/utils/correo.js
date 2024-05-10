@@ -14,7 +14,7 @@ export const getCorreoDataCancel = (cita) => {
         hora: cita.select.schedule.hora,
         nombreSede: cita.select.site.nameSite,
         nombreMedico: `${cita.select.userMedic.nameUser} ${cita.select.userMedic.lastNameUser}`,
-        correo: cita.userById.emailUser
+        correo: cita.select.userById.emailUser
     }
     return correoData
 }

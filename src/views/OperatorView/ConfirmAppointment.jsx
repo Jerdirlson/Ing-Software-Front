@@ -3,7 +3,9 @@ import InfoAppointment from "../../components/AppointmentOPERATOR/InfoAppointmen
 import { useInfoAppointment } from "../../hooks/useInfoAppointment"
 import { appointmentSchema } from "../../validations/appointmentSchema"
 import Alerta from "../../components/Alerta"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import BasicModal from "../../components/Modal"
+import { useNavigate } from "react-router-dom"
 const className = `border-gray-400 border rounded-lg h-8 p-1`
 
 /**
@@ -14,6 +16,8 @@ const ConfirmAppointment = () => {
     const { cita, register, onSubmit, errors, alert, setAlert } = useInfoAppointment({
         resolver: zodResolver(appointmentSchema),
     })
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const navigate = useNavigate()
     useEffect(() => {
         const timer = setTimeout(() => {
             setAlert(false); // Ocultar la alerta automáticamente después de un tiempo
@@ -22,6 +26,16 @@ const ConfirmAppointment = () => {
     }, [alert]);
 
     const onClick = async (data) => {
+        try {
+
+        } catch (error) {
+            console.log(error)
+        } finally {
+            setIsModalOpen(true); // Abre el modal después de que la cita se haya confirmado
+            setTimeout(() => {
+                navigate('/management'); // Redirige después de un cierto tiempo
+            }, 4000); // Tiempo en milisegundos (en este caso, 4 segundos)
+        }
         // Logica de obtencion de fecha & data to send => correo
         // const correoData = getCorreoData(cita)
         //---------------------------------------
@@ -35,6 +49,7 @@ const ConfirmAppointment = () => {
 
     return (
         <>
+            {isModalOpen ? <BasicModal title={'Cita confirmada'} description={'La cita ha sido confirmada con exito, avisele al paciente que se dirija al consultorio. El doctor lo esta esperando!'}/> : ''}
             <main className="w-full flex flex-col p-36">
                 <section >
                     <header className="flex flex-col items-center p-4 mt-4">

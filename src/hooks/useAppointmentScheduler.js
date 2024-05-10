@@ -6,7 +6,7 @@ import { send_email_re_add, send_email_add } from '../services/email.service';
 import { getCorreDataReAgendar, getCorreoDataAgendar } from '../utils/correo';
 import { useSteps } from '../context/MultiStepContext';
 import { get_doctors } from '../services/appointments/getDoctors.service';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { add_appointment_schema } from '../validations/add_appoinmentSchema';
 import { reSchedule_Schema } from '../validations/reSchedule_appointmentSchema';
@@ -38,7 +38,8 @@ export const useAppointmentScheduler = () => {
   const [hoursAvailable, setHoursAvailable] = useState(null);
   const [service, setService] = useState(null);
   const [medics, setMedics] = useState([]);
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
     const get_medics = async () => {
       console.log('estoy en getMedics')
@@ -81,16 +82,26 @@ export const useAppointmentScheduler = () => {
 
   const onSubmit = handleSubmit(async (data) => {
     console.log('onSubmit')
-    data['dia'] = selectedDate ? defineDate(selectedDate) : '';
-    const response = await add_appointment(data);
-    //Objeto recien creado
-    if (response) {
-      const dataToSendCorreo = getCorreoDataAgendar(data)
-      //-------------------------
-      const responseCorreo = await send_email_add(dataToSendCorreo)
-      console.log(response);
-      console.log(responseCorreo);
+    try {
+      data['dia'] = selectedDate ? defineDate(selectedDate) : '';
+      const response = await add_appointment(data);
+      //Objeto recien creado
+      if (response) {
+        const dataToSendCorreo = getCorreoDataAgendar(data)
+        //-------------------------
+        const responseCorreo = await send_email_add(dataToSendCorreo)
+        console.log(response);
+        console.log(responseCorreo);
+      }
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setIsModalOpen(true); // Abre el modal después de que la cita se haya confirmado
+      setTimeout(() => {
+        navigate('/management'); // Redirige después de un cierto tiempo
+      }, 4000); // Tiempo en milisegundos (en este caso, 4 segundos)
     }
+
   });
 
   return {
@@ -101,7 +112,8 @@ export const useAppointmentScheduler = () => {
     setService,
     medics,
     errors,
-    reset
+    reset,
+    isModalOpen
   };
 };
 /**
@@ -172,7 +184,7 @@ export const useAppointmentSchedulerUSER = () => {
  */
 export const useAppointment_ReScheduler = () => {
 
-  const { register, handleSubmit, formState:{errors} } = useForm({
+  const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: zodResolver(reSchedule_Schema),
   });
   const [selectedDate, setSelectedDate] = useState(null);
@@ -180,7 +192,10 @@ export const useAppointment_ReScheduler = () => {
   const [cita, setCita] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate()
+  const location = useLocation()
+
   useEffect(() => {
+    console.log(location)
     const updateHours_Re_Add = async () => {
       const date = defineDate(selectedDate);
       if (date === 'null-null-null') {
@@ -220,7 +235,11 @@ export const useAppointment_ReScheduler = () => {
       console.log(error)
     } finally {
       setTimeout(() => {
-        navigate('/citas');
+        if (location.pathname === "/management/reschedule") {
+          navigate('/management');
+        } else {
+          navigate('/citas');
+        }
       }, 3000);
     }
 
@@ -232,7 +251,7 @@ export const useAppointment_ReScheduler = () => {
     register,
     setCita,
     isModalOpen,
-    onSubmit, 
+    onSubmit,
     errors
   };
 };
